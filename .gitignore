@@ -1,0 +1,10 @@
+/target/
+/.nb-gradle/
+/nbproject/private/
+/build/
+.mtj.tmp/
+*.jar
+*.war
+*.ear
+*.class
+.DS_Store
