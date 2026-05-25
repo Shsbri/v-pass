@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/26">
+   <children>
+      <Line endX="-100.59999084472656" endY="706.0" layoutX="351.0" layoutY="14.0" startX="-100.59999084472656" startY="-14.000001907348633" />
+      <TextField layoutX="473.0" layoutY="49.0" prefHeight="37.0" prefWidth="602.0" text="Search" />
+      <Line endX="947.39990234375" layoutX="350.0" layoutY="145.0" startX="-100.0" />
+      <Button layoutX="514.0" layoutY="97.0" mnemonicParsing="false" text="All">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="600.0" layoutY="97.0" mnemonicParsing="false" text="Concert">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="725.0" layoutY="97.0" mnemonicParsing="false" text="Expo">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="832.0" layoutY="97.0" mnemonicParsing="false" text="Seminar">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="964.0" layoutY="97.0" mnemonicParsing="false" text="Festival">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="242.0" fitWidth="441.0" layoutX="577.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Downloads/WhatsApp%20Image%202026-05-21%20at%2022.51.57.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="178.0" fitWidth="131.0" layoutX="375.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Downloads/WhatsApp%20Image%202026-05-21%20at%2023.05.29.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="178.0" fitWidth="126.0" layoutX="580.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Downloads/WhatsApp%20Image%202026-05-21%20at%2023.05.30%20(1).jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="178.0" fitWidth="139.0" layoutX="792.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Downloads/WhatsApp%20Image%202026-05-21%20at%2023.05.30.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="196.0" fitWidth="176.0" layoutX="945.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Downloads/WhatsApp%20Image%202026-05-21%20at%2023.05.30.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="178.0" fitWidth="133.0" layoutX="1006.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Downloads/WhatsApp%20Image%202026-05-21%20at%2023.06.20.jpeg" />
+         </image>
+      </ImageView>
+      <Label layoutX="375.0" layoutY="611.0" text="Event Name">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="375.0" layoutY="637.0" text="Date Event">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="580.0" layoutY="611.0" text="Event Name">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="1006.0" layoutY="637.0" text="Date Event">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="792.0" layoutY="611.0" text="Event Name">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="580.0" layoutY="637.0" text="Date Event">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="1006.0" layoutY="611.0" text="Event Name">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="792.0" layoutY="637.0" text="Date Event">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="447.0" layoutY="669.0" mnemonicParsing="false" text="Order">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="649.0" layoutY="669.0" mnemonicParsing="false" text="Order">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="869.0" layoutY="669.0" mnemonicParsing="false" text="Order">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="1075.0" layoutY="669.0" mnemonicParsing="false" text="Order">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Pane layoutX="354.0" layoutY="417.0" prefHeight="292.0" prefWidth="170.0" />
+      <Pane layoutX="557.0" layoutY="417.0" prefHeight="292.0" prefWidth="170.0" />
+      <Pane layoutX="769.0" layoutY="417.0" prefHeight="292.0" prefWidth="170.0" />
+      <Pane layoutX="983.0" layoutY="417.0" prefHeight="292.0" prefWidth="170.0" />
+   </children>
+</AnchorPane>

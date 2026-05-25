@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/26">
+   <children>
+      <Line endX="-100.59999084472656" endY="708.0" layoutX="400.0" layoutY="17.0" startX="-100.59999084472656" startY="-12.000001907348633" />
+      <Label layoutX="640.0" layoutY="109.0" text="INVOICE">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="630.0" layoutY="140.0" text="ID transaction">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="506.0" layoutY="201.0" text="Event Name ">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="506.0" layoutY="235.0" text="Event Category">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="506.0" layoutY="269.0" text="Total Ticket">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Line endX="270.5999755859375" layoutX="606.0" layoutY="438.0" startX="-100.0" />
+      <Line endX="270.5999755859375" layoutX="606.0" layoutY="332.0" startX="-100.0" />
+      <Label layoutX="506.0" layoutY="369.0" text="Total Price">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Pane layoutX="632.0" layoutY="450.0" prefHeight="112.0" prefWidth="117.0">
+         <children>
+            <Label layoutX="37.0" layoutY="42.0" prefHeight="27.0" prefWidth="43.0" text="QRIS">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Button layoutX="506.0" layoutY="574.0" mnemonicParsing="false" text="Donwload">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <Line endX="270.5999755859375" layoutX="606.0" layoutY="547.0" startX="-100.0" />
+      <Button layoutX="736.0" layoutY="574.0" mnemonicParsing="false" text="Go to My Ticket">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <Pane layoutX="464.0" layoutY="86.0" prefHeight="578.0" prefWidth="462.0" />
+   </children>
+</AnchorPane>
