@@ -10,10 +10,8 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/26">
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Line endX="-100.59999084472656" endY="706.0" layoutX="351.0" layoutY="14.0" startX="-100.59999084472656" startY="-14.000001907348633" />
       <TextField layoutX="473.0" layoutY="49.0" prefHeight="37.0" prefWidth="602.0" text="Search" />
       <Line endX="947.39990234375" layoutX="350.0" layoutY="145.0" startX="-100.0" />
       <Button layoutX="514.0" layoutY="97.0" mnemonicParsing="false" text="All">

@@ -5,12 +5,10 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Line endX="-120.5999755859375" endY="700.3999633789062" layoutX="424.0" layoutY="27.0" startX="-120.5999755859375" startY="-34.0" />
       <VBox layoutX="482.0" layoutY="174.0" prefHeight="330.0" prefWidth="360.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-image-width: 1;" />
       <Label layoutX="564.0" layoutY="192.0" text="EDIT PROFILE">
          <font>
@@ -40,42 +38,5 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Label layoutX="139.0" layoutY="74.0" text="V-PASS">
-         <font>
-            <Font name="System Bold" size="34.0" />
-         </font>
-      </Label>
-      <Line endX="100.0" layoutX="163.0" layoutY="159.0" startX="-123.80000305175781" />
-      <Button layoutX="95.0" layoutY="170.0" mnemonicParsing="false" text="Event List">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button layoutX="87.0" layoutY="223.0" mnemonicParsing="false" text="Verification">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button layoutX="69.0" layoutY="276.0" mnemonicParsing="false" text="Transaction List">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button layoutX="77.0" layoutY="329.0" mnemonicParsing="false" text="Customer List">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button layoutX="109.0" layoutY="599.0" mnemonicParsing="false" text="Profile">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button layoutX="103.0" layoutY="653.0" mnemonicParsing="false" text="Log out">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Line endX="100.0" layoutX="162.0" layoutY="581.0" startX="-123.80000305175781" />
    </children>
 </AnchorPane>

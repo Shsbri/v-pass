@@ -4,13 +4,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/26">
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Line endX="-100.59999084472656" endY="708.0" layoutX="400.0" layoutY="17.0" startX="-100.59999084472656" startY="-12.000001907348633" />
+      <VBox layoutX="463.0" layoutY="78.0" prefHeight="578.0" prefWidth="458.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-width: 1;" />
       <Label layoutX="640.0" layoutY="109.0" text="INVOICE">
          <font>
             <Font name="System Bold" size="26.0" />
@@ -63,6 +63,5 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <Pane layoutX="464.0" layoutY="86.0" prefHeight="578.0" prefWidth="462.0" />
    </children>
 </AnchorPane>
