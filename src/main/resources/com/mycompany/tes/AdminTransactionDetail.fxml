@@ -14,12 +14,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1278.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="187.0" layoutY="63.0" text="Verification Payment">
-         <font>
-            <Font name="System Bold" size="25.0" />
-         </font>
-      </Label>
-      <VBox alignment="TOP_RIGHT" layoutX="297.0" layoutY="130.0" prefHeight="530.0" prefWidth="496.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-width: 1;">
+      <VBox alignment="TOP_RIGHT" layoutX="14.0" layoutY="48.0" prefHeight="530.0" prefWidth="496.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-width: 1;">
          <children>
             <VBox alignment="TOP_CENTER">
                <children>
