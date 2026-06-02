@@ -9,37 +9,37 @@
 
 <AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="156.0" fitWidth="139.0" layoutX="410.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="117.0" fitWidth="100.0" layoutX="104.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../../Downloads/WhatsApp_Image_2026-05-21_at_21.09.51-removebg-preview.png" />
          </image>
       </ImageView>
-      <Label layoutX="539.0" layoutY="178.0" text="Name ">
+      <Label layoutX="203.0" layoutY="146.0" text="Name ">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="452.0" layoutY="285.0" text="Email">
+      <Label layoutX="118.0" layoutY="255.0" text="Email">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="452.0" layoutY="320.0" text="Username">
+      <Label layoutX="118.0" layoutY="290.0" text="Username">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="452.0" layoutY="355.0" text="Password">
+      <Label layoutX="118.0" layoutY="330.0" text="Password">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="609.0" layoutY="405.0" mnemonicParsing="false" text="Edit Profile">
+      <Button layoutX="291.0" layoutY="405.0" mnemonicParsing="false" text="Edit Profile">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="733.0" layoutY="405.0" mnemonicParsing="false" text="Add New Admin">
+      <Button layoutX="422.0" layoutY="405.0" mnemonicParsing="false" text="Add New Admin">
          <font>
             <Font size="18.0" />
          </font>

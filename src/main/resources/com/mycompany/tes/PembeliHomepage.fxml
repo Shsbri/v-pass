@@ -3,135 +3,148 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField layoutX="473.0" layoutY="49.0" prefHeight="37.0" prefWidth="602.0" text="Search" />
-      <Line endX="947.39990234375" layoutX="350.0" layoutY="145.0" startX="-100.0" />
-      <Button layoutX="514.0" layoutY="97.0" mnemonicParsing="false" text="All">
+      <TextField layoutX="131.0" layoutY="37.0" prefHeight="38.0" prefWidth="564.0" text="Search" />
+      <Line endX="669.5999755859375" layoutX="136.0" layoutY="147.0" startX="-113.59999084472656" />
+      <VBox layoutX="48.0" layoutY="167.0" prefHeight="200.0" prefWidth="730.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-width: 1;">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="275.0" layoutY="74.0" text="BANNER">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <Button layoutX="196.0" layoutY="97.0" mnemonicParsing="false" text="All">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="600.0" layoutY="97.0" mnemonicParsing="false" text="Concert">
+      <Button layoutX="255.0" layoutY="97.0" mnemonicParsing="false" text="Concert">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="725.0" layoutY="97.0" mnemonicParsing="false" text="Expo">
+      <Button layoutX="354.0" layoutY="97.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="73.0" text="Expo">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="832.0" layoutY="97.0" mnemonicParsing="false" text="Seminar">
+      <Button layoutX="452.0" layoutY="97.0" mnemonicParsing="false" text="Seminar">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="964.0" layoutY="97.0" mnemonicParsing="false" text="Festival">
+      <Button layoutX="567.0" layoutY="97.0" mnemonicParsing="false" text="Festival">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <ImageView fitHeight="242.0" fitWidth="441.0" layoutX="577.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../Downloads/WhatsApp%20Image%202026-05-21%20at%2022.51.57.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="178.0" fitWidth="131.0" layoutX="375.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../Downloads/WhatsApp%20Image%202026-05-21%20at%2023.05.29.jpeg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="178.0" fitWidth="126.0" layoutX="580.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../Downloads/WhatsApp%20Image%202026-05-21%20at%2023.05.30%20(1).jpeg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="178.0" fitWidth="139.0" layoutX="792.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../Downloads/WhatsApp%20Image%202026-05-21%20at%2023.05.30.jpeg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="196.0" fitWidth="176.0" layoutX="945.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../Downloads/WhatsApp%20Image%202026-05-21%20at%2023.05.30.jpeg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="178.0" fitWidth="133.0" layoutX="1006.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../Downloads/WhatsApp%20Image%202026-05-21%20at%2023.06.20.jpeg" />
-         </image>
-      </ImageView>
-      <Label layoutX="375.0" layoutY="611.0" text="Event Name">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="375.0" layoutY="637.0" text="Date Event">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="580.0" layoutY="611.0" text="Event Name">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="1006.0" layoutY="637.0" text="Date Event">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="792.0" layoutY="611.0" text="Event Name">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="580.0" layoutY="637.0" text="Date Event">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="1006.0" layoutY="611.0" text="Event Name">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="792.0" layoutY="637.0" text="Date Event">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Button layoutX="447.0" layoutY="669.0" mnemonicParsing="false" text="Order">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Button>
-      <Button layoutX="649.0" layoutY="669.0" mnemonicParsing="false" text="Order">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Button>
-      <Button layoutX="869.0" layoutY="669.0" mnemonicParsing="false" text="Order">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Button>
-      <Button layoutX="1075.0" layoutY="669.0" mnemonicParsing="false" text="Order">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Button>
-      <Pane layoutX="354.0" layoutY="417.0" prefHeight="292.0" prefWidth="170.0" />
-      <Pane layoutX="557.0" layoutY="417.0" prefHeight="292.0" prefWidth="170.0" />
-      <Pane layoutX="769.0" layoutY="417.0" prefHeight="292.0" prefWidth="170.0" />
-      <Pane layoutX="983.0" layoutY="417.0" prefHeight="292.0" prefWidth="170.0" />
+      <VBox alignment="CENTER_LEFT" layoutX="46.0" layoutY="395.0" prefHeight="237.0" prefWidth="164.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-width: 1;">
+         <children>
+            <AnchorPane prefHeight="235.0" prefWidth="162.0">
+               <children>
+                  <Label alignment="TOP_LEFT" layoutX="22.0" layoutY="139.0" text="Event Name">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="22.0" layoutY="161.0" text="Date Event">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="83.0" layoutY="195.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="65.0" text="Order">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <VBox layoutX="12.0" layoutY="7.0" prefHeight="132.0" prefWidth="137.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-width: 1;" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER_LEFT" layoutX="236.0" layoutY="395.0" prefHeight="237.0" prefWidth="164.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-width: 1;">
+         <children>
+            <AnchorPane prefHeight="235.0" prefWidth="162.0">
+               <children>
+                  <Label alignment="TOP_LEFT" layoutX="22.0" layoutY="139.0" text="Event Name">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="22.0" layoutY="161.0" text="Date Event">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="83.0" layoutY="195.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="65.0" text="Order">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <VBox layoutX="12.0" layoutY="7.0" prefHeight="132.0" prefWidth="137.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-width: 1;" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER_LEFT" layoutX="425.0" layoutY="395.0" prefHeight="237.0" prefWidth="164.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-width: 1;">
+         <children>
+            <AnchorPane prefHeight="235.0" prefWidth="162.0">
+               <children>
+                  <Label alignment="TOP_LEFT" layoutX="22.0" layoutY="139.0" text="Event Name">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="22.0" layoutY="161.0" text="Date Event">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="83.0" layoutY="195.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="65.0" text="Order">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <VBox layoutX="14.0" layoutY="7.0" prefHeight="132.0" prefWidth="137.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-width: 1;" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER_LEFT" layoutX="610.0" layoutY="395.0" prefHeight="237.0" prefWidth="164.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-width: 1;">
+         <children>
+            <AnchorPane prefHeight="235.0" prefWidth="162.0">
+               <children>
+                  <Label alignment="TOP_LEFT" layoutX="22.0" layoutY="139.0" text="Event Name">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="22.0" layoutY="161.0" text="Date Event">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="83.0" layoutY="195.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="65.0" text="Order">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <VBox layoutX="15.0" layoutY="7.0" prefHeight="132.0" prefWidth="137.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-width: 1;" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
