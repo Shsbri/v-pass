@@ -42,13 +42,13 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <Button layoutX="99.0" layoutY="574.0" mnemonicParsing="false" text="Donwload">
+      <Button layoutX="99.0" layoutY="574.0" mnemonicParsing="false" style="-fx-background-radius: 15;" text="Donwload">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
       <Line endX="270.5999755859375" layoutX="171.0" layoutY="539.0" startX="-100.0" />
-      <Button layoutX="278.0" layoutY="574.0" mnemonicParsing="false" text="Go to My Ticket">
+      <Button layoutX="278.0" layoutY="574.0" mnemonicParsing="false" style="-fx-background-radius: 15;" text="Go to My Ticket">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
