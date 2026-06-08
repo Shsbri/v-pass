@@ -67,6 +67,7 @@ public class RegisterController implements Initializable {
             
         try (java.sql.Connection conn = KoneksiDB.getKoneksi();
              java.sql.PreparedStatement ps = conn.prepareStatement(sql)) {
+            
                 
             ps.setString(1, nama);
             ps.setString(2, email);
@@ -78,9 +79,11 @@ public class RegisterController implements Initializable {
             JOptionPane.showMessageDialog(null, "Gelo deks2 bisa");
             App.setRoot("Login");
         } catch (java.sql.SQLException e) {
+            System.out.println("tiga");
             JOptionPane.showMessageDialog(null, "Kocak");
             e.printStackTrace();
         }catch (java.io.IOException e) {
+            System.out.println("empat");
             // MENANGKAP EROR JALUR FXML YANG DILEMPAR OLEH SETROOT
             JOptionPane.showMessageDialog(null, "Gagal memuat halaman Login.fxml deks!");
             e.printStackTrace();
