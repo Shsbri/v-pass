@@ -8,44 +8,44 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="550.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="920.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       
-      <HBox alignment="CENTER_LEFT" spacing="20.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0">
+      <HBox alignment="CENTER_LEFT" layoutX="36.0" layoutY="22.0" prefHeight="135.0" prefWidth="190.0" spacing="20.0" AnchorPane.leftAnchor="36.0" AnchorPane.topAnchor="22.0">
          <children>
-            <Circle fill="#1a1a1a" radius="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Circle fill="#1a1a1a" radius="54.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
             
             <Label text="Name" textFill="#333333">
                <font>
-                  <Font name="System Regular" size="18.0" />
+                  <Font size="20.0" />
                </font>
             </Label>
          </children>
       </HBox>
 
-      <VBox spacing="15.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="170.0">
+      <VBox layoutX="71.0" layoutY="188.0" prefHeight="126.0" prefWidth="176.0" spacing="15.0" AnchorPane.leftAnchor="71.0" AnchorPane.topAnchor="188.0">
          <children>
             <Label text="Email" textFill="#444444">
                <font>
-                  <Font size="15.0" />
+                  <Font size="20.0" />
                </font>
             </Label>
             <Label text="username" textFill="#444444">
                <font>
-                  <Font size="15.0" />
+                  <Font size="20.0" />
                </font>
             </Label>
             <Label text="Password" textFill="#444444">
                <font>
-                  <Font size="15.0" />
+                  <Font size="20.0" />
                </font>
             </Label>
          </children>
       </VBox>
 
-      <Button mnemonicParsing="false" style="-fx-background-color: #E0E0E0; -fx-background-radius: 15; -fx-padding: 6 18;" text="Edit Profile" textFill="#333333" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0">
+      <Button layoutX="232.0" layoutY="343.0" mnemonicParsing="false" style="-fx-background-radius: 10;" text="Edit Profile" textFill="#333333" AnchorPane.bottomAnchor="226.0" AnchorPane.rightAnchor="596.0">
          <font>
-            <Font size="13.0" />
+            <Font size="15.0" />
          </font>
       </Button>
       

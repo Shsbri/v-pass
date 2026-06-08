@@ -3,80 +3,97 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="612.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label prefHeight="35.0" prefWidth="129.0" text="Transaction">
-         <font>
-            <Font size="24.0" />
-         </font>
-         <VBox.margin>
-            <Insets left="10.0" right="10.0" top="10.0" />
-         </VBox.margin>
-      </Label>
-      <Label prefHeight="17.0" prefWidth="76.0" text="ID transaction" />
-      <Separator prefHeight="0.0" prefWidth="517.0" style="-fx-background-color: #000000;">
-         <VBox.margin>
-            <Insets top="5.0" />
-         </VBox.margin>
-      </Separator>
-      <VBox prefHeight="69.0" prefWidth="416.0" spacing="10.0">
-         <VBox.margin>
-            <Insets top="20.0" />
-         </VBox.margin>
+      <VBox alignment="TOP_CENTER" fillWidth="false" layoutX="139.0" layoutY="30.0" prefHeight="551.0" prefWidth="510.0" style="-fx-background-color: #ffffff; -fx-background-radius: 15; -fx-border-color: #e0e0e0; -fx-border-radius: 15;">
          <children>
-            <Label lineSpacing="25.0" text="Event Name" />
-            <Label layoutX="10.0" layoutY="10.0" lineSpacing="25.0" text="Event Category" />
-            <Label layoutX="10.0" layoutY="52.0" lineSpacing="25.0" text="Total Ticket" />
+            <Label text="Transaction">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="235.0" layoutY="16.0" text="ID Transaction" />
+            <VBox fillWidth="false" prefHeight="111.0" prefWidth="452.0">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <children>
+                  <Label text="Event Name">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="10.0" text="Event Category">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="27.0" text="Total Ticket">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <Line endX="503.29290771484375" endY="-8.690357208251953E-5" style="-fx-stroke-dash-array: 3 3; -fx-stroke-width: 1;">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Line>
+            <Label lineSpacing="25.0" text="Total Price">
+               <VBox.margin>
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Line endX="503.29290771484375" endY="-8.690357208251953E-5" layoutX="17.0" layoutY="204.0" style="-fx-stroke-dash-array: 3 3; -fx-stroke-width: 1;" />
+            <Button mnemonicParsing="false" prefHeight="115.0" prefWidth="99.0" text="STATUS">
+               <VBox.margin>
+                  <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+               </VBox.margin>
+            </Button>
+            <Line endX="503.29290771484375" endY="-8.690357208251953E-5" layoutX="17.0" layoutY="276.0" style="-fx-stroke-dash-array: 3 3; -fx-stroke-width: 1;" />
+            <HBox alignment="BOTTOM_RIGHT" fillHeight="false" prefHeight="62.0" prefWidth="516.0">
+               <children>
+                  <Button mnemonicParsing="false" style="-fx-background-radius: 10;" text="Upload">
+                     <HBox.margin>
+                        <Insets bottom="15.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Region prefHeight="46.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                  <Button layoutX="463.0" layoutY="32.0" mnemonicParsing="false" style="-fx-background-radius: 10;" text="Close">
+                     <HBox.margin>
+                        <Insets bottom="15.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
          </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
       </VBox>
-      <Separator prefHeight="3.0" prefWidth="585.0" style="-fx-background-color: #000000;">
-         <VBox.margin>
-            <Insets top="10.0" />
-         </VBox.margin>
-      </Separator>
-      <Label lineSpacing="25.0" text="total Price">
-         <VBox.margin>
-            <Insets top="25.0" />
-         </VBox.margin>
-      </Label>
-      <Separator layoutX="24.0" layoutY="223.0" prefHeight="3.0" prefWidth="585.0" style="-fx-background-color: #000000;">
-         <VBox.margin>
-            <Insets top="25.0" />
-         </VBox.margin>
-      </Separator>
-      <Button mnemonicParsing="false" prefHeight="79.0" prefWidth="85.0" style="-fx-border-color: #ffffff;" text="STATUS">
-         <VBox.margin>
-            <Insets top="25.0" />
-         </VBox.margin>
-      </Button>
-      <Separator layoutX="24.0" layoutY="293.0" prefHeight="3.0" prefWidth="585.0" style="-fx-background-color: #000000;">
-         <VBox.margin>
-            <Insets top="25.0" />
-         </VBox.margin>
-      </Separator>
-      <HBox alignment="BOTTOM_RIGHT" prefHeight="74.0" prefWidth="585.0">
-         <children>
-            <Button layoutX="522.0" layoutY="59.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="62.0" text="Upload">
-               <HBox.margin>
-                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-               </HBox.margin>
-            </Button>
-            <Region prefHeight="100.0" prefWidth="387.0" HBox.hgrow="ALWAYS" />
-            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="53.0" text="Close">
-               <HBox.margin>
-                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-               </HBox.margin>
-            </Button>
-         </children>
-         <VBox.margin>
-            <Insets top="5.0" />
-         </VBox.margin>
-      </HBox>
    </children>
-</VBox>
+</AnchorPane>
