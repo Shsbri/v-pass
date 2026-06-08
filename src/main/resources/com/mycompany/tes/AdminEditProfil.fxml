@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -7,36 +8,55 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox layoutX="482.0" layoutY="174.0" prefHeight="330.0" prefWidth="360.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-image-width: 1;" />
-      <Label layoutX="564.0" layoutY="192.0" text="EDIT PROFILE">
-         <font>
-            <Font name="System Bold" size="26.0" />
-         </font>
-      </Label>
-      <Label layoutX="512.0" layoutY="245.0" text="Name">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <TextField layoutX="512.0" layoutY="272.0" prefHeight="26.0" prefWidth="293.0" />
-      <TextField layoutX="512.0" layoutY="325.0" prefHeight="26.0" prefWidth="293.0" />
-      <Label layoutX="514.0" layoutY="298.0" text="Email">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="514.0" layoutY="354.0" text="Username">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <TextField layoutX="512.0" layoutY="381.0" prefHeight="26.0" prefWidth="293.0" />
-      <Button layoutX="628.0" layoutY="435.0" mnemonicParsing="false" text="Save">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
+      <VBox alignment="TOP_CENTER" layoutX="14.0" layoutY="14.0" prefHeight="330.0" prefWidth="368.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-image-width: 1;">
+         <children>
+            <Label text="EDIT PROFILE">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Label>
+            <VBox prefHeight="228.0" prefWidth="336.0" style="-fx-background-radius: 15;">
+               <children>
+                  <Label text="Name">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField prefHeight="26.0" prefWidth="293.0" style="-fx-background-radius: 15;" />
+                  <Label text="Email">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField prefHeight="26.0" prefWidth="293.0" style="-fx-background-radius: 15;" />
+                  <Label text="Username">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField prefHeight="26.0" prefWidth="293.0" style="-fx-background-radius: 15;" />
+               </children>
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="71.0" prefWidth="366.0">
+               <children>
+                  <Button mnemonicParsing="false" text="Save">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="15.0" />
+         </padding></VBox>
    </children>
 </AnchorPane>
