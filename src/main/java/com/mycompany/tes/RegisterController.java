@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package com.mycompany.tes;
 
 import com.mycompany.tes.App;
@@ -10,10 +6,11 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javax.swing.*;
-
 import com.mycompany.tes.KoneksiDB; 
 
 /**
@@ -23,25 +20,17 @@ import com.mycompany.tes.KoneksiDB;
  */
 public class RegisterController implements Initializable {
 
-    @FXML
-    private TextField txtName;
-    @FXML
-    private TextField txtEmail;
-    @FXML
-    private TextField txtUsername;
-    @FXML
-    private PasswordField txtPassword;
-    @FXML
-    private PasswordField txtConfirm;
-    @FXML
-    private TextField txtPet;
+    @FXML private TextField txtName;
+    @FXML private TextField txtEmail;
+    @FXML private TextField txtUsername;
+    @FXML private PasswordField txtPassword;
+    @FXML private PasswordField txtConfirm;
+    @FXML private TextField txtPet;
+    @FXML private Hyperlink linkToLogin;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // Init awal
     }    
 
     @FXML
@@ -54,12 +43,12 @@ public class RegisterController implements Initializable {
         String peliharaan = txtPet.getText();
         
         if(nama.isBlank() || email.isEmpty() || username.isEmpty() || password.isEmpty() || confirm.isEmpty() || peliharaan.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Semua kolom form wajib diisi deks!", "Peringatan", JOptionPane.WARNING_MESSAGE);
+            showJavaFXAlert(AlertType.WARNING, "Peringatan", "Formulir Tidak Lengkap", "Semua kolom form wajib diisi!");
             return;
         }
         
         if(!password.equals(confirm)){
-             JOptionPane.showMessageDialog(null, "Passwordnya beda kidz!", "Peringatan", JOptionPane.WARNING_MESSAGE);
+            showJavaFXAlert(AlertType.WARNING, "Peringatan", "Password Mismatch", "Password dan konfirmasi password tidak cocok!");
             return;
         }
             
@@ -68,7 +57,6 @@ public class RegisterController implements Initializable {
         try (java.sql.Connection conn = KoneksiDB.getKoneksi();
              java.sql.PreparedStatement ps = conn.prepareStatement(sql)) {
             
-                
             ps.setString(1, nama);
             ps.setString(2, email);
             ps.setString(3, username);
@@ -76,17 +64,33 @@ public class RegisterController implements Initializable {
             ps.setString(5, peliharaan);
                 
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Gelo deks2 bisa");
+            
+            showJavaFXAlert(AlertType.INFORMATION, "Sukses", "Registrasi Berhasil", "Akun berhasil dibuat! Silakan login.");
             App.setRoot("Login");
         } catch (java.sql.SQLException e) {
-            System.out.println("tiga");
-            JOptionPane.showMessageDialog(null, "Kocak");
+            showJavaFXAlert(AlertType.ERROR, "Error Database", "Gagal Menyimpan Data", "Terjadi kesalahan pada server database.");
             e.printStackTrace();
-        }catch (java.io.IOException e) {
-            System.out.println("empat");
-            // MENANGKAP EROR JALUR FXML YANG DILEMPAR OLEH SETROOT
-            JOptionPane.showMessageDialog(null, "Gagal memuat halaman Login.fxml deks!");
+        } catch (java.io.IOException e) {
+            showJavaFXAlert(AlertType.ERROR, "Error Sistem", "Gagal Memuat Halaman", "File Login.fxml tidak ditemukan.");
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void handleGoToLogin(ActionEvent event) {
+        try {
+            App.setRoot("Login"); 
+        } catch (java.io.IOException e) {
+            showJavaFXAlert(AlertType.ERROR, "Error Navigasi", "Gagal Berpindah Halaman", "Halaman login gagal dimuat.");
+            e.printStackTrace();
+        }
+    }
+
+    private void showJavaFXAlert(AlertType type, String title, String header, String content) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }

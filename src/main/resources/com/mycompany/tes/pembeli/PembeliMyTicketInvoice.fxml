@@ -9,9 +9,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="542.0" prefWidth="435.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox alignment="TOP_CENTER" layoutX="14.0" layoutY="14.0" prefHeight="541.0" prefWidth="447.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-width: 1;">
+      <VBox alignment="TOP_CENTER" prefHeight="541.0" prefWidth="447.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-width: 1;">
          <children>
             <Label text="INVOICE">
                <font>

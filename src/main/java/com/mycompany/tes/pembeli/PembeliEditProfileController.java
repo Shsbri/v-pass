@@ -2,10 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package com.mycompany.tes;
+package com.mycompany.tes.pembeli;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 /**
@@ -13,7 +15,7 @@ import javafx.fxml.Initializable;
  *
  * @author Ahmad
  */
-public class LoginController implements Initializable {
+public class PembeliEditProfileController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -23,4 +25,8 @@ public class LoginController implements Initializable {
         // TODO
     }    
     
+    @FXML
+    private void handleSave(ActionEvent event) {
+    }
+
 }

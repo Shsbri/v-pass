@@ -18,33 +18,33 @@
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="920.0">
          <children>
-            <TextField layoutX="206.0" layoutY="25.0" prefHeight="38.0" prefWidth="563.0" style="-fx-background-radius: 30; -fx-border-color: #e0e0e0; -fx-border-radius: 30; -fx-background-color: #ffffff;" text="Search" />
-            <HBox alignment="CENTER" layoutX="237.0" layoutY="73.0" prefHeight="31.0" prefWidth="521.0" spacing="30.0">
+            <TextField layoutX="14.0" layoutY="14.0" prefHeight="38.0" prefWidth="563.0" style="-fx-background-radius: 30; -fx-border-color: #e0e0e0; -fx-border-radius: 30; -fx-background-color: #ffffff;" text="Search" />
+            <HBox alignment="CENTER" layoutX="20.0" layoutY="70.0" prefHeight="31.0" prefWidth="521.0" spacing="30.0">
                <children>
                   <Button mnemonicParsing="false" text="All">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font></Button>
                   <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Concret">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font></Button>
                   <Button layoutX="112.0" layoutY="10.0" mnemonicParsing="false" text="Expo">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font></Button>
                   <Button layoutX="176.0" layoutY="10.0" mnemonicParsing="false" text="Seminar">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font></Button>
                   <Button layoutX="232.0" layoutY="10.0" mnemonicParsing="false" text="Festival">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font></Button>
                </children>
             </HBox>
             <Line endX="550.0" layoutX="329.0" layoutY="126.0" startX="-302.0" translateX="1.0" translateY="1.0" translateZ="1.0" />
-            <VBox fillWidth="false" layoutX="65.0" layoutY="149.0" prefHeight="441.0" prefWidth="797.0">
+            <VBox fillWidth="false" layoutX="13.0" layoutY="139.0" prefHeight="451.0" prefWidth="829.0">
                <children>
                   <TilePane hgap="5.0" prefHeight="441.0" prefWidth="797.0">
                      <children>

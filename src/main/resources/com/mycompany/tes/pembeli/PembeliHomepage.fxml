@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="559.0" prefWidth="592.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tes.pembeli.PembeliHomepageController">
+   <children>
+      
+      <HBox prefHeight="559.0" prefWidth="592.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            
+            <fx:include source="../components/NavbarPembeli.fxml" />
+            <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+               <children>
+                  
+                  <AnchorPane prefHeight="559.0" prefWidth="436.0">
+                     <children>
+                        <TextField layoutX="12.0" layoutY="14.0" prefHeight="38.0" prefWidth="564.0" style="-fx-background-radius: 15;" text="Search" />
+                        <Line endX="611.4000244140625" layoutX="28.0" layoutY="121.0" startX="-27.0" />
+                        <VBox layoutX="3.0" layoutY="131.0" prefHeight="200.0" prefWidth="657.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-width: 1;" />
+                        <Button layoutX="66.0" layoutY="72.0" mnemonicParsing="false" style="-fx-background-radius: 10;" text="All">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="129.0" layoutY="71.0" mnemonicParsing="false" style="-fx-background-radius: 10;" text="Concert">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="234.0" layoutY="71.0" prefHeight="37.0" prefWidth="73.0" style="-fx-background-radius: 10;" text="Expo">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="330.0" layoutY="72.0" mnemonicParsing="false" style="-fx-background-radius: 10;" text="Seminar">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="433.0" layoutY="71.0" mnemonicParsing="false" style="-fx-background-radius: 10;" text="Festival">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Button>
+                        
+                        <VBox alignment="CENTER_LEFT" layoutX="11.0" layoutY="351.0" prefHeight="206.0" prefWidth="156.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-width: 1;">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <children>
+                              <VBox prefHeight="101.0" prefWidth="166.0" />
+                              <Label text="    Event Name">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label text="    Date Event">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <VBox alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="166.0">
+                                 <children>
+                                    <Button alignment="TOP_CENTER" mnemonicParsing="false" text="Order">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets right="10.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" layoutX="176.0" layoutY="352.0" prefHeight="206.0" prefWidth="156.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-width: 1;">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <children>
+                              <VBox prefHeight="101.0" prefWidth="166.0" />
+                              <Label text="    Event Name">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label text="    Date Event">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <VBox alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="166.0">
+                                 <children>
+                                    <Button alignment="TOP_CENTER" mnemonicParsing="false" text="Order">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets right="10.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" layoutX="342.0" layoutY="353.0" prefHeight="206.0" prefWidth="156.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-width: 1;">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <children>
+                              <VBox prefHeight="101.0" prefWidth="166.0" />
+                              <Label text="    Event Name">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label text="    Date Event">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <VBox alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="166.0">
+                                 <children>
+                                    <Button alignment="TOP_CENTER" mnemonicParsing="false" text="Order">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets right="10.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" layoutX="508.0" layoutY="353.0" prefHeight="206.0" prefWidth="156.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-width: 1;">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <children>
+                              <VBox prefHeight="101.0" prefWidth="166.0" />
+                              <Label text="    Event Name">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label text="    Date Event">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <VBox alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="166.0">
+                                 <children>
+                                    <Button alignment="TOP_CENTER" mnemonicParsing="false" text="Order">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets right="10.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+            
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

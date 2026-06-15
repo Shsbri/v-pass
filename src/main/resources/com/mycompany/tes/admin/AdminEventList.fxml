@@ -10,20 +10,20 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="423.0" prefWidth="894.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ComboBox layoutX="14.0" layoutY="14.0" prefHeight="40.0" prefWidth="185.0" promptText="All Time" />
-      <ComboBox layoutX="233.0" layoutY="14.0" prefHeight="40.0" prefWidth="185.0" promptText="All Category" />
-      <Button layoutX="790.0" layoutY="14.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="116.0" style="-fx-border-radius: 15; -fx-background-radius: 20; -fx-border-width: 1; -fx-font-weight: bold; -fx-padding: 5 20 5 20; -fx-border-color: #7a7a7a; -fx-background-color: #e0e0e0;" text="Add Event">
+      <ComboBox prefHeight="40.0" prefWidth="185.0" promptText="All Time" />
+      <ComboBox layoutX="219.0" prefHeight="40.0" prefWidth="185.0" promptText="All Category" />
+      <Button layoutX="778.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="116.0" style="-fx-border-radius: 15; -fx-background-radius: 20; -fx-border-width: 1; -fx-font-weight: bold; -fx-padding: 5 20 5 20; -fx-border-color: #7a7a7a; -fx-background-color: #e0e0e0;" text="Add Event">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
-      <Label layoutX="14.0" layoutY="83.0" prefHeight="70.0" prefWidth="894.0" style="-fx-border-color: transparent transparent black transparent; -fx-border-width: 0 0 1 0; -fx-padding: 10; -fx-background-color: #f4f4f4; -fx-border-color: black; -fx-border-width: 1 1 1 1; -fx-padding: 10;" text="   Event List">
+      <Label layoutY="77.0" prefHeight="70.0" prefWidth="894.0" style="-fx-border-color: transparent transparent black transparent; -fx-border-width: 0 0 1 0; -fx-padding: 10; -fx-background-color: #f4f4f4; -fx-border-color: black; -fx-border-width: 1 1 1 1; -fx-padding: 10;" text="   Event List">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <VBox layoutX="14.0" layoutY="154.0" prefHeight="70.0" prefWidth="894.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-background-color: white;">
+      <VBox layoutY="148.0" prefHeight="70.0" prefWidth="894.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-background-color: white;">
          <children>
             <HBox prefHeight="100.0" prefWidth="926.0" spacing="10.0">
                <children>
@@ -64,7 +64,7 @@
             </HBox>
          </children>
       </VBox>
-      <VBox layoutX="14.0" layoutY="224.0" prefHeight="70.0" prefWidth="894.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-background-color: white;">
+      <VBox layoutY="218.0" prefHeight="70.0" prefWidth="894.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-background-color: white;">
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
@@ -105,7 +105,7 @@
             </HBox>
          </children>
       </VBox>
-      <VBox layoutX="14.0" layoutY="294.0" prefHeight="70.0" prefWidth="894.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-background-color: white;">
+      <VBox layoutY="288.0" prefHeight="70.0" prefWidth="894.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-background-color: white;">
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
@@ -146,7 +146,7 @@
             </HBox>
          </children>
       </VBox>
-      <VBox layoutX="14.0" layoutY="364.0" prefHeight="70.0" prefWidth="894.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-background-color: white;">
+      <VBox layoutY="358.0" prefHeight="70.0" prefWidth="894.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-background-color: white;">
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
