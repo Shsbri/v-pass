@@ -5,9 +5,10 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" prefHeight="720.0" prefWidth="240.0" spacing="8.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E5EA; -fx-border-width: 0 1 0 0;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tes.components.NavbarAdminController">
+<VBox alignment="TOP_CENTER" prefHeight="720.0" prefWidth="240.0" spacing="10.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E5EA; -fx-border-width: 0 1 0 0;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tes.components.NavbarAdminController">
    <padding>
       <Insets bottom="24.0" left="16.0" right="16.0" top="30.0" />
    </padding>
@@ -15,27 +16,42 @@
       
       <VBox alignment="CENTER" spacing="5.0">
          <children>
-            <ImageView fx:id="imgLogo" fitHeight="40.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
-            <Label style="-fx-font-weight: bold; -fx-text-fill: #A800FF;" text="ADMIN PANEL">
-               <font><Font size="11.0" /></font>
+            <ImageView fx:id="imgLogo" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+            <Label text="V-PASS" textFill="#111111">
+               <font><Font name="System Bold" size="22.0" /></font>
             </Label>
          </children>
-         <VBox.margin><Insets bottom="35.0" /></VBox.margin>
+         <VBox.margin><Insets bottom="15.0" /></VBox.margin>
       </VBox>
       
-      <Button fx:id="btnEvents" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#keAdminEvents" prefHeight="42.0" prefWidth="208.0" style="-fx-background-color: transparent; -fx-text-fill: #666666; -fx-cursor: hand;" text="Manage Events">
-         <font><Font name="System Medium" size="14.0" /></font>
-         <padding><Insets left="20.0" /></padding>
+      <Line endX="160.0" stroke="#F0F0F0" />
+      
+      <Button fx:id="btnEventList" mnemonicParsing="false" onAction="#keAdminEvents" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #666666; -fx-cursor: hand;" text="Event List">
+        <font><Font name="System Medium" size="14.0" /></font>
+        <VBox.margin><Insets top="10.0" /></VBox.margin>
+      </Button>
+
+      <Button fx:id="btnVerification" mnemonicParsing="false" onAction="#keAdminVerification" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #666666; -fx-cursor: hand;" text="Verification">
+        <font><Font name="System Medium" size="14.0" /></font>
       </Button>
       
-      <Button fx:id="btnTransactions" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#keAdminTransactions" prefHeight="42.0" prefWidth="208.0" style="-fx-background-color: transparent; -fx-text-fill: #666666; -fx-cursor: hand;" text="Transactions">
+      <Button fx:id="btnTransactionList" mnemonicParsing="false" onAction="#keAdminTransactionList" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #666666;" text="Transaction List">
          <font><Font name="System Medium" size="14.0" /></font>
-         <padding><Insets left="20.0" /></padding>
       </Button>
       
-      <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS" />
+      <Button fx:id="btnCustomerList" mnemonicParsing="false" onAction="#keAdminCustomerList" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #666666;" text="Customer List">
+         <font><Font name="System Medium" size="14.0" /></font>
+      </Button>
       
-      <Button mnemonicParsing="false" onAction="#onLogoutClick" prefHeight="40.0" prefWidth="208.0" style="-fx-background-color: #F5F5F7; -fx-background-radius: 12; -fx-text-fill: #FF3B30; -fx-cursor: hand;" text="LOGOUT">
+      <VBox prefHeight="50.0" prefWidth="100.0" VBox.vgrow="ALWAYS" />
+      
+      <Line endX="160.0" stroke="#F0F0F0" />
+      
+      <Button fx:id="btnProfile" mnemonicParsing="false" onAction="#keAdminProfile" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #666666;" text="Profile">
+         <font><Font name="System Medium" size="14.0" /></font>
+      </Button>
+      
+      <Button mnemonicParsing="false" onAction="#onLogoutClick" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #F5F5F7; -fx-background-radius: 12; -fx-text-fill: #FF3B30; -fx-cursor: hand;" text="LOGOUT">
          <font><Font name="System Bold" size="14.0" /></font>
       </Button>
       

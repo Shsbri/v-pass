@@ -17,13 +17,16 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
- * 
+ * FXML Controller class untuk Komponen Sidebar Navigasi Admin
  * @author Ahmad
  */
 public class NavbarAdminController implements Initializable {
 
-    @FXML private Button btnEvents;
-    @FXML private Button btnTransactions;
+    @FXML private Button btnEventList;
+    @FXML private Button btnVerification;
+    @FXML private Button btnTransactionList;
+    @FXML private Button btnCustomerList;
+    @FXML private Button btnProfile;
     @FXML private ImageView imgLogo;
 
     @Override
@@ -38,17 +41,29 @@ public class NavbarAdminController implements Initializable {
         Platform.runLater(() -> {
             if (url != null) {
                String pathFile = url.toString().toLowerCase();
-               btnEvents.setStyle("-fx-background-color: transparent; -fx-text-fill: #666666;");
-               btnTransactions.setStyle("-fx-background-color: transparent; -fx-text-fill: #666666;");
+               resetStyleTombol();
                
-               if (pathFile.contains("event")) {
-                   setTombolAktif(btnEvents);
-               } else if (pathFile.contains("transaction")) {
-                   setTombolAktif(btnTransactions);
+               if (pathFile.contains("admineventlist")) {
+                   setTombolAktif(btnEventList);
+               } else if (pathFile.contains("adminverification")) {
+                   setTombolAktif(btnVerification);
+               } else if (pathFile.contains("admintransactionlist")) {
+                   setTombolAktif(btnTransactionList);
+               } else if (pathFile.contains("admincustomerlist")) {
+                   setTombolAktif(btnCustomerList);
                }
             }
         });
     }    
+
+    private void resetStyleTombol() {
+        String pasif = "-fx-background-color: transparent; -fx-text-fill: #666666;";
+        btnEventList.setStyle(pasif);
+        btnVerification.setStyle(pasif);
+        btnTransactionList.setStyle(pasif);
+        btnCustomerList.setStyle(pasif);
+        btnProfile.setStyle(pasif);
+    }
 
     private void setTombolAktif(Button btn) {
         btn.setStyle("-fx-background-color: #111111; -fx-background-radius: 12; -fx-text-fill: white; -fx-font-weight: bold;");
@@ -60,16 +75,30 @@ public class NavbarAdminController implements Initializable {
     }
 
     @FXML
-    private void keAdminTransactions(ActionEvent event) {
-        // Kerangka navigasi transaksi admin jika nanti sudah siap dibuat halaman FXML-nya
-        System.out.println("Navigasi ke Halaman Transaksi Admin.");
+    private void keAdminVerification(ActionEvent event) {
+        try { App.setRoot("admin/AdminVerification"); } catch (Exception e) { e.printStackTrace(); }
+    }
+
+    @FXML
+    private void keAdminTransactionList(ActionEvent event) {
+        try { App.setRoot("admin/AdminTransactionList"); } catch (Exception e) { e.printStackTrace(); }
+    }
+    
+    @FXML
+    private void keAdminCustomerList(ActionEvent event) {
+        try { App.setRoot("admin/AdminCustomerList"); } catch (Exception e) { e.printStackTrace(); }
+    }
+    
+    @FXML 
+    private void keAdminProfile(ActionEvent event) { 
+        try { App.setRoot("admin/AdminProfile"); } catch (Exception e) {} ;
     }
 
     @FXML
     private void onLogoutClick(ActionEvent event) {
         Alert alert = new Alert(AlertType.CONFIRMATION);
-        alert.setTitle("Konfirmasi Logout Admin");
-        alert.setHeaderText("Apakah Anda yakin ingin keluar dari Panel Admin?");
+        alert.setTitle("Konfirmasi Logout");
+        alert.setHeaderText("Apakah Anda yakin ingin keluar?");
         alert.setContentText("Sesi administrator Anda akan diakhiri.");
 
         Optional<ButtonType> result = alert.showAndWait();
@@ -78,7 +107,6 @@ public class NavbarAdminController implements Initializable {
                 SesiPengguna.clearSesi();
                 App.setRoot("Login");
             } catch (java.io.IOException e) {
-                System.out.println("Gagal memuat ulang halaman Login.fxml");
                 e.printStackTrace();
             }
         }

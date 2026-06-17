@@ -4,203 +4,111 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="418.0" prefWidth="894.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FAFAFA;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tes.admin.AdminVerificationController">
    <children>
-      <ComboBox prefHeight="39.0" prefWidth="184.0" promptText="All Time" />
-      <ComboBox layoutX="219.0" prefHeight="39.0" prefWidth="214.0" promptText="All Category" />
-      <Label layoutY="71.0" prefHeight="70.0" prefWidth="894.0" style="-fx-border-color: transparent transparent black transparent; -fx-border-width: 0 0 1 0; -fx-padding: 10; -fx-background-color: #f4f4f4; -fx-border-color: black; -fx-border-width: 1 1 1 1; -fx-padding: 10;" text="   Transaction List">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-      </Label>
-      <VBox layoutY="141.0" prefHeight="70.0" prefWidth="894.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-background-color: white;">
+      <HBox prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-               <children>
-                  <Label prefHeight="43.0" prefWidth="125.0" text="    ID event">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label prefHeight="45.0" prefWidth="151.0" text="   Event name">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label prefHeight="43.0" prefWidth="110.0" text="  Category">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label prefHeight="46.0" prefWidth="125.0" text="  Total ticket">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="102.0" style="-fx-background-color: #e0e0e0; -fx-background-radius: 20; -fx-border-color: #7a7a7a; -fx-border-radius: 15; -fx-border-width: 1; -fx-font-weight: bold; -fx-padding: 5 20 5 20;" text="Proof">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="102.0" style="-fx-background-color: #e0e0e0; -fx-background-radius: 20; -fx-border-color: #7a7a7a; -fx-border-radius: 15; -fx-border-width: 1; -fx-font-weight: bold; -fx-padding: 5 20 5 20;" text="Yes">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="102.0" style="-fx-background-color: #e0e0e0; -fx-background-radius: 20; -fx-border-color: #7a7a7a; -fx-border-radius: 15; -fx-border-width: 1; -fx-font-weight: bold; -fx-padding: 5 20 5 20;" text="No">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Button>
-               </children>
-               <padding>
-                  <Insets bottom="12.0" left="10.0" right="10.0" top="12.0" />
-               </padding>
-            </HBox>
+            
+            <fx:include source="../components/NavbarAdmin.fxml" />
+            
+            <ScrollPane fitToWidth="true" prefHeight="720.0" prefWidth="1040.0" style="-fx-background-color: transparent; -fx-background-insets: 0;" HBox.hgrow="ALWAYS">
+               <content>
+                  <VBox spacing="30.0">
+                     <padding>
+                        <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+                     </padding>
+                     <children>
+                        
+                        <Label text="Verification Payment" textFill="#111111">
+                           <font><Font name="System Bold" size="28.0" /></font>
+                        </Label>
+                        
+                        <HBox alignment="CENTER_LEFT" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" prefWidth="960.0" spacing="15.0">
+                           <children>
+                              <ComboBox maxHeight="38.0" minHeight="38.0" prefHeight="38.0" prefWidth="140.0" promptText="All Time" style="-fx-background-color: #FFFFFF; -fx-background-radius: 12; -fx-border-color: #E5E5EA; -fx-border-radius: 12; -fx-padding: 0 5 0 5; -fx-cursor: hand;" />
+                              <ComboBox maxHeight="38.0" minHeight="38.0" prefHeight="38.0" prefWidth="140.0" promptText="All Category" style="-fx-background-color: #FFFFFF; -fx-background-radius: 12; -fx-border-color: #E5E5EA; -fx-border-radius: 12; -fx-padding: 0 5 0 5; -fx-cursor: hand;" />
+                           </children>
+                        </HBox>
+                        
+                        <VBox prefWidth="960.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.02), 15, 0, 0, 5); -fx-overflow: hidden;">
+                           <children>
+                              
+                              <HBox alignment="CENTER_LEFT" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" style="-fx-background-color: #FAFAFA; -fx-padding: 0 25 0 25; -fx-border-color: #E5E5EA; -fx-border-width: 0 0 1 0; -fx-background-radius: 20 20 0 0;">
+                                 <children>
+                                    <Label style="-fx-font-weight: bold;" text="Transaction List" textFill="#111111">
+                                       <font><Font size="15.0" /></font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              
+                              <HBox alignment="CENTER_LEFT" maxHeight="65.0" minHeight="65.0" prefHeight="65.0" spacing="20.0" style="-fx-padding: 0 25 0 25; -fx-border-color: #F2F2F7; -fx-border-width: 0 0 1 0;">
+                                 <children>
+                                    <Label prefWidth="100.0" text="EVT-001" textFill="#666666"><font><Font name="System Medium" size="14.0" /></font></Label>
+                                    <Label prefWidth="180.0" text="Coldplay Jakarta" textFill="#111111"><font><Font name="System Bold" size="14.0" /></font></Label>
+                                    <Label prefWidth="110.0" text="Concert" textFill="#444444"><font><Font size="14.0" /></font></Label>
+                                    <Label prefWidth="110.0" text="2 Tickets" textFill="#444444"><font><Font size="14.0" /></font></Label>
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="75.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-background-radius: 10; -fx-text-fill: #444444; -fx-font-weight: Bold; -fx-cursor: hand;" text="Proof" />
+                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="65.0" style="-fx-background-color: #E5F9F0; -fx-background-radius: 10; -fx-text-fill: #00B074; -fx-font-weight: Bold; -fx-cursor: hand;" text="Yes" />
+                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="65.0" style="-fx-background-color: #FFF2F2; -fx-background-radius: 10; -fx-text-fill: #FF3B30; -fx-font-weight: Bold; -fx-cursor: hand;" text="No" />
+                                 </children>
+                              </HBox>
+                              
+                              <HBox alignment="CENTER_LEFT" maxHeight="65.0" minHeight="65.0" prefHeight="65.0" spacing="20.0" style="-fx-padding: 0 25 0 25; -fx-border-color: #F2F2F7; -fx-border-width: 0 0 1 0;">
+                                 <children>
+                                    <Label prefWidth="100.0" text="EVT-002" textFill="#666666"><font><Font name="System Medium" size="14.0" /></font></Label>
+                                    <Label prefWidth="180.0" text="Tech Expo 2026" textFill="#111111"><font><Font name="System Bold" size="14.0" /></font></Label>
+                                    <Label prefWidth="110.0" text="Expo" textFill="#444444"><font><Font size="14.0" /></font></Label>
+                                    <Label prefWidth="110.0" text="1 Ticket" textFill="#444444"><font><Font size="14.0" /></font></Label>
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="75.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-background-radius: 10; -fx-text-fill: #444444; -fx-font-weight: Bold; -fx-cursor: hand;" text="Proof" />
+                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="65.0" style="-fx-background-color: #E5F9F0; -fx-background-radius: 10; -fx-text-fill: #00B074; -fx-font-weight: Bold; -fx-cursor: hand;" text="Yes" />
+                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="65.0" style="-fx-background-color: #FFF2F2; -fx-background-radius: 10; -fx-text-fill: #FF3B30; -fx-font-weight: Bold; -fx-cursor: hand;" text="No" />
+                                 </children>
+                              </HBox>
+                              
+                              <HBox alignment="CENTER_LEFT" maxHeight="65.0" minHeight="65.0" prefHeight="65.0" spacing="20.0" style="-fx-padding: 0 25 0 25; -fx-border-color: #F2F2F7; -fx-border-width: 0 0 1 0;">
+                                 <children>
+                                    <Label prefWidth="100.0" text="EVT-003" textFill="#666666"><font><Font name="System Medium" size="14.0" /></font></Label>
+                                    <Label prefWidth="180.0" text="Adversarial ML" textFill="#111111"><font><Font name="System Bold" size="14.0" /></font></Label>
+                                    <Label prefWidth="110.0" text="Seminar" textFill="#444444"><font><Font size="14.0" /></font></Label>
+                                    <Label prefWidth="110.0" text="4 Tickets" textFill="#444444"><font><Font size="14.0" /></font></Label>
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="75.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-background-radius: 10; -fx-text-fill: #444444; -fx-font-weight: Bold; -fx-cursor: hand;" text="Proof" />
+                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="65.0" style="-fx-background-color: #E5F9F0; -fx-background-radius: 10; -fx-text-fill: #00B074; -fx-font-weight: Bold; -fx-cursor: hand;" text="Yes" />
+                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="65.0" style="-fx-background-color: #FFF2F2; -fx-background-radius: 10; -fx-text-fill: #FF3B30; -fx-font-weight: Bold; -fx-cursor: hand;" text="No" />
+                                 </children>
+                              </HBox>
+                              
+                              <HBox alignment="CENTER_LEFT" maxHeight="65.0" minHeight="65.0" prefHeight="65.0" spacing="20.0" style="-fx-padding: 0 25 0 25;">
+                                 <children>
+                                    <Label prefWidth="100.0" text="EVT-004" textFill="#666666"><font><Font name="System Medium" size="14.0" /></font></Label>
+                                    <Label prefWidth="180.0" text="Jakarta Festival" textFill="#111111"><font><Font name="System Bold" size="14.0" /></font></Label>
+                                    <Label prefWidth="110.0" text="Festival" textFill="#444444"><font><Font size="14.0" /></font></Label>
+                                    <Label prefWidth="110.0" text="2 Tickets" textFill="#444444"><font><Font size="14.0" /></font></Label>
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="75.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-background-radius: 10; -fx-text-fill: #444444; -fx-font-weight: Bold; -fx-cursor: hand;" text="Proof" />
+                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="65.0" style="-fx-background-color: #E5F9F0; -fx-background-radius: 10; -fx-text-fill: #00B074; -fx-font-weight: Bold; -fx-cursor: hand;" text="Yes" />
+                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="65.0" style="-fx-background-color: #FFF2F2; -fx-background-radius: 10; -fx-text-fill: #FF3B30; -fx-font-weight: Bold; -fx-cursor: hand;" text="No" />
+                                 </children>
+                              </HBox>
+                              
+                           </children>
+                        </VBox>
+                        
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+            
          </children>
-      </VBox>
-      <VBox layoutY="211.0" prefHeight="70.0" prefWidth="894.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-background-color: white;">
-         <children>
-            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-               <children>
-                  <Label prefHeight="43.0" prefWidth="125.0" text="    ID event">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label prefHeight="45.0" prefWidth="151.0" text="   Event name">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label prefHeight="43.0" prefWidth="110.0" text="  Category">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label prefHeight="46.0" prefWidth="125.0" text="  Total ticket">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="102.0" style="-fx-background-color: #e0e0e0; -fx-background-radius: 20; -fx-border-color: #7a7a7a; -fx-border-radius: 15; -fx-border-width: 1; -fx-font-weight: bold; -fx-padding: 5 20 5 20;" text="Proof">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="102.0" style="-fx-background-color: #e0e0e0; -fx-background-radius: 20; -fx-border-color: #7a7a7a; -fx-border-radius: 15; -fx-border-width: 1; -fx-font-weight: bold; -fx-padding: 5 20 5 20;" text="Yes">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="102.0" style="-fx-background-color: #e0e0e0; -fx-background-radius: 20; -fx-border-color: #7a7a7a; -fx-border-radius: 15; -fx-border-width: 1; -fx-font-weight: bold; -fx-padding: 5 20 5 20;" text="No">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Button>
-               </children>
-               <padding>
-                  <Insets bottom="12.0" left="10.0" right="10.0" top="12.0" />
-               </padding>
-            </HBox>
-         </children>
-      </VBox>
-      <VBox layoutY="281.0" prefHeight="70.0" prefWidth="894.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-background-color: white;">
-         <children>
-            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-               <children>
-                  <Label prefHeight="43.0" prefWidth="125.0" text="    ID event">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label prefHeight="45.0" prefWidth="151.0" text="   Event name">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label prefHeight="43.0" prefWidth="110.0" text="  Category">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label prefHeight="46.0" prefWidth="125.0" text="  Total ticket">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="102.0" style="-fx-background-color: #e0e0e0; -fx-background-radius: 20; -fx-border-color: #7a7a7a; -fx-border-radius: 15; -fx-border-width: 1; -fx-font-weight: bold; -fx-padding: 5 20 5 20;" text="Proof">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="102.0" style="-fx-background-color: #e0e0e0; -fx-background-radius: 20; -fx-border-color: #7a7a7a; -fx-border-radius: 15; -fx-border-width: 1; -fx-font-weight: bold; -fx-padding: 5 20 5 20;" text="Yes">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="102.0" style="-fx-background-color: #e0e0e0; -fx-background-radius: 20; -fx-border-color: #7a7a7a; -fx-border-radius: 15; -fx-border-width: 1; -fx-font-weight: bold; -fx-padding: 5 20 5 20;" text="No">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Button>
-               </children>
-               <padding>
-                  <Insets bottom="12.0" left="10.0" right="10.0" top="12.0" />
-               </padding>
-            </HBox>
-         </children>
-      </VBox>
-      <VBox layoutY="351.0" prefHeight="70.0" prefWidth="894.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-background-color: white;">
-         <children>
-            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-               <children>
-                  <Label prefHeight="43.0" prefWidth="125.0" text="    ID event">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label prefHeight="45.0" prefWidth="151.0" text="   Event name">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label prefHeight="43.0" prefWidth="110.0" text="  Category">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label prefHeight="46.0" prefWidth="125.0" text="  Total ticket">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="102.0" style="-fx-background-color: #e0e0e0; -fx-background-radius: 20; -fx-border-color: #7a7a7a; -fx-border-radius: 15; -fx-border-width: 1; -fx-font-weight: bold; -fx-padding: 5 20 5 20;" text="Proof">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="102.0" style="-fx-background-color: #e0e0e0; -fx-background-radius: 20; -fx-border-color: #7a7a7a; -fx-border-radius: 15; -fx-border-width: 1; -fx-font-weight: bold; -fx-padding: 5 20 5 20;" text="Yes">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="102.0" style="-fx-background-color: #e0e0e0; -fx-background-radius: 20; -fx-border-color: #7a7a7a; -fx-border-radius: 15; -fx-border-width: 1; -fx-font-weight: bold; -fx-padding: 5 20 5 20;" text="No">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Button>
-               </children>
-               <padding>
-                  <Insets bottom="12.0" left="10.0" right="10.0" top="12.0" />
-               </padding>
-            </HBox>
-         </children>
-      </VBox>
+      </HBox>
    </children>
 </AnchorPane>

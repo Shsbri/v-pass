@@ -20,7 +20,6 @@
             
             <ScrollPane fitToWidth="true" prefHeight="720.0" prefWidth="1040.0" style="-fx-background-color: transparent; -fx-background-insets: 0;" HBox.hgrow="ALWAYS">
                <content>
-                  
                   <VBox alignment="TOP_CENTER" fillWidth="false" prefWidth="1020.0" spacing="25.0">
                      <padding>
                         <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
@@ -61,63 +60,6 @@
                                     <AnchorPane prefHeight="130.0" prefWidth="173.0" style="-fx-background-color: #F2F2F7; -fx-background-radius: 14;" />
                                     <Label text="Event Name" textFill="#111111">
                                        <font><Font name="System Bold" size="15.0" /></font>
-                                       <VBox.margin><Insets top="10.0" /></VBox.margin>
-                                    </Label>
-                                    <Label text="Date Event" textFill="#666666">
-                                       <font><Font size="13.0" /></font>
-                                       <VBox.margin><Insets bottom="10.0" top="2.0" /></VBox.margin>
-                                    </Label>
-                                    <HBox alignment="CENTER_RIGHT" VBox.vgrow="ALWAYS">
-                                       <children>
-                                          <Button mnemonicParsing="false" style="-fx-background-color: linear-gradient(to right, #FF5E00, #A800FF); -fx-text-fill: white; -fx-background-radius: 10; -fx-cursor: hand; -fx-font-weight: bold;" text="Order" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                              
-                              <VBox prefHeight="260.0" prefWidth="197.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 12;">
-                                 <children>
-                                    <AnchorPane prefHeight="130.0" prefWidth="173.0" style="-fx-background-color: #F2F2F7; -fx-background-radius: 14;" />
-                                    <Label text="Event Name" textFill="#111111">
-                                       <font><Font name="System Bold" size="15.0" /></font>
-                                       <VBox.margin><Insets top="10.0" /></VBox.margin>
-                                    </Label>
-                                    <Label text="Date Event" textFill="#666666">
-                                       <font><Font size="13.0" /></font>
-                                       <VBox.margin><Insets bottom="10.0" top="2.0" /></VBox.margin>
-                                    </Label>
-                                    <HBox alignment="CENTER_RIGHT" VBox.vgrow="ALWAYS">
-                                       <children>
-                                          <Button mnemonicParsing="false" style="-fx-background-color: linear-gradient(to right, #FF5E00, #A800FF); -fx-text-fill: white; -fx-background-radius: 10; -fx-cursor: hand; -fx-font-weight: bold;" text="Order" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                              
-                              <VBox prefHeight="260.0" prefWidth="197.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 12;">
-                                 <children>
-                                    <AnchorPane prefHeight="130.0" prefWidth="173.0" style="-fx-background-color: #F2F2F7; -fx-background-radius: 14;" />
-                                    <Label text="Event Name" textFill="#111111">
-                                       <font><Font name="System Bold" size="15.0" /></font>
-                                       <VBox.margin><Insets top="10.0" /></VBox.margin>
-                                    </Label>
-                                    <Label text="Date Event" textFill="#666666">
-                                       <font><Font size="13.0" /></font>
-                                       <VBox.margin><Insets bottom="10.0" top="2.0" /></VBox.margin>
-                                    </Label>
-                                    <HBox alignment="CENTER_RIGHT" VBox.vgrow="ALWAYS">
-                                       <children>
-                                          <Button mnemonicParsing="false" style="-fx-background-color: linear-gradient(to right, #FF5E00, #A800FF); -fx-text-fill: white; -fx-background-radius: 10; -fx-cursor: hand; -fx-font-weight: bold;" text="Order" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                              
-                              <VBox prefHeight="260.0" prefWidth="197.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 12;">
-                                 <children>
-                                    <AnchorPane prefHeight="130.0" prefWidth="173.0" style="-fx-background-color: #F2F2F7; -fx-background-radius: 14;" />
-                                    <Label text="Event Name" textFill="#111111">
-                                        <font><Font name="System Bold" size="15.0" /></font>
                                        <VBox.margin><Insets top="10.0" /></VBox.margin>
                                     </Label>
                                     <Label text="Date Event" textFill="#666666">

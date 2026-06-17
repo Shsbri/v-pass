@@ -17,7 +17,7 @@ import javafx.scene.image.ImageView;
 import com.mycompany.tes.KoneksiDB;
 
 /**
- * FXML Controller class untuk Halaman Login
+ *
  * @author Ahmad
  */
 public class LoginController implements Initializable {
@@ -48,7 +48,7 @@ public class LoginController implements Initializable {
             return;
         }
 
-        String sql = "SELECT role FROM tb_pengguna WHERE username = ? AND password = ?";
+        String sql = "SELECT * FROM tb_pengguna WHERE username = ? AND password = ?";
 
         try (java.sql.Connection conn = KoneksiDB.getKoneksi();
              java.sql.PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -60,10 +60,13 @@ public class LoginController implements Initializable {
                 if (rs.next()) {
                     String roleYgDitemukan = rs.getString("role");
 
-                    showJavaFXAlert(AlertType.INFORMATION, "Sukses", "Login Berhasil", "Selamat datang kembali, " + username + "!");
-
-                    // 🎯 CATAT USERNAME KE SESI GLOBAL SEBELUM BERPINDAH HALAMAN
+                    com.mycompany.tes.SesiPengguna.setIdPengguna(rs.getInt("id_pengguna"));
+                    com.mycompany.tes.SesiPengguna.setNama(rs.getString("nama"));
+                    com.mycompany.tes.SesiPengguna.setEmail(rs.getString("email"));
                     com.mycompany.tes.SesiPengguna.setUsernameAktif(username);
+                    com.mycompany.tes.SesiPengguna.setRole(roleYgDitemukan);
+
+                    showJavaFXAlert(AlertType.INFORMATION, "Sukses", "Login Berhasil", "Selamat datang kembali, " + com.mycompany.tes.SesiPengguna.getNama() + "!");
 
                     if (roleYgDitemukan.equalsIgnoreCase("admin")) {
                         App.setRoot("admin/AdminEventList");
