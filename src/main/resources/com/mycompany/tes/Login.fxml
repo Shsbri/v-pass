@@ -6,52 +6,71 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="380.0" prefWidth="356.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tes.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FAFAFA;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tes.LoginController">
    <children>
-      <VBox alignment="CENTER" prefHeight="380.0" prefWidth="368.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-width: 1;">
+      
+      <VBox alignment="CENTER" fillWidth="false" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="CENTER" text="LOGIN V-PASS">
-               <font>
-                  <Font name="System Bold" size="26.0" />
-               </font>
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-            </Label>
-            <VBox prefHeight="142.0" prefWidth="366.0">
+            
+            <VBox alignment="TOP_CENTER" prefWidth="420.0" spacing="15.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 24; -fx-border-color: #E5E5EA; -fx-border-radius: 24; -fx-padding: 40; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.03), 10, 0, 0, 5);">
                <children>
-                  <Label text="Username">
+                  
+                  <ImageView fx:id="imgLogoLogin" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  
+                  <Label text="LOGIN V-PASS" textFill="#111111">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="24.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets bottom="15.0" />
+                     </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtUsername" prefHeight="26.0" prefWidth="293.0" style="-fx-background-radius: 15;" />
-                  <Label text="Password">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <PasswordField fx:id="txtPassword" prefHeight="26.0" prefWidth="309.0" style="-fx-background-radius: 15;" />
-               </children>
-               <VBox.margin>
-                  <Insets left="15.0" right="15.0" />
-               </VBox.margin>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="80.0" prefWidth="366.0" spacing="10.0">
-               <children>
-                  <Button fx:id="btnLogin" alignment="CENTER" mnemonicParsing="false" onAction="#ActLogin" text="LOGIN">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Button>
-                  <Hyperlink fx:id="linkToRegister" onAction="#handleGoToRegister" text="Belum punya akun? Registrasi" style="-fx-text-fill: #0078D7; -fx-font-weight: bold;" />
+                  
+                  <VBox prefWidth="340.0" spacing="6.0">
+                     <children>
+                        <Label text="Username" textFill="#444444">
+                           <font><Font name="System Sink Bold" size="14.0" /></font>
+                        </Label>
+                        <TextField fx:id="txtUsername" prefHeight="40.0" promptText="Enter your username" style="-fx-background-color: #FAFAFA; -fx-background-radius: 12; -fx-border-color: #E5E5EA; -fx-border-radius: 12; -fx-padding: 0 15 0 15;" />
+                     </children>
+                  </VBox>
+                  
+                  <VBox prefWidth="340.0" spacing="6.0">
+                     <children>
+                        <Label text="Password" textFill="#444444">
+                           <font><Font name="System Bold" size="14.0" /></font>
+                        </Label>
+                        <PasswordField fx:id="txtPassword" prefHeight="40.0" promptText="Enter your password" style="-fx-background-color: #FAFAFA; -fx-background-radius: 12; -fx-border-color: #E5E5EA; -fx-border-radius: 12; -fx-padding: 0 15 0 15;" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </VBox>
+                  
+                  <VBox alignment="CENTER" prefWidth="340.0" spacing="12.0">
+                     <children>
+                        <Button fx:id="btnLogin" alignment="CENTER" mnemonicParsing="false" onAction="#ActLogin" prefHeight="44.0" prefWidth="340.0" style="-fx-background-color: linear-gradient(to right, #FF5E00, #A800FF); -fx-text-fill: white; -fx-background-radius: 12; -fx-cursor: hand;" text="LOGIN">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Button>
+                        <Hyperlink fx:id="linkToRegister" onAction="#handleGoToRegister" text="Belum punya akun? Registrasi" style="-fx-text-fill: #A800FF; -fx-font-weight: bold; -fx-underline: false;" />
+                     </children>
+                  </VBox>
+                  
                </children>
             </VBox>
          </children>
       </VBox>
+      
    </children>
 </AnchorPane>

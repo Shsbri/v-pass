@@ -11,12 +11,13 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import com.mycompany.tes.KoneksiDB; 
 
 /**
- * FXML Controller class
- *
- * @author Ahmad
+ * FXML Controller class untuk Halaman Registrasi
+ * @author Ahmad & Yulio
  */
 public class RegisterController implements Initializable {
 
@@ -27,10 +28,16 @@ public class RegisterController implements Initializable {
     @FXML private PasswordField txtConfirm;
     @FXML private TextField txtPet;
     @FXML private Hyperlink linkToLogin;
+    @FXML private ImageView imgLogoRegist;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // Init awal
+        try {
+            Image logoAsset = new Image(getClass().getResourceAsStream("/com/mycompany/tes/images/logo.png"));
+            imgLogoRegist.setImage(logoAsset);
+        } catch (Exception e) {
+            System.out.println("Aset logo belum ditemukan di folder images.");
+        }
     }    
 
     @FXML

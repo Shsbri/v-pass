@@ -12,11 +12,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import com.mycompany.tes.KoneksiDB;
 
 /**
- * FXML Controller class
- *
+ * FXML Controller class untuk Halaman Login
  * @author Ahmad
  */
 public class LoginController implements Initializable {
@@ -25,10 +26,16 @@ public class LoginController implements Initializable {
     @FXML private PasswordField txtPassword;
     @FXML private Button btnLogin;
     @FXML private Hyperlink linkToRegister;
+    @FXML private ImageView imgLogoLogin;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // Init awal
+        try {
+            Image logoAsset = new Image(getClass().getResourceAsStream("/com/mycompany/tes/images/logo.png"));
+            imgLogoLogin.setImage(logoAsset);
+        } catch (Exception e) {
+            System.out.println("Aset logo belum ditemukan di folder images.");
+        }
     }    
 
     @FXML
@@ -54,6 +61,9 @@ public class LoginController implements Initializable {
                     String roleYgDitemukan = rs.getString("role");
 
                     showJavaFXAlert(AlertType.INFORMATION, "Sukses", "Login Berhasil", "Selamat datang kembali, " + username + "!");
+
+                    // 🎯 CATAT USERNAME KE SESI GLOBAL SEBELUM BERPINDAH HALAMAN
+                    com.mycompany.tes.SesiPengguna.setUsernameAktif(username);
 
                     if (roleYgDitemukan.equalsIgnoreCase("admin")) {
                         App.setRoot("admin/AdminEventList");

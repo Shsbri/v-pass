@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="720.0" prefWidth="240.0" spacing="8.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E5EA; -fx-border-width: 0 1 0 0;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tes.components.NavbarAdminController">
+   <padding>
+      <Insets bottom="24.0" left="16.0" right="16.0" top="30.0" />
+   </padding>
+   <children>
+      
+      <VBox alignment="CENTER" spacing="5.0">
+         <children>
+            <ImageView fx:id="imgLogo" fitHeight="40.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
+            <Label style="-fx-font-weight: bold; -fx-text-fill: #A800FF;" text="ADMIN PANEL">
+               <font><Font size="11.0" /></font>
+            </Label>
+         </children>
+         <VBox.margin><Insets bottom="35.0" /></VBox.margin>
+      </VBox>
+      
+      <Button fx:id="btnEvents" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#keAdminEvents" prefHeight="42.0" prefWidth="208.0" style="-fx-background-color: transparent; -fx-text-fill: #666666; -fx-cursor: hand;" text="Manage Events">
+         <font><Font name="System Medium" size="14.0" /></font>
+         <padding><Insets left="20.0" /></padding>
+      </Button>
+      
+      <Button fx:id="btnTransactions" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#keAdminTransactions" prefHeight="42.0" prefWidth="208.0" style="-fx-background-color: transparent; -fx-text-fill: #666666; -fx-cursor: hand;" text="Transactions">
+         <font><Font name="System Medium" size="14.0" /></font>
+         <padding><Insets left="20.0" /></padding>
+      </Button>
+      
+      <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS" />
+      
+      <Button mnemonicParsing="false" onAction="#onLogoutClick" prefHeight="40.0" prefWidth="208.0" style="-fx-background-color: #F5F5F7; -fx-background-radius: 12; -fx-text-fill: #FF3B30; -fx-cursor: hand;" text="LOGOUT">
+         <font><Font name="System Bold" size="14.0" /></font>
+      </Button>
+      
+   </children>
+</VBox>

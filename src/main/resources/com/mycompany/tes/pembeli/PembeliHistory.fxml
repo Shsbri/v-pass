@@ -5,213 +5,144 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane cacheShape="false" centerShape="false" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
-  <content>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="920.0">
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FAFAFA;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tes.pembeli.PembeliHistoryController">
+   <children>
+      <HBox prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TextField layoutX="14.0" layoutY="14.0" prefHeight="38.0" prefWidth="563.0" style="-fx-background-radius: 30; -fx-border-color: #e0e0e0; -fx-border-radius: 30; -fx-background-color: #ffffff;" text="Search" />
-            <HBox alignment="CENTER" layoutX="20.0" layoutY="70.0" prefHeight="31.0" prefWidth="521.0" spacing="30.0">
-               <children>
-                  <Button mnemonicParsing="false" text="All">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font></Button>
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Concret">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font></Button>
-                  <Button layoutX="112.0" layoutY="10.0" mnemonicParsing="false" text="Expo">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font></Button>
-                  <Button layoutX="176.0" layoutY="10.0" mnemonicParsing="false" text="Seminar">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font></Button>
-                  <Button layoutX="232.0" layoutY="10.0" mnemonicParsing="false" text="Festival">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font></Button>
-               </children>
-            </HBox>
-            <Line endX="550.0" layoutX="329.0" layoutY="126.0" startX="-302.0" translateX="1.0" translateY="1.0" translateZ="1.0" />
-            <VBox fillWidth="false" layoutX="13.0" layoutY="139.0" prefHeight="451.0" prefWidth="829.0">
-               <children>
-                  <TilePane hgap="5.0" prefHeight="441.0" prefWidth="797.0">
+            
+            <fx:include source="../components/NavbarPembeli.fxml" />
+            
+            <ScrollPane fitToWidth="true" prefHeight="720.0" prefWidth="1040.0" style="-fx-background-color: transparent; -fx-background-insets: 0;" HBox.hgrow="ALWAYS">
+               <content>
+                  
+                  <VBox alignment="TOP_CENTER" fillWidth="false" prefWidth="1020.0" spacing="25.0">
+                     <padding>
+                        <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+                     </padding>
                      <children>
-                        <VBox fillWidth="false" prefHeight="215.0" prefWidth="164.0" style="-fx-background-color: #ffffff; -fx-background-radius: 15; -fx-border-color: #e0e0e0; -fx-border-radius: 15;">
-                           <TilePane.margin>
-                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                           </TilePane.margin>
+                        
+                        <TextField prefHeight="46.0" prefWidth="850.0" promptText="Search your transaction history..." style="-fx-background-color: #FFFFFF; -fx-background-radius: 14; -fx-border-color: #E5E5EA; -fx-border-radius: 14; -fx-padding: 0 20 0 20;">
+                           <font><Font size="14.0" /></font>
+                        </TextField>
+                        
+                        <HBox alignment="CENTER" spacing="12.0">
                            <children>
-                              <ImageView fitHeight="104.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true">
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                 </VBox.margin>
-                              </ImageView>
-                              <Label style="-fx-text-fill: #000000;" text="Event Name">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="16.0" layoutY="140.0" text="Date Event">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <HBox alignment="BOTTOM_RIGHT" fillHeight="false" prefHeight="19.0" prefWidth="162.0">
-                                 <children>
-                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" style="-fx-background-radius: 10;" text="Time">
-                                       <HBox.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                    <Region prefHeight="45.0" prefWidth="30.0" />
-                                    <Button layoutX="106.0" layoutY="20.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" style="-fx-background-radius: 10;" text="Status">
-                                       <HBox.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                 </children>
-                              </HBox>
+                              <Button mnemonicParsing="false" style="-fx-background-color: #111111; -fx-text-fill: white; -fx-background-radius: 20; -fx-padding: 8 18 8 18; -fx-cursor: hand;" text="All">
+                                 <font><Font name="System Bold" size="14.0" /></font>
+                              </Button>
+                              <Button mnemonicParsing="false" style="-fx-background-color: #FFFFFF; -fx-text-fill: #444444; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 8 18 8 18; -fx-cursor: hand;" text="Concert">
+                                 <font><Font name="System Medium" size="14.0" /></font>
+                              </Button>
+                              <Button mnemonicParsing="false" style="-fx-background-color: #FFFFFF; -fx-text-fill: #444444; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 8 18 8 18; -fx-cursor: hand;" text="Expo">
+                                 <font><Font name="System Medium" size="14.0" /></font>
+                              </Button>
+                              <Button mnemonicParsing="false" style="-fx-background-color: #FFFFFF; -fx-text-fill: #444444; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 8 18 8 18; -fx-cursor: hand;" text="Seminar">
+                                 <font><Font name="System Medium" size="14.0" /></font>
+                              </Button>
+                              <Button mnemonicParsing="false" style="-fx-background-color: #FFFFFF; -fx-text-fill: #444444; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 8 18 8 18; -fx-cursor: hand;" text="Festival">
+                                 <font><Font name="System Medium" size="14.0" /></font>
+                              </Button>
                            </children>
-                        </VBox>
-                        <VBox fillWidth="false" prefHeight="215.0" prefWidth="164.0" style="-fx-background-color: #ffffff; -fx-background-radius: 15; -fx-border-color: #e0e0e0; -fx-border-radius: 15;">
+                        </HBox>
+                        
+                        <TilePane hgap="15.0" prefColumns="4" prefWidth="850.0" vgap="15.0">
                            <children>
-                              <ImageView fitHeight="104.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true">
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                 </VBox.margin>
-                              </ImageView>
-                              <Label style="-fx-text-fill: #000000;" text="Event Name">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="16.0" layoutY="140.0" text="Date Event">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <HBox alignment="BOTTOM_RIGHT" fillHeight="false" prefHeight="19.0" prefWidth="162.0">
+                              
+                              <VBox prefHeight="265.0" prefWidth="201.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 12;">
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" style="-fx-background-radius: 10;" text="Time">
-                                       <HBox.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                    <Region prefHeight="45.0" prefWidth="30.0" />
-                                    <Button layoutX="106.0" layoutY="20.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" style="-fx-background-radius: 10;" text="Status">
-                                       <HBox.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </HBox.margin>
-                                    </Button>
+                                    <AnchorPane prefHeight="130.0" prefWidth="177.0" style="-fx-background-color: #F2F2F7; -fx-background-radius: 14;" />
+                                    <Label text="Event Name" textFill="#111111">
+                                       <font><Font name="System Bold" size="14.0" /></font>
+                                       <VBox.margin><Insets top="10.0" /></VBox.margin>
+                                    </Label>
+                                    <Label text="Date Event" textFill="#666666">
+                                       <font><Font size="12.0" /></font>
+                                       <VBox.margin><Insets bottom="6.0" top="2.0" /></VBox.margin>
+                                    </Label>
+                                    <HBox alignment="CENTER_LEFT" spacing="6.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <Button mnemonicParsing="false" style="-fx-background-color: #F5F5F7; -fx-text-fill: #444444; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 11;" text="19:00" />
+                                          <Button mnemonicParsing="false" style="-fx-background-color: #E5F9F0; -fx-text-fill: #00B074; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 11;" text="Success" />
+                                       </children>
+                                    </HBox>
                                  </children>
-                              </HBox>
-                           </children>
-                           <TilePane.margin>
-                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                           </TilePane.margin>
-                        </VBox>
-                        <VBox fillWidth="false" layoutX="224.0" layoutY="25.0" prefHeight="215.0" prefWidth="164.0" style="-fx-background-color: #ffffff; -fx-background-radius: 15; -fx-border-color: #e0e0e0; -fx-border-radius: 15;">
-                           <children>
-                              <ImageView fitHeight="104.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true">
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                 </VBox.margin>
-                              </ImageView>
-                              <Label style="-fx-text-fill: #000000;" text="Event Name">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="16.0" layoutY="140.0" text="Date Event">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <HBox alignment="BOTTOM_RIGHT" fillHeight="false" prefHeight="19.0" prefWidth="162.0">
+                              </VBox>
+                              
+                              <VBox prefHeight="265.0" prefWidth="201.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 12;">
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" style="-fx-background-radius: 10;" text="Time">
-                                       <HBox.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                    <Region prefHeight="45.0" prefWidth="30.0" />
-                                    <Button layoutX="106.0" layoutY="20.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" style="-fx-background-radius: 10;" text="Status">
-                                       <HBox.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </HBox.margin>
-                                    </Button>
+                                    <AnchorPane prefHeight="130.0" prefWidth="177.0" style="-fx-background-color: #F2F2F7; -fx-background-radius: 14;" />
+                                    <Label text="Event Name" textFill="#111111">
+                                       <font><Font name="System Bold" size="14.0" /></font>
+                                       <VBox.margin><Insets top="10.0" /></VBox.margin>
+                                    </Label>
+                                    <Label text="Date Event" textFill="#666666">
+                                       <font><Font size="12.0" /></font>
+                                       <VBox.margin><Insets bottom="6.0" top="2.0" /></VBox.margin>
+                                    </Label>
+                                    <HBox alignment="CENTER_LEFT" spacing="6.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <Button mnemonicParsing="false" style="-fx-background-color: #F5F5F7; -fx-text-fill: #444444; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 11;" text="15:00" />
+                                          <Button mnemonicParsing="false" style="-fx-background-color: #E5F9F0; -fx-text-fill: #00B074; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 11;" text="Success" />
+                                       </children>
+                                    </HBox>
                                  </children>
-                              </HBox>
-                           </children>
-                           <TilePane.margin>
-                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                           </TilePane.margin>
-                        </VBox>
-                        <VBox fillWidth="false" layoutX="423.0" layoutY="25.0" prefHeight="215.0" prefWidth="164.0" style="-fx-background-color: #ffffff; -fx-background-radius: 15; -fx-border-color: #e0e0e0; -fx-border-radius: 15;">
-                           <children>
-                              <ImageView fitHeight="104.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true">
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                 </VBox.margin>
-                              </ImageView>
-                              <Label style="-fx-text-fill: #000000;" text="Event Name">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="16.0" layoutY="140.0" text="Date Event">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <HBox alignment="BOTTOM_RIGHT" fillHeight="false" prefHeight="19.0" prefWidth="162.0">
+                              </VBox>
+                              
+                              <VBox prefHeight="265.0" prefWidth="201.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 12;">
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" style="-fx-background-radius: 10;" text="Time">
-                                       <HBox.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                    <Region prefHeight="45.0" prefWidth="30.0" />
-                                    <Button layoutX="106.0" layoutY="20.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" style="-fx-background-radius: 10;" text="Status">
-                                       <HBox.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </HBox.margin>
-                                    </Button>
+                                    <AnchorPane prefHeight="130.0" prefWidth="177.0" style="-fx-background-color: #F2F2F7; -fx-background-radius: 14;" />
+                                    <Label text="Event Name" textFill="#111111">
+                                       <font><Font name="System Bold" size="14.0" /></font>
+                                       <VBox.margin><Insets top="10.0" /></VBox.margin>
+                                    </Label>
+                                    <Label text="Date Event" textFill="#666666">
+                                       <font><Font size="12.0" /></font>
+                                       <VBox.margin><Insets bottom="6.0" top="2.0" /></VBox.margin>
+                                    </Label>
+                                    <HBox alignment="CENTER_LEFT" spacing="6.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <Button mnemonicParsing="false" style="-fx-background-color: #F5F5F7; -fx-text-fill: #444444; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 11;" text="13:00" />
+                                          <Button mnemonicParsing="false" style="-fx-background-color: #E5F9F0; -fx-text-fill: #00B074; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 11;" text="Success" />
+                                       </children>
+                                    </HBox>
                                  </children>
-                              </HBox>
+                              </VBox>
+                              
+                              <VBox prefHeight="265.0" prefWidth="201.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 12;">
+                                 <children>
+                                    <AnchorPane prefHeight="130.0" prefWidth="177.0" style="-fx-background-color: #F2F2F7; -fx-background-radius: 14;" />
+                                    <Label text="Event Name" textFill="#111111">
+                                       <font><Font name="System Bold" size="14.0" /></font>
+                                       <VBox.margin><Insets top="10.0" /></VBox.margin>
+                                    </Label>
+                                    <Label text="Date Event" textFill="#666666">
+                                       <font><Font size="12.0" /></font>
+                                       <VBox.margin><Insets bottom="6.0" top="2.0" /></VBox.margin>
+                                    </Label>
+                                    <HBox alignment="CENTER_LEFT" spacing="6.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <Button mnemonicParsing="false" style="-fx-background-color: #F5F5F7; -fx-text-fill: #444444; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 11;" text="20:00" />
+                                          <Button mnemonicParsing="false" style="-fx-background-color: #E5F9F0; -fx-text-fill: #00B074; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 11;" text="Success" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              
                            </children>
-                           <TilePane.margin>
-                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                           </TilePane.margin>
-                        </VBox>
+                        </TilePane>
+                        
                      </children>
-                  </TilePane>
-               </children>
-            </VBox>
-         </children></AnchorPane>
-  </content>
-</ScrollPane>
+                  </VBox>
+               </content>
+            </ScrollPane>
+            
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

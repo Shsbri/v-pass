@@ -6,79 +6,92 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tes.RegisterController">
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FAFAFA;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tes.RegisterController">
    <children>
-      <VBox alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="530.0" prefWidth="390.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-width: 1;">
+      
+      <VBox alignment="CENTER" fillWidth="false" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label text="REGIST V-PASS">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-               <VBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </VBox.margin>
-            </Label>
-            <VBox prefHeight="426.0" prefWidth="389.0">
+            
+            <VBox alignment="TOP_CENTER" prefWidth="440.0" spacing="12.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 24; -fx-border-color: #E5E5EA; -fx-border-radius: 24; -fx-padding: 35 40 35 40; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.03), 10, 0, 0, 5);">
                <children>
-                  <Label text="Name">
+                  
+                  <ImageView fx:id="imgLogoRegist" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                  
+                  <Label text="REGIST V-PASS" textFill="#111111">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="22.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtName" prefHeight="26.0" prefWidth="303.0" style="-fx-background-radius: 15;" />
-                  <Label text="Email">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="txtEmail" prefHeight="26.0" prefWidth="303.0" style="-fx-background-radius: 15;" />
-                  <Label text="Username">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="txtUsername" prefHeight="26.0" prefWidth="303.0" style="-fx-background-radius: 15;" />
-                  <Label text="Password">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <PasswordField fx:id="txtPassword" prefHeight="26.0" prefWidth="303.0" style="-fx-background-radius: 15;" />
-                  <Label text="Confirm Password">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <PasswordField fx:id="txtConfirm" prefHeight="26.0" prefWidth="303.0" style="-fx-background-radius: 15;" />
-                  <Label text="Pet Name">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="txtPet" prefHeight="26.0" prefWidth="303.0" style="-fx-background-radius: 15;" />
-                  <VBox alignment="CENTER" prefHeight="80.0" prefWidth="359.0" spacing="10.0">
+                  
+                  <VBox prefWidth="360.0" spacing="4.0">
                      <children>
-                        <Button fx:id="btnRegist" mnemonicParsing="false" onAction="#ActRegist" style="-fx-background-radius: 15;" text="Regist">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Button>
-                        <Hyperlink fx:id="linkToLogin" onAction="#handleGoToLogin" text="Sudah punya akun? Login" style="-fx-text-fill: #0078D7; -fx-font-weight: bold;" />
+                        <Label text="Name" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
+                        <TextField fx:id="txtName" prefHeight="36.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 10; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-padding: 0 12 0 12;" />
+                     </children>
+                  </VBox>
+                  
+                  <VBox prefWidth="360.0" spacing="4.0">
+                     <children>
+                        <Label text="Email" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
+                        <TextField fx:id="txtEmail" prefHeight="36.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 10; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-padding: 0 12 0 12;" />
+                     </children>
+                  </VBox>
+                  
+                  <VBox prefWidth="360.0" spacing="4.0">
+                     <children>
+                        <Label text="Username" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
+                        <TextField fx:id="txtUsername" prefHeight="36.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 10; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-padding: 0 12 0 12;" />
+                     </children>
+                  </VBox>
+                  
+                  <VBox prefWidth="360.0" spacing="4.0">
+                     <children>
+                        <Label text="Password" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
+                        <PasswordField fx:id="txtPassword" prefHeight="36.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 10; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-padding: 0 12 0 12;" />
+                     </children>
+                  </VBox>
+                  
+                  <VBox prefWidth="360.0" spacing="4.0">
+                     <children>
+                        <Label text="Confirm Password" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
+                        <PasswordField fx:id="txtConfirm" prefHeight="36.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 10; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-padding: 0 12 0 12;" />
+                     </children>
+                  </VBox>
+                  
+                  <VBox prefWidth="360.0" spacing="4.0">
+                     <children>
+                        <Label text="Pet Name (Security Question)" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
+                        <TextField fx:id="txtPet" prefHeight="36.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 10; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-padding: 0 12 0 12;" />
                      </children>
                      <VBox.margin>
-                        <Insets top="15.0" />
+                        <Insets bottom="5.0" />
                      </VBox.margin>
                   </VBox>
+                  
+                  <VBox alignment="CENTER" prefWidth="360.0" spacing="10.0">
+                     <children>
+                        <Button fx:id="btnRegist" mnemonicParsing="false" onAction="#ActRegist" prefHeight="42.0" prefWidth="360.0" style="-fx-background-color: linear-gradient(to right, #FF5E00, #A800FF); -fx-text-fill: white; -fx-background-radius: 12; -fx-cursor: hand;" text="REGISTER">
+                           <font><Font name="System Bold" size="15.0" /></font>
+                        </Button>
+                        <Hyperlink fx:id="linkToLogin" onAction="#handleGoToLogin" text="Sudah punya akun? Login" style="-fx-text-fill: #A800FF; -fx-font-weight: bold;" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </VBox>
+                  
                </children>
-               <VBox.margin>
-                  <Insets left="15.0" right="15.0" />
-               </VBox.margin>
             </VBox>
          </children>
       </VBox>
+      
    </children>
 </AnchorPane>
