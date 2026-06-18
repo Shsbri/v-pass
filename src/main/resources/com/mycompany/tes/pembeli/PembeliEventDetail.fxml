@@ -12,61 +12,60 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 24; -fx-border-radius: 24; -fx-border-color: #E5E5EA; -fx-border-width: 1;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tes.pembeli.PembeliEventDetailController">
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="620.0" style="-fx-background-color: #FAFAFA;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tes.pembeli.PembeliEventDetailController">
    <children>
-      <VBox prefHeight="700.0" prefWidth="600.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox prefHeight="700.0" prefWidth="620.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <padding>
             <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
          </padding>
          <children>
             
-            <AnchorPane minHeight="240.0" prefHeight="240.0" prefWidth="550.0" style="-fx-background-color: #F2F2F7; -fx-background-radius: 16; -fx-border-color: #E5E5EA; -fx-border-radius: 16;">
+            <VBox spacing="16.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 24; -fx-border-color: #E5E5EA; -fx-border-radius: 24; -fx-padding: 20;" VBox.vgrow="ALWAYS">
                <children>
-                  <ImageView fx:id="imgEventBanner" fitHeight="240.0" fitWidth="550.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-               </children>
-            </AnchorPane>
-            
-            <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-padding: 0;" VBox.vgrow="ALWAYS">
-               <content>
-                  <VBox spacing="16.0">
+                  
+                  <AnchorPane minHeight="240.0" prefHeight="240.0" style="-fx-background-color: #F2F2F7; -fx-background-radius: 16; -fx-border-color: #E5E5EA; -fx-border-radius: 16;">
                      <children>
-                        
-                        <VBox spacing="4.0">
-                           <children>
-                              <Label fx:id="lblEventName" text="EVENT NAME" textFill="#111111">
-                                 <font><Font name="System Bold" size="26.0" /></font>
-                              </Label>
-                              <Label fx:id="lblEventDate" text="Date Event" textFill="#666666">
-                                 <font><Font size="15.0" /></font>
-                              </Label>
-                              <Label fx:id="lblPricePerTicket" text="Rp 0 / ticket" textFill="#FF5E00">
-                                 <font><Font name="System Bold" size="16.0" /></font>
-                                 <VBox.margin><Insets top="4.0" /></VBox.margin>
-                              </Label>
-                           </children>
-                        </VBox>
-                        
-                        <AnchorPane prefHeight="1.0" style="-fx-background-color: #E5E5EA;" />
-                        
-                        <VBox spacing="8.0">
+                        <ImageView fx:id="imgEventBanner" fitHeight="240.0" fitWidth="528.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  
+                  <VBox spacing="4.0">
+                     <children>
+                        <Label fx:id="lblEventName" text="EVENT NAME" textFill="#111111">
+                           <font><Font name="System Bold" size="26.0" /></font>
+                        </Label>
+                        <Label fx:id="lblEventDate" text="Date Event" textFill="#666666">
+                           <font><Font size="15.0" /></font>
+                        </Label>
+                        <Label fx:id="lblPricePerTicket" text="Rp 0 / ticket" textFill="#FF5E00">
+                           <font><Font name="System Bold" size="16.0" /></font>
+                           <VBox.margin><Insets top="4.0" /></VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  
+                  <AnchorPane prefHeight="1.0" style="-fx-background-color: #E5E5EA;" />
+                  
+                  <ScrollPane fitToWidth="true" style="-fx-background: #FFFFFF; -fx-background-color: #FFFFFF; -fx-background-insets: 0; -fx-padding: 0;" VBox.vgrow="ALWAYS">
+                     <content>
+                        <VBox style="-fx-background-color: #FFFFFF;">
                            <children>
                               <Label text="Description" textFill="#111111">
                                  <font><Font name="System Bold" size="16.0" /></font>
+                                 <VBox.margin><Insets bottom="8.0" /></VBox.margin>
                               </Label>
                               <Label fx:id="lblEventDescription" text="Event description goes here..." textFill="#444444" wrapText="true">
                                  <font><Font size="14.0" /></font>
                               </Label>
                            </children>
                         </VBox>
-                        
-                     </children>
-                  </VBox>
-               </content>
-            </ScrollPane>
+                     </content>
+                  </ScrollPane>
+                  
+               </children>
+            </VBox>
             
-            <AnchorPane prefHeight="1.0" style="-fx-background-color: #E5E5EA;" />
-            
-            <VBox spacing="14.0">
+            <VBox spacing="14.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 24; -fx-border-color: #E5E5EA; -fx-border-radius: 24; -fx-padding: 20;">
                <children>
                   
                   <HBox alignment="CENTER_LEFT">
@@ -97,6 +96,8 @@
                         </HBox>
                      </children>
                   </HBox>
+                  
+                  <AnchorPane prefHeight="1.0" style="-fx-background-color: #E5E5EA;" />
                   
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0">
                      <children>
