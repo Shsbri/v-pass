@@ -1,7 +1,8 @@
 package com.mycompany.tes.components;
 
 import com.mycompany.tes.App;
-import com.mycompany.tes.SesiPengguna; // Impor jembatan sesi global
+import com.mycompany.tes.SesiPengguna;
+import java.io.File;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -16,10 +17,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-/**
- * FXML Controller class untuk Komponen Sidebar Navigasi Pembeli
- * @author Ahmad
- */
 public class NavbarPembeliController implements Initializable {
 
     @FXML private Button btnHome;
@@ -31,32 +28,40 @@ public class NavbarPembeliController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            Image imageAsset = new Image(getClass().getResourceAsStream("/com/mycompany/tes/images/logo.png"));
-            imgLogo.setImage(imageAsset);
+            File fileLogo = new File("images/logo.png");
+            if (fileLogo.exists()) {
+                imgLogo.setImage(new Image(fileLogo.toURI().toString()));
+            }
         } catch (Exception e) {
             System.out.println("Aset logo belum diletakkan di folder images.");
         }
 
         Platform.runLater(() -> {
-            if (url != null) {
-                String pathFile = url.toString().toLowerCase();
+            try {
                 resetSemuaTombol();
                 
-                if (pathFile.contains("homepage")) {
-                    setTombolAktif(btnHome);
-                } else if (pathFile.contains("myticket")) {
-                    setTombolAktif(btnTicket);
-                } else if (pathFile.contains("history")) {
-                    setTombolAktif(btnHistory);
-                } else if (pathFile.contains("profile")) {
-                    setTombolAktif(btnProfile);
+                String currentRoot = App.getCurrentRoot(); 
+                if (currentRoot != null) {
+                    String page = currentRoot.toLowerCase();
+                    
+                    if (page.contains("homepage")) {
+                        setTombolAktif(btnHome);
+                    } else if (page.contains("ticket")) {
+                        setTombolAktif(btnTicket);
+                    } else if (page.contains("history")) {
+                        setTombolAktif(btnHistory);
+                    } else if (page.contains("profile")) {
+                        setTombolAktif(btnProfile);
+                    }
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         });
     }
 
     private void resetSemuaTombol() {
-        String stylePasif = "-fx-background-color: transparent; -fx-text-fill: #666666;";
+        String stylePasif = "-fx-background-color: transparent; -fx-text-fill: #666666; -fx-font-weight: normal;";
         btnHome.setStyle(stylePasif);
         btnTicket.setStyle(stylePasif);
         btnHistory.setStyle(stylePasif);
@@ -72,32 +77,23 @@ public class NavbarPembeliController implements Initializable {
     @FXML private void keHistory(ActionEvent event) { try { App.setRoot("pembeli/PembeliHistory"); } catch (Exception e) {} }
     @FXML private void keProfile(ActionEvent event) { try { App.setRoot("pembeli/PembeliProfile"); } catch (Exception e) {} }
 
-    // 🎯 FUNGSI LOGOUT DENGAN KONFIRMASI TERLEBIH DAHULU
     @FXML
     private void onLogoutClick(ActionEvent event) {
-        // 1. Membuat pop-up konfirmasi
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Konfirmasi Logout");
         alert.setHeaderText("Apakah Anda yakin ingin keluar?");
         alert.setContentText("Sesi Anda akan dihapus dan Anda harus login kembali.");
 
-        // 2. Menunggu respon/pilihan dari pengguna (OK / Cancel)
         Optional<ButtonType> result = alert.showAndWait();
         
         if (result.isPresent() && result.get() == ButtonType.OK) {
             try {
-                // Bersihkan token username yang tersimpan di sistem
                 SesiPengguna.clearSesi();
-                
-                // Tendang balik ke pintu utama (Halaman Login)
                 App.setRoot("Login");
             } catch (java.io.IOException e) {
                 System.out.println("Gagal memuat ulang halaman Login.fxml");
                 e.printStackTrace();
             }
-        } else {
-            // Jika memilih Cancel, pop-up akan tertutup dan pengguna tetap di halaman semula
-            System.out.println("Logout dibatalkan oleh pengguna.");
         }
-    }
+    } 
 }

@@ -1,6 +1,7 @@
 package com.mycompany.tes;
 
 import com.mycompany.tes.App;
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -15,10 +16,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import com.mycompany.tes.KoneksiDB; 
 
-/**
- * FXML Controller class untuk Halaman Registrasi
- * @author Ahmad & Yulio
- */
 public class RegisterController implements Initializable {
 
     @FXML private TextField txtName;
@@ -33,8 +30,10 @@ public class RegisterController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            Image logoAsset = new Image(getClass().getResourceAsStream("/com/mycompany/tes/images/logo.png"));
-            imgLogoRegist.setImage(logoAsset);
+            File fileLogo = new File("images/logo.png");
+            if (fileLogo.exists()) {
+                imgLogoRegist.setImage(new Image(fileLogo.toURI().toString()));
+            }
         } catch (Exception e) {
             System.out.println("Aset logo belum ditemukan di folder images.");
         }

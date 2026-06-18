@@ -2,6 +2,7 @@ package com.mycompany.tes.components;
 
 import com.mycompany.tes.App;
 import com.mycompany.tes.SesiPengguna;
+import java.io.File;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -16,10 +17,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-/**
- * FXML Controller class untuk Komponen Sidebar Navigasi Admin
- * @author Ahmad
- */
 public class NavbarAdminController implements Initializable {
 
     @FXML private Button btnEventList;
@@ -32,8 +29,10 @@ public class NavbarAdminController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            Image logoAsset = new Image(getClass().getResourceAsStream("/com/mycompany/tes/images/logo.png"));
-            imgLogo.setImage(logoAsset);
+            File fileLogo = new File("images/logo.png");
+            if (fileLogo.exists()) {
+                imgLogo.setImage(new Image(fileLogo.toURI().toString()));
+            }
         } catch (Exception e) {
             System.out.println("Aset logo belum diletakkan di folder images.");
         }
@@ -51,13 +50,15 @@ public class NavbarAdminController implements Initializable {
                    setTombolAktif(btnTransactionList);
                } else if (pathFile.contains("admincustomerlist")) {
                    setTombolAktif(btnCustomerList);
+               } else if (pathFile.contains("adminprofile")) {
+                   setTombolAktif(btnProfile);
                }
             }
         });
     }    
 
     private void resetStyleTombol() {
-        String pasif = "-fx-background-color: transparent; -fx-text-fill: #666666;";
+        String pasif = "-fx-background-color: transparent; -fx-text-fill: #666666; -fx-font-weight: normal;";
         btnEventList.setStyle(pasif);
         btnVerification.setStyle(pasif);
         btnTransactionList.setStyle(pasif);

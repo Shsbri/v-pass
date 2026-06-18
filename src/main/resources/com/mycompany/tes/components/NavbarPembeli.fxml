@@ -31,8 +31,8 @@
       
       <Line endX="160.0" stroke="#F0F0F0" />
       
-      <Button fx:id="btnHome" mnemonicParsing="false" onAction="#keHomepage" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #111111; -fx-background-radius: 12; -fx-text-fill: white; -fx-cursor: hand;" text="Homepage">
-         <font><Font name="System Bold" size="14.0" /></font>
+      <Button fx:id="btnHome" mnemonicParsing="false" onAction="#keHomepage" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #666666; -fx-cursor: hand;" text="Homepage">
+         <font><Font name="System Medium" size="14.0" /></font>
       </Button>
       
       <Button fx:id="btnTicket" mnemonicParsing="false" onAction="#keMyTicket" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #666666; -fx-cursor: hand;" text="My Ticket">
@@ -47,7 +47,7 @@
       
       <Line endX="160.0" stroke="#F0F0F0" />
       
-      <Button fx:id="btnProfile" mnemonicParsing="false" onAction="#keProfile" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #333333; -fx-cursor: hand;" text="Profile">
+      <Button fx:id="btnProfile" mnemonicParsing="false" onAction="#keProfile" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #666666; -fx-cursor: hand;" text="Profile">
          <font><Font name="System Medium" size="14.0" /></font>
       </Button>
       
