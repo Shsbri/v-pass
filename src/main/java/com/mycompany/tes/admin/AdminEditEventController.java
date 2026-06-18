@@ -22,6 +22,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 
@@ -31,6 +32,7 @@ public class AdminEditEventController implements Initializable {
 
     @FXML private TextField txtEventName;
     @FXML private ComboBox<String> cmbCategory;
+    @FXML private TextArea txtDescription;
     @FXML private TextField txtPrice;
     @FXML private TextField txtStock;
     @FXML private DatePicker dtEventDate;
@@ -65,6 +67,7 @@ public class AdminEditEventController implements Initializable {
                 if (rs.next()) {
                     txtEventName.setText(rs.getString("nama_event"));
                     cmbCategory.setValue(rs.getString("kategori_event"));
+                    txtDescription.setText(rs.getString("deskripsi_event"));
                     txtPrice.setText(String.valueOf(rs.getInt("harga_tiket")));
                     txtStock.setText(String.valueOf(rs.getInt("stok_tiket")));
                     dtEventDate.setValue(rs.getDate("tanggal_event").toLocalDate());
@@ -91,20 +94,24 @@ public class AdminEditEventController implements Initializable {
     private void eksekusiUpdateEvent() {
         String namaEvent = txtEventName.getText().trim();
         String kategori = cmbCategory.getValue();
+        String deskripsi = txtDescription.getText().trim();
         String hargaRaw = txtPrice.getText().trim();
         String stokRaw = txtStock.getText().trim();
         LocalDate tanggal = dtEventDate.getValue();
         String namaGambar = txtImageName.getText().trim();
         String status = cmbStatus.getValue();
 
-        if (namaEvent.isEmpty() || kategori == null || hargaRaw.isEmpty() || stokRaw.isEmpty() || tanggal == null || namaGambar.isEmpty() || status == null) {
+        if (namaEvent.isEmpty() || kategori == null || deskripsi.isEmpty() || hargaRaw.isEmpty() || stokRaw.isEmpty() || tanggal == null || namaGambar.isEmpty() || status == null) {
             tampilkanAlert(AlertType.WARNING, "Peringatan", "Data Kosong", "Semua kolom form wajib diisi!");
             return;
         }
 
         if (fileGambarTerpilih != null) {
             try {
-                File folderTujuan = new File("src/main/resources/com/mycompany/tes/images/");
+                File folderTujuan = new File("images/");
+                if (!folderTujuan.exists()) {
+                    folderTujuan.mkdirs();
+                }
                 File fileTujuan = new File(folderTujuan, fileGambarTerpilih.getName());
                 Files.copy(fileGambarTerpilih.toPath(), fileTujuan.toPath(), StandardCopyOption.REPLACE_EXISTING);
             } catch (Exception e) {
@@ -112,19 +119,20 @@ public class AdminEditEventController implements Initializable {
             }
         }
 
-        String sql = "UPDATE tb_event SET nama_event=?, kategori_event=?, harga_tiket=?, stok_tiket=?, tanggal_event=?, status_event=?, gambar_event=? WHERE id_event=?";
+        String sql = "UPDATE tb_event SET nama_event=?, kategori_event=?, deskripsi_event=?, harga_tiket=?, stok_tiket=?, tanggal_event=?, status_event=?, gambar_event=? WHERE id_event=?";
 
         try (Connection conn = KoneksiDB.getKoneksi();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             
             ps.setString(1, namaEvent);
             ps.setString(2, kategori);
-            ps.setInt(3, Integer.parseInt(hargaRaw));
-            ps.setInt(4, Integer.parseInt(stokRaw));
-            ps.setDate(5, Date.valueOf(tanggal));
-            ps.setString(6, status);
-            ps.setString(7, namaGambar);
-            ps.setInt(8, idEventDipilih);
+            ps.setString(3, deskripsi);
+            ps.setInt(4, Integer.parseInt(hargaRaw));
+            ps.setInt(5, Integer.parseInt(stokRaw));
+            ps.setDate(6, Date.valueOf(tanggal));
+            ps.setString(7, status);
+            ps.setString(8, namaGambar);
+            ps.setInt(9, idEventDipilih);
             
             int hasil = ps.executeUpdate();
             if (hasil > 0) {

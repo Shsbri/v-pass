@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -21,75 +22,84 @@
             <VBox alignment="CENTER" fillWidth="false" prefHeight="720.0" prefWidth="1040.0" HBox.hgrow="ALWAYS">
                <children>
                   
-                  <VBox alignment="TOP_CENTER" prefWidth="460.0" spacing="14.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 24; -fx-border-color: #E5E5EA; -fx-border-radius: 24; -fx-padding: 35 40 35 40; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.03), 10, 0, 0, 5);">
+                  <VBox alignment="TOP_CENTER" prefWidth="480.0" spacing="12.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 24; -fx-border-color: #E5E5EA; -fx-border-radius: 24; -fx-padding: 25 40 25 40; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.03), 10, 0, 0, 5));">
                      <children>
                         
                         <Label text="EDIT EVENT" textFill="#111111">
                            <font><Font name="System Bold" size="22.0" /></font>
-                           <VBox.margin><Insets bottom="10.0" /></VBox.margin>
+                           <VBox.margin><Insets bottom="5.0" /></VBox.margin>
                         </Label>
                         
-                        <VBox prefWidth="380.0" spacing="4.0">
+                        <VBox prefWidth="400.0" spacing="4.0">
                            <children>
                               <Label text="Event Name" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
                               <TextField fx:id="txtEventName" prefHeight="36.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 10; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-padding: 0 12 0 12;" />
                            </children>
                         </VBox>
                         
-                        <VBox prefWidth="380.0" spacing="4.0">
+                        <VBox prefWidth="400.0" spacing="4.0">
                            <children>
                               <Label text="Event Category" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
-                              <ComboBox fx:id="cmbCategory" prefHeight="36.0" prefWidth="380.0" promptText="Select Category" style="-fx-background-color: #FAFAFA; -fx-background-radius: 10; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-padding: 0 5 0 5;" />
+                              <ComboBox fx:id="cmbCategory" prefHeight="36.0" prefWidth="400.0" promptText="Select Category" style="-fx-background-color: #FAFAFA; -fx-background-radius: 10; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-padding: 0 5 0 5;" />
                            </children>
                         </VBox>
                         
-                        <VBox prefWidth="380.0" spacing="4.0">
+                        <VBox prefWidth="400.0" spacing="4.0">
                            <children>
-                              <Label text="Ticket Price (IDR)" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
-                              <TextField fx:id="txtPrice" prefHeight="36.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 10; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-padding: 0 12 0 12;" />
+                              <Label text="Event Description" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
+                              <TextArea fx:id="txtDescription" prefHeight="100.0" prefWidth="400.0" wrapText="true" style="-fx-text-box-border: #E5E5EA; -fx-control-inner-background: #FAFAFA; -fx-background-color: #FAFAFA; -fx-background-radius: 10; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-padding: 2;" />
                            </children>
                         </VBox>
                         
-                        <VBox prefWidth="380.0" spacing="4.0">
+                        <HBox prefWidth="400.0" spacing="15.0">
                            <children>
-                              <Label text="Ticket Stock" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
-                              <TextField fx:id="txtStock" prefHeight="36.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 10; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-padding: 0 12 0 12;" />
+                              <VBox HBox.hgrow="ALWAYS" spacing="4.0">
+                                 <children>
+                                    <Label text="Ticket Price (IDR)" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
+                                    <TextField fx:id="txtPrice" prefHeight="36.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 10; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-padding: 0 12 0 12;" />
+                                 </children>
+                              </VBox>
+                              <VBox HBox.hgrow="ALWAYS" spacing="4.0">
+                                 <children>
+                                    <Label text="Ticket Stock" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
+                                    <TextField fx:id="txtStock" prefHeight="36.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 10; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-padding: 0 12 0 12;" />
+                                 </children>
+                              </VBox>
                            </children>
-                        </VBox>
+                        </HBox>
                         
-                        <VBox prefWidth="380.0" spacing="4.0">
+                        <VBox prefWidth="400.0" spacing="4.0">
                            <children>
                               <Label text="Event Date" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
-                              <DatePicker fx:id="dtEventDate" prefHeight="36.0" prefWidth="380.0" style="-fx-background-color: #FAFAFA; -fx-control-inner-background: #FAFAFA; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-background-radius: 10;" />
+                              <DatePicker fx:id="dtEventDate" prefHeight="36.0" prefWidth="400.0" style="-fx-background-color: #FAFAFA; -fx-control-inner-background: #FAFAFA; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-background-radius: 10;" />
                            </children>
                         </VBox>
 
-                        <VBox prefWidth="380.0" spacing="4.0">
+                        <VBox prefWidth="400.0" spacing="4.0">
                            <children>
                               <Label text="Event Banner Image" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
                               <HBox spacing="10.0">
                                  <children>
-                                    <TextField fx:id="txtImageName" editable="false" prefHeight="36.0" prefWidth="260.0" promptText="No file chosen" style="-fx-background-color: #FAFAFA; -fx-background-radius: 10; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-padding: 0 12 0 12;" />
+                                    <TextField fx:id="txtImageName" editable="false" prefHeight="36.0" prefWidth="280.0" promptText="No file chosen" style="-fx-background-color: #FAFAFA; -fx-background-radius: 10; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-padding: 0 12 0 12;" />
                                     <Button fx:id="btnBrowse" mnemonicParsing="false" prefHeight="36.0" prefWidth="110.0" style="-fx-background-color: #E5E5EA; -fx-text-fill: #111111; -fx-background-radius: 10; -fx-font-weight: bold; -fx-cursor: hand;" text="Browse..." />
                                  </children>
                               </HBox>
                            </children>
                         </VBox>
                         
-                        <VBox prefWidth="380.0" spacing="4.0">
+                        <VBox prefWidth="400.0" spacing="4.0">
                            <children>
                               <Label text="Event Status" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
-                              <ComboBox fx:id="cmbStatus" prefHeight="36.0" prefWidth="380.0" promptText="Select Status" style="-fx-background-color: #FAFAFA; -fx-background-radius: 10; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-padding: 0 5 0 5;" />
+                              <ComboBox fx:id="cmbStatus" prefHeight="36.0" prefWidth="400.0" promptText="Select Status" style="-fx-background-color: #FAFAFA; -fx-background-radius: 10; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-padding: 0 5 0 5;" />
                            </children>
-                           <VBox.margin><Insets bottom="5.0" /></VBox.margin>
                         </VBox>
                         
-                        <VBox alignment="CENTER" prefWidth="380.0" spacing="10.0">
+                        <VBox alignment="CENTER" prefWidth="400.0" spacing="8.0">
                            <children>
-                              <Button fx:id="btnUpdate" mnemonicParsing="false" prefHeight="42.0" prefWidth="380.0" style="-fx-background-color: #111111; -fx-text-fill: white; -fx-background-radius: 12; -fx-cursor: hand; -fx-font-weight: bold;" text="UPDATE EVENT" />
-                              <Button mnemonicParsing="false" onAction="#kembaliKeEventList" prefHeight="30.0" prefWidth="380.0" style="-fx-background-color: transparent; -fx-text-fill: #666666; -fx-cursor: hand; -fx-font-weight: bold;" text="Cancel" />
+                              <Button fx:id="btnUpdate" mnemonicParsing="false" prefHeight="42.0" prefWidth="400.0" style="-fx-background-color: #111111; -fx-text-fill: white; -fx-background-radius: 12; -fx-cursor: hand; -fx-font-weight: bold;" text="UPDATE EVENT" />
+                              <Button mnemonicParsing="false" onAction="#kembaliKeEventList" prefHeight="26.0" prefWidth="400.0" style="-fx-background-color: transparent; -fx-text-fill: #666666; -fx-cursor: hand; -fx-font-weight: bold;" text="Cancel" />
                            </children>
-                           <VBox.margin><Insets top="10.0" /></VBox.margin>
+                           <VBox.margin><Insets top="5.0" /></VBox.margin>
                         </VBox>
                         
                      </children>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 24; -fx-border-radius: 24; -fx-border-color: #E5E5EA; -fx-border-width: 1;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tes.pembeli.PembeliEventDetailController">
+   <children>
+      <VBox prefHeight="700.0" prefWidth="600.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <padding>
+            <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
+         </padding>
+         <children>
+            
+            <AnchorPane minHeight="240.0" prefHeight="240.0" prefWidth="550.0" style="-fx-background-color: #F2F2F7; -fx-background-radius: 16; -fx-border-color: #E5E5EA; -fx-border-radius: 16;">
+               <children>
+                  <ImageView fx:id="imgEventBanner" fitHeight="240.0" fitWidth="550.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            
+            <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-padding: 0;" VBox.vgrow="ALWAYS">
+               <content>
+                  <VBox spacing="16.0">
+                     <children>
+                        
+                        <VBox spacing="4.0">
+                           <children>
+                              <Label fx:id="lblEventName" text="EVENT NAME" textFill="#111111">
+                                 <font><Font name="System Bold" size="26.0" /></font>
+                              </Label>
+                              <Label fx:id="lblEventDate" text="Date Event" textFill="#666666">
+                                 <font><Font size="15.0" /></font>
+                              </Label>
+                              <Label fx:id="lblPricePerTicket" text="Rp 0 / ticket" textFill="#FF5E00">
+                                 <font><Font name="System Bold" size="16.0" /></font>
+                                 <VBox.margin><Insets top="4.0" /></VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        
+                        <AnchorPane prefHeight="1.0" style="-fx-background-color: #E5E5EA;" />
+                        
+                        <VBox spacing="8.0">
+                           <children>
+                              <Label text="Description" textFill="#111111">
+                                 <font><Font name="System Bold" size="16.0" /></font>
+                              </Label>
+                              <Label fx:id="lblEventDescription" text="Event description goes here..." textFill="#444444" wrapText="true">
+                                 <font><Font size="14.0" /></font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+            
+            <AnchorPane prefHeight="1.0" style="-fx-background-color: #E5E5EA;" />
+            
+            <VBox spacing="14.0">
+               <children>
+                  
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <VBox spacing="2.0">
+                           <children>
+                              <Label text="Quantity" textFill="#444444">
+                                 <font><Font name="System Bold" size="14.0" /></font>
+                              </Label>
+                              <Label text="Maximum 10 tickets per transaction" textFill="#8E8E93">
+                                 <font><Font size="12.0" /></font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <HBox alignment="CENTER" spacing="15.0">
+                           <children>
+                              <Button fx:id="btnMinus" mnemonicParsing="false" onAction="#handleMinus" prefHeight="36.0" prefWidth="36.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E5EA; -fx-border-radius: 50; -fx-background-radius: 50; -fx-cursor: hand;" text="-" textFill="#111111">
+                                 <font><Font name="System Bold" size="16.0" /></font>
+                              </Button>
+                              <Label fx:id="lblQuantity" text="1" textFill="#111111">
+                                 <font><Font name="System Bold" size="18.0" /></font>
+                              </Label>
+                              <Button fx:id="btnPlus" mnemonicParsing="false" onAction="#handlePlus" prefHeight="36.0" prefWidth="36.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E5EA; -fx-border-radius: 50; -fx-background-radius: 50; -fx-cursor: hand;" text="+" textFill="#111111">
+                                 <font><Font name="System Bold" size="16.0" /></font>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" spacing="2.0">
+                           <children>
+                              <Label text="Total Price" textFill="#666666">
+                                 <font><Font size="13.0" /></font>
+                              </Label>
+                              <Label fx:id="lblTotalPrice" text="Rp 0" textFill="#111111">
+                                 <font><Font name="System Bold" size="22.0" /></font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="btnBuy" mnemonicParsing="false" onAction="#handleBuy" prefHeight="46.0" prefWidth="140.0" style="-fx-background-color: linear-gradient(to right, #FF5E00, #A800FF); -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold; -fx-cursor: hand;" text="Buy Ticket">
+                           <font><Font size="15.0" /></font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  
+               </children>
+            </VBox>
+            
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
