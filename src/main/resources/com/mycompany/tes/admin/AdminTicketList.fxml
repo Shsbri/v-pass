@@ -5,13 +5,14 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FAFAFA;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tes.admin.AdminEventListController">
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FAFAFA;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tes.admin.AdminTicketListController">
    <children>
       <HBox prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -26,30 +27,35 @@
                      </padding>
                      <children>
                         
-                        <Label text="Management Event" textFill="#111111">
-                           <font><Font name="System Bold" size="28.0" /></font>
-                        </Label>
-                        
-                        <HBox alignment="CENTER_LEFT" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" prefWidth="960.0" spacing="15.0">
+                        <HBox alignment="CENTER_LEFT">
                            <children>
-                              <ComboBox fx:id="cmbTime" onAction="#handleFilter" maxHeight="38.0" minHeight="38.0" prefHeight="38.0" prefWidth="140.0" promptText="All Time" style="-fx-background-color: #FFFFFF; -fx-background-radius: 12; -fx-border-color: #E5E5EA; -fx-border-radius: 12; -fx-padding: 0 5 0 5; -fx-cursor: hand;" />
-                              <ComboBox fx:id="cmbCategory" onAction="#handleFilter" maxHeight="38.0" minHeight="38.0" prefHeight="38.0" prefWidth="140.0" promptText="All Category" style="-fx-background-color: #FFFFFF; -fx-background-radius: 12; -fx-border-color: #E5E5EA; -fx-border-radius: 12; -fx-padding: 0 5 0 5; -fx-cursor: hand;" />
+                              <Label text="Ticket Master List" textFill="#111111">
+                                 <font><Font name="System Bold" size="28.0" /></font>
+                              </Label>
                               <Region HBox.hgrow="ALWAYS" />
-                              <Button maxHeight="40.0" minHeight="40.0" mnemonicParsing="false" onAction="#keFormAddEvent" prefHeight="40.0" style="-fx-background-color: linear-gradient(to right, #FF5E00, #A800FF); -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold; -fx-cursor: hand; -fx-padding: 0 22 0 22;" text="+ Add Event">
-                                 <font><Font size="14.0" /></font>
-                              </Button>
+                              <Label fx:id="lblSummaryStat" text="Checked-In: 0 / 0 Tickets" textFill="#666666">
+                                 <font><Font name="System Bold" size="14.0" /></font>
+                              </Label>
                            </children>
                         </HBox>
                         
-                        <VBox prefWidth="960.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.02), 15, 0, 0, 5); -fx-overflow: hidden;">
+                        <HBox alignment="CENTER_LEFT" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" prefWidth="960.0" spacing="15.0">
+                           <children>
+                              <ComboBox fx:id="cmbStatusFilter" onAction="#handleFilter" maxHeight="38.0" minHeight="38.0" prefHeight="38.0" prefWidth="160.0" promptText="All Status" style="-fx-background-color: #FFFFFF; -fx-background-radius: 12; -fx-border-color: #E5E5EA; -fx-border-radius: 12; -fx-padding: 0 5 0 5; -fx-cursor: hand;" />
+                              <TextField fx:id="txtSearch" prefHeight="38.0" prefWidth="260.0" promptText="Search Ticket Code (VPASS-)..." style="-fx-background-color: #FFFFFF; -fx-background-radius: 12; -fx-border-color: #E5E5EA; -fx-border-radius: 12; -fx-padding: 0 12 0 12;" />
+                              <Button fx:id="btnSearch" onAction="#handleFilter" maxHeight="38.0" prefHeight="38.0" style="-fx-background-color: #111111; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold; -fx-cursor: hand; -fx-padding: 0 18 0 18;" text="Search" />
+                           </children>
+                        </HBox>
+                        
+                        <VBox prefWidth="960.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.02), 15, 0, 0, 5);">
                            <children>
                               <HBox alignment="CENTER_LEFT" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" style="-fx-background-color: #FAFAFA; -fx-padding: 0 25 0 25; -fx-border-color: #E5E5EA; -fx-border-width: 0 0 1 0; -fx-background-radius: 20 20 0 0;">
                                  <children>
-                                    <Label style="-fx-font-weight: bold;" text="Event List" textFill="#111111"><font><Font size="15.0" /></font></Label>
+                                    <Label style="-fx-font-weight: bold;" text="Issued Tickets Archive" textFill="#111111"><font><Font size="15.0" /></font></Label>
                                  </children>
                               </HBox>
                               
-                              <VBox fx:id="containerEvent" />
+                              <VBox fx:id="vboxTicketContainer" style="-fx-background-color: #FFFFFF; -fx-background-radius: 0 0 20 20;" />
                            </children>
                         </VBox>
                         
@@ -67,4 +73,4 @@
          </children>
       </HBox>
    </children>
-</AnchorPane>
+</AnchorPane> 

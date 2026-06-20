@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -32,73 +33,38 @@
                         
                         <HBox alignment="CENTER_LEFT" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" prefWidth="960.0" spacing="15.0">
                            <children>
-                              <ComboBox maxHeight="38.0" minHeight="38.0" prefHeight="38.0" prefWidth="140.0" promptText="All Time" style="-fx-background-color: #FFFFFF; -fx-background-radius: 12; -fx-border-color: #E5E5EA; -fx-border-radius: 12; -fx-padding: 0 5 0 5; -fx-cursor: hand;" />
+                              <ComboBox fx:id="cmbTimeFilter" onAction="#handleFilter" maxHeight="38.0" minHeight="38.0" prefHeight="38.0" prefWidth="140.0" promptText="All Time" style="-fx-background-color: #FFFFFF; -fx-background-radius: 12; -fx-border-color: #E5E5EA; -fx-border-radius: 12; -fx-padding: 0 5 0 5; -fx-cursor: hand;" />
+                              <TextField fx:id="txtSearch" prefHeight="38.0" prefWidth="240.0" promptText="Search Username or INV-XXXXXX..." style="-fx-background-color: #FFFFFF; -fx-background-radius: 12; -fx-border-color: #E5E5EA; -fx-border-radius: 12; -fx-padding: 0 12 0 12;" />
+                              <Button fx:id="btnSearch" onAction="#handleFilter" maxHeight="38.0" prefHeight="38.0" style="-fx-background-color: #111111; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold; -fx-cursor: hand; -fx-padding: 0 18 0 18;" text="Search" />
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Button fx:id="btnExport" onAction="#handleExportExcel" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" style="-fx-background-color: #248A3D; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold; -fx-cursor: hand; -fx-padding: 0 22 0 22;" text="Export Excel">
+                                 <font><Font size="14.0" /></font>
+                              </Button>
                            </children>
                         </HBox>
                         
-                        <VBox prefWidth="960.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.02), 15, 0, 0, 5); -fx-overflow: hidden;">
+                        <VBox prefWidth="960.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.02), 15, 0, 0, 5);">
                            <children>
-                              
                               <HBox alignment="CENTER_LEFT" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" style="-fx-background-color: #FAFAFA; -fx-padding: 0 25 0 25; -fx-border-color: #E5E5EA; -fx-border-width: 0 0 1 0; -fx-background-radius: 20 20 0 0;">
                                  <children>
-                                    <Label style="-fx-font-weight: bold;" text="Transaction Archive" textFill="#111111">
-                                       <font><Font size="15.0" /></font>
-                                    </Label>
+                                    <Label style="-fx-font-weight: bold;" text="Transaction Archive" textFill="#111111"><font><Font size="15.0" /></font></Label>
                                  </children>
                               </HBox>
-                              
-                              <HBox alignment="CENTER_LEFT" maxHeight="65.0" minHeight="65.0" prefHeight="65.0" spacing="20.0" style="-fx-padding: 0 25 0 25; -fx-border-color: #F2F2F7; -fx-border-width: 0 0 1 0;">
-                                 <children>
-                                    <Label prefWidth="140.0" text="TRX-001" textFill="#666666"><font><Font name="System Medium" size="14.0" /></font></Label>
-                                    <Label prefWidth="140.0" text="USR-asda" textFill="#111111"><font><Font name="System Bold" size="14.0" /></font></Label>
-                                    <Label prefWidth="140.0" text="2 Tickets" textFill="#444444"><font><Font size="14.0" /></font></Label>
-                                    <Label prefWidth="140.0" text="IDR 3.000.000" textFill="#444444"><font><Font size="14.0" /></font></Label>
-                                    <Region HBox.hgrow="ALWAYS" />
-                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="95.0" style="-fx-background-color: #E5F9F0; -fx-background-radius: 10; -fx-text-fill: #00B074; -fx-font-weight: Bold; -fx-cursor: default;" text="Success" />
-                                 </children>
-                              </HBox>
-                              
-                              <HBox alignment="CENTER_LEFT" maxHeight="65.0" minHeight="65.0" prefHeight="65.0" spacing="20.0" style="-fx-padding: 0 25 0 25; -fx-border-color: #F2F2F7; -fx-border-width: 0 0 1 0;">
-                                 <children>
-                                    <Label prefWidth="140.0" text="TRX-002" textFill="#666666"><font><Font name="System Medium" size="14.0" /></font></Label>
-                                    <Label prefWidth="140.0" text="USR-budi" textFill="#111111"><font><Font name="System Bold" size="14.0" /></font></Label>
-                                    <Label prefWidth="140.0" text="1 Ticket" textFill="#444444"><font><Font size="14.0" /></font></Label>
-                                    <Label prefWidth="140.0" text="IDR 750.000" textFill="#444444"><font><Font size="14.0" /></font></Label>
-                                    <Region HBox.hgrow="ALWAYS" />
-                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="95.0" style="-fx-background-color: #E5F9F0; -fx-background-radius: 10; -fx-text-fill: #00B074; -fx-font-weight: Bold; -fx-cursor: default;" text="Success" />
-                                 </children>
-                              </HBox>
-                              
-                              <HBox alignment="CENTER_LEFT" maxHeight="65.0" minHeight="65.0" prefHeight="65.0" spacing="20.0" style="-fx-padding: 0 25 0 25; -fx-border-color: #F2F2F7; -fx-border-width: 0 0 1 0;">
-                                 <children>
-                                    <Label prefWidth="140.0" text="TRX-003" textFill="#666666"><font><Font name="System Medium" size="14.0" /></font></Label>
-                                    <Label prefWidth="140.0" text="USR-ahmad" textFill="#111111"><font><Font name="System Bold" size="14.0" /></font></Label>
-                                    <Label prefWidth="140.0" text="4 Tickets" textFill="#444444"><font><Font size="14.0" /></font></Label>
-                                    <Label prefWidth="140.0" text="IDR 2.000.000" textFill="#444444"><font><Font size="14.0" /></font></Label>
-                                    <Region HBox.hgrow="ALWAYS" />
-                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="95.0" style="-fx-background-color: #FFF2F2; -fx-background-radius: 10; -fx-text-fill: #FF3B30; -fx-font-weight: Bold; -fx-cursor: default;" text="Rejected" />
-                                 </children>
-                              </HBox>
-                              
-                              <HBox alignment="CENTER_LEFT" maxHeight="65.0" minHeight="65.0" prefHeight="65.0" spacing="20.0" style="-fx-padding: 0 25 0 25;">
-                                 <children>
-                                    <Label prefWidth="140.0" text="TRX-004" textFill="#666666"><font><Font name="System Medium" size="14.0" /></font></Label>
-                                    <Label prefWidth="140.0" text="USR-yulio" textFill="#111111"><font><Font name="System Bold" size="14.0" /></font></Label>
-                                    <Label prefWidth="140.0" text="2 Tickets" textFill="#444444"><font><Font size="14.0" /></font></Label>
-                                    <Label prefWidth="140.0" text="IDR 1.500.000" textFill="#444444"><font><Font size="14.0" /></font></Label>
-                                    <Region HBox.hgrow="ALWAYS" />
-                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="95.0" style="-fx-background-color: #F2F2F7; -fx-background-radius: 10; -fx-text-fill: #666666; -fx-font-weight: Bold; -fx-cursor: default;" text="Pending" />
-                                 </children>
-                              </HBox>
-                              
+                              <VBox fx:id="vboxArchiveContainer" style="-fx-background-color: #FFFFFF; -fx-background-radius: 0 0 20 20;" />
                            </children>
                         </VBox>
+                        
+                        <HBox alignment="CENTER" spacing="15.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#handlePreviousPage" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-background-radius: 10; -fx-text-fill: #444444; -fx-font-weight: bold; -fx-cursor: hand;" text="&lt; Previous" />
+                              <Button mnemonicParsing="false" onAction="#handleNextPage" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-background-radius: 10; -fx-text-fill: #444444; -fx-font-weight: bold; -fx-cursor: hand;" text="Next &gt;" />
+                           </children>
+                        </HBox>
                         
                      </children>
                   </VBox>
                </content>
             </ScrollPane>
-            
          </children>
       </HBox>
    </children>

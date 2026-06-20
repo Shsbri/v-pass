@@ -1,16 +1,25 @@
 package com.mycompany.tes.pembeli;
 
+import com.mycompany.tes.KoneksiDB;
+import com.mycompany.tes.SesiPengguna;
 import java.io.File;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class PembeliEventDetailController implements Initializable {
@@ -33,6 +42,11 @@ public class PembeliEventDetailController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Rectangle clip = new Rectangle(528.0, 240.0);
+        clip.setArcWidth(32.0);
+        clip.setArcHeight(32.0);
+        imgEventBanner.setClip(clip);
+        
         updateKalkulasiTampilan();
     }    
 
@@ -90,9 +104,52 @@ public class PembeliEventDetailController implements Initializable {
 
     @FXML
     private void handleBuy(ActionEvent event) {
-        System.out.println("Processing transaction for event ID: " + idEvent + " with " + jumlahTiket + " tickets.");
+        int idPenggunaAktif = SesiPengguna.getIdPengguna();
+        int totalBayar = hargaPerTiket * jumlahTiket;
         
-        Stage stage = (Stage) btnBuy.getScene().getWindow();
-        stage.close();
+        if (idPenggunaAktif == 0) {
+            tampilkanAlert(AlertType.ERROR, "Error Sesi", "Sesi Identitas Kosong", "Silakan lakukan login ulang untuk mengaktifkan kredensial belanja.");
+            return;
+        }
+
+        String sqlTransaksi = "INSERT INTO tb_transaksi (id_pengguna, id_event, jumlah_tiket, total_harga, status_transaksi) VALUES (?, ?, ?, ?, 'menunggu pembayaran')";
+
+        try (Connection conn = KoneksiDB.getKoneksi();
+             PreparedStatement psTrans = conn.prepareStatement(sqlTransaksi, Statement.RETURN_GENERATED_KEYS)) {
+            
+            psTrans.setInt(1, idPenggunaAktif);
+            psTrans.setInt(2, idEvent);
+            psTrans.setInt(3, jumlahTiket);
+            psTrans.setLong(4, totalBayar);
+            psTrans.executeUpdate();
+
+            int idTransaksiDihasilkan = 0;
+            try (ResultSet generatedKeys = psTrans.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    idTransaksiDihasilkan = generatedKeys.getInt(1);
+                }
+            }
+
+            if (idTransaksiDihasilkan == 0) {
+                throw new java.sql.SQLException("Gagal mendapatkan kunci auto-increment pada data transaksi.");
+            }
+
+            tampilkanAlert(AlertType.INFORMATION, "Sukses", "Pemesanan Tiket Berhasil", "Invoice transaksi telah diterbitkan. Harap segera lakukan konfirmasi administrasi pembayaran di menu My Ticket.");
+            
+            Stage stage = (Stage) btnBuy.getScene().getWindow();
+            stage.close();
+
+        } catch (Exception e) {
+            tampilkanAlert(AlertType.ERROR, "Sistem Kegagalan", "Proses Database Terputus", "Gagal mengamankan alokasi nomor transaksi tiket baru.");
+            e.printStackTrace();
+        }
+    }
+
+    private void tampilkanAlert(AlertType type, String title, String header, String content) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }

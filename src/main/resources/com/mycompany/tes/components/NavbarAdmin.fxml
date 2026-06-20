@@ -27,19 +27,23 @@
       <Line endX="160.0" stroke="#F0F0F0" />
       
       <Button fx:id="btnEventList" mnemonicParsing="false" onAction="#keAdminEvents" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #666666; -fx-cursor: hand;" text="Event List">
-        <font><Font name="System Medium" size="14.0" /></font>
-        <VBox.margin><Insets top="10.0" /></VBox.margin>
+         <font><Font name="System Medium" size="14.0" /></font>
+         <VBox.margin><Insets top="10.0" /></VBox.margin>
       </Button>
 
       <Button fx:id="btnVerification" mnemonicParsing="false" onAction="#keAdminVerification" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #666666; -fx-cursor: hand;" text="Verification">
-        <font><Font name="System Medium" size="14.0" /></font>
-      </Button>
-      
-      <Button fx:id="btnTransactionList" mnemonicParsing="false" onAction="#keAdminTransactionList" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #666666;" text="Transaction List">
          <font><Font name="System Medium" size="14.0" /></font>
       </Button>
       
-      <Button fx:id="btnCustomerList" mnemonicParsing="false" onAction="#keAdminCustomerList" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #666666;" text="Customer List">
+      <Button fx:id="btnTransactionList" mnemonicParsing="false" onAction="#keAdminTransactionList" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #666666; -fx-cursor: hand;" text="Transaction List">
+         <font><Font name="System Medium" size="14.0" /></font>
+      </Button>
+      
+      <Button fx:id="btnCustomerList" mnemonicParsing="false" onAction="#keAdminCustomerList" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #666666; -fx-cursor: hand;" text="Customer List">
+         <font><Font name="System Medium" size="14.0" /></font>
+      </Button>
+
+      <Button fx:id="btnTicketList" mnemonicParsing="false" onAction="#keAdminTicketList" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #666666; -fx-cursor: hand;" text="Ticket List">
          <font><Font name="System Medium" size="14.0" /></font>
       </Button>
       
@@ -47,7 +51,7 @@
       
       <Line endX="160.0" stroke="#F0F0F0" />
       
-      <Button fx:id="btnProfile" mnemonicParsing="false" onAction="#keAdminProfile" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #666666;" text="Profile">
+      <Button fx:id="btnProfile" mnemonicParsing="false" onAction="#keAdminProfile" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #666666; -fx-cursor: hand;" text="Profile">
          <font><Font name="System Medium" size="14.0" /></font>
       </Button>
       

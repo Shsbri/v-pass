@@ -27,130 +27,31 @@
                      </padding>
                      <children>
                         
-                        <TextField prefHeight="46.0" prefWidth="850.0" promptText="Search your purchased tickets..." style="-fx-background-color: #FFFFFF; -fx-background-radius: 14; -fx-border-color: #E5E5EA; -fx-border-radius: 14; -fx-padding: 0 20 0 20;">
+                        <TextField fx:id="txtSearch" onAction="#handleSearch" prefHeight="46.0" prefWidth="850.0" promptText="Search your purchased tickets..." style="-fx-background-color: #FFFFFF; -fx-background-radius: 14; -fx-border-color: #E5E5EA; -fx-border-radius: 14; -fx-padding: 0 20 0 20;">
                            <font><Font size="14.0" /></font>
                         </TextField>
                         
-                        <HBox alignment="CENTER" spacing="12.0">
+                        <HBox alignment="CENTER" prefWidth="850.0" spacing="12.0">
                            <children>
-                              <Button mnemonicParsing="false" style="-fx-background-color: #111111; -fx-text-fill: white; -fx-background-radius: 20; -fx-padding: 8 18 8 18; -fx-cursor: hand;" text="All">
+                              <Button fx:id="btnFilterAll" mnemonicParsing="false" onAction="#handleFilter" style="-fx-background-color: #111111; -fx-text-fill: white; -fx-background-radius: 20; -fx-padding: 8 18 8 18; -fx-cursor: hand;" text="All">
                                  <font><Font name="System Bold" size="14.0" /></font>
                               </Button>
-                              <Button mnemonicParsing="false" style="-fx-background-color: #FFFFFF; -fx-text-fill: #444444; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 8 18 8 18; -fx-cursor: hand;" text="Concert">
+                              <Button fx:id="btnFilterConcert" mnemonicParsing="false" onAction="#handleFilter" style="-fx-background-color: #FFFFFF; -fx-text-fill: #444444; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 8 18 8 18; -fx-cursor: hand;" text="Concert">
                                  <font><Font name="System Medium" size="14.0" /></font>
                               </Button>
-                              <Button mnemonicParsing="false" style="-fx-background-color: #FFFFFF; -fx-text-fill: #444444; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 8 18 8 18; -fx-cursor: hand;" text="Expo">
+                              <Button fx:id="btnFilterExpo" mnemonicParsing="false" onAction="#handleFilter" style="-fx-background-color: #FFFFFF; -fx-text-fill: #444444; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 8 18 8 18; -fx-cursor: hand;" text="Expo">
                                  <font><Font name="System Medium" size="14.0" /></font>
                               </Button>
-                              <Button mnemonicParsing="false" style="-fx-background-color: #FFFFFF; -fx-text-fill: #444444; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 8 18 8 18; -fx-cursor: hand;" text="Seminar">
+                              <Button fx:id="btnFilterSeminar" mnemonicParsing="false" onAction="#handleFilter" style="-fx-background-color: #FFFFFF; -fx-text-fill: #444444; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 8 18 8 18; -fx-cursor: hand;" text="Seminar">
                                  <font><Font name="System Medium" size="14.0" /></font>
                               </Button>
-                              <Button mnemonicParsing="false" style="-fx-background-color: #FFFFFF; -fx-text-fill: #444444; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 8 18 8 18; -fx-cursor: hand;" text="Festival">
+                              <Button fx:id="btnFilterFestival" mnemonicParsing="false" onAction="#handleFilter" style="-fx-background-color: #FFFFFF; -fx-text-fill: #444444; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 8 18 8 18; -fx-cursor: hand;" text="Festival">
                                  <font><Font name="System Medium" size="14.0" /></font>
                               </Button>
                            </children>
                         </HBox>
                         
-                        <TilePane hgap="15.0" prefColumns="4" prefWidth="850.0" vgap="15.0">
-                           <children>
-                              
-                              <VBox prefHeight="260.0" prefWidth="201.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 12;">
-                                 <children>
-                                    <AnchorPane prefHeight="130.0" prefWidth="177.0" style="-fx-background-color: #F2F2F7; -fx-background-radius: 14;" />
-                                    <Label text="Event Name" textFill="#111111">
-                                       <font><Font name="System Bold" size="14.0" /></font>
-                                       <VBox.margin><Insets top="10.0" /></VBox.margin>
-                                    </Label>
-                                    <Label text="Date Event" textFill="#666666">
-                                       <font><Font size="12.0" /></font>
-                                       <VBox.margin><Insets bottom="10.0" top="2.0" /></VBox.margin>
-                                    </Label>
-                                    <HBox alignment="CENTER_RIGHT" VBox.vgrow="ALWAYS">
-                                       <children>
-                                          <Button mnemonicParsing="false" style="-fx-background-color: #F5F5F7; -fx-text-fill: #111111; -fx-background-radius: 10; -fx-font-weight: bold; -fx-font-size: 11;" text="Status" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                              
-                              <VBox prefHeight="260.0" prefWidth="201.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 12;">
-                                 <children>
-                                    <AnchorPane prefHeight="130.0" prefWidth="177.0" style="-fx-background-color: #F2F2F7; -fx-background-radius: 14;" />
-                                    <Label text="Event Name" textFill="#111111">
-                                       <font><Font name="System Bold" size="14.0" /></font>
-                                       <VBox.margin><Insets top="10.0" /></VBox.margin>
-                                    </Label>
-                                    <Label text="Date Event" textFill="#666666">
-                                       <font><Font size="12.0" /></font>
-                                       <VBox.margin><Insets bottom="10.0" top="2.0" /></VBox.margin>
-                                    </Label>
-                                    <HBox alignment="CENTER_RIGHT" VBox.vgrow="ALWAYS">
-                                       <children>
-                                          <Button mnemonicParsing="false" style="-fx-background-color: #F5F5F7; -fx-text-fill: #111111; -fx-background-radius: 10; -fx-font-weight: bold; -fx-font-size: 11;" text="Status" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                              
-                              <VBox prefHeight="260.0" prefWidth="201.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 12;">
-                                 <children>
-                                    <AnchorPane prefHeight="130.0" prefWidth="177.0" style="-fx-background-color: #F2F2F7; -fx-background-radius: 14;" />
-                                    <Label text="Event Name" textFill="#111111">
-                                       <font><Font name="System Bold" size="14.0" /></font>
-                                       <VBox.margin><Insets top="10.0" /></VBox.margin>
-                                    </Label>
-                                    <Label text="Date Event" textFill="#666666">
-                                       <font><Font size="12.0" /></font>
-                                       <VBox.margin><Insets bottom="10.0" top="2.0" /></VBox.margin>
-                                    </Label>
-                                    <HBox alignment="CENTER_RIGHT" VBox.vgrow="ALWAYS">
-                                       <children>
-                                          <Button mnemonicParsing="false" style="-fx-background-color: #F5F5F7; -fx-text-fill: #111111; -fx-background-radius: 10; -fx-font-weight: bold; -fx-font-size: 11;" text="Status" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                              
-                              <VBox prefHeight="260.0" prefWidth="201.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 12;">
-                                 <children>
-                                    <AnchorPane prefHeight="130.0" prefWidth="177.0" style="-fx-background-color: #F2F2F7; -fx-background-radius: 14;" />
-                                    <Label text="Event Name" textFill="#111111">
-                                       <font><Font name="System Bold" size="14.0" /></font>
-                                       <VBox.margin><Insets top="10.0" /></VBox.margin>
-                                    </Label>
-                                    <Label text="Date Event" textFill="#666666">
-                                       <font><Font size="12.0" /></font>
-                                       <VBox.margin><Insets bottom="10.0" top="2.0" /></VBox.margin>
-                                    </Label>
-                                    <HBox alignment="CENTER_RIGHT" VBox.vgrow="ALWAYS">
-                                       <children>
-                                          <Button mnemonicParsing="false" style="-fx-background-color: #F5F5F7; -fx-text-fill: #111111; -fx-background-radius: 10; -fx-font-weight: bold; -fx-font-size: 11;" text="Status" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                              
-                              <VBox prefHeight="260.0" prefWidth="201.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 12;">
-                                 <children>
-                                    <AnchorPane prefHeight="130.0" prefWidth="177.0" style="-fx-background-color: #F2F2F7; -fx-background-radius: 14;" />
-                                    <Label text="Event Baru" textFill="#111111">
-                                       <font><Font name="System Bold" size="14.0" /></font>
-                                       <VBox.margin><Insets top="10.0" /></VBox.margin>
-                                    </Label>
-                                    <Label text="Date Event" textFill="#666666">
-                                       <font><Font size="12.0" /></font>
-                                       <VBox.margin><Insets bottom="10.0" top="2.0" /></VBox.margin>
-                                    </Label>
-                                    <HBox alignment="CENTER_RIGHT" VBox.vgrow="ALWAYS">
-                                       <children>
-                                          <Button mnemonicParsing="false" style="-fx-background-color: #F5F5F7; -fx-text-fill: #111111; -fx-background-radius: 10; -fx-font-weight: bold; -fx-font-size: 11;" text="Status" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                              
-                           </children>
-                        </TilePane>
+                        <TilePane fx:id="tilePaneTicket" hgap="15.0" prefWidth="850.0" vgap="20.0" />
                         
                      </children>
                   </VBox>

@@ -23,6 +23,7 @@ public class NavbarAdminController implements Initializable {
     @FXML private Button btnVerification;
     @FXML private Button btnTransactionList;
     @FXML private Button btnCustomerList;
+    @FXML private Button btnTicketList;
     @FXML private Button btnProfile;
     @FXML private ImageView imgLogo;
 
@@ -38,21 +39,29 @@ public class NavbarAdminController implements Initializable {
         }
 
         Platform.runLater(() -> {
-            if (url != null) {
-               String pathFile = url.toString().toLowerCase();
-               resetStyleTombol();
-               
-               if (pathFile.contains("admineventlist")) {
-                   setTombolAktif(btnEventList);
-               } else if (pathFile.contains("adminverification")) {
-                   setTombolAktif(btnVerification);
-               } else if (pathFile.contains("admintransactionlist")) {
-                   setTombolAktif(btnTransactionList);
-               } else if (pathFile.contains("admincustomerlist")) {
-                   setTombolAktif(btnCustomerList);
-               } else if (pathFile.contains("adminprofile")) {
-                   setTombolAktif(btnProfile);
-               }
+            try {
+                resetStyleTombol();
+                
+                String currentRoot = App.getCurrentRoot();
+                if (currentRoot != null) {
+                    String page = currentRoot.toLowerCase();
+                    
+                    if (page.contains("admineventlist")) {
+                        setTombolAktif(btnEventList);
+                    } else if (page.contains("adminverification")) {
+                        setTombolAktif(btnVerification);
+                    } else if (page.contains("admintransactionlist")) {
+                        setTombolAktif(btnTransactionList);
+                    } else if (page.contains("admincustomerlist")) {
+                        setTombolAktif(btnCustomerList);
+                    } else if (page.contains("adminticketlist")) {
+                        setTombolAktif(btnTicketList);
+                    } else if (page.contains("adminprofile")) {
+                        setTombolAktif(btnProfile);
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         });
     }    
@@ -63,6 +72,7 @@ public class NavbarAdminController implements Initializable {
         btnVerification.setStyle(pasif);
         btnTransactionList.setStyle(pasif);
         btnCustomerList.setStyle(pasif);
+        btnTicketList.setStyle(pasif);
         btnProfile.setStyle(pasif);
     }
 
@@ -90,9 +100,14 @@ public class NavbarAdminController implements Initializable {
         try { App.setRoot("admin/AdminCustomerList"); } catch (Exception e) { e.printStackTrace(); }
     }
     
+    @FXML
+    private void keAdminTicketList(ActionEvent event) {
+        try { App.setRoot("admin/AdminTicketList"); } catch (Exception e) { e.printStackTrace(); }
+    }
+    
     @FXML 
     private void keAdminProfile(ActionEvent event) { 
-        try { App.setRoot("admin/AdminProfile"); } catch (Exception e) {} ;
+        try { App.setRoot("admin/AdminProfile"); } catch (Exception e) { e.printStackTrace(); }
     }
 
     @FXML

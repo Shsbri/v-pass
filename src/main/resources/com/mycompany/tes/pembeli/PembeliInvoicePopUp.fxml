@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="440.0" style="-fx-background-color: #FAFAFA;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tes.pembeli.PembeliInvoicePopUpController">
+   <children>
+      <VBox fx:id="invoiceContainer" alignment="TOP_CENTER" prefHeight="550.0" prefWidth="440.0" spacing="20.0" style="-fx-background-color: #FFFFFF; -fx-padding: 30 24 24 24;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            
+            <VBox alignment="CENTER" spacing="2.0">
+               <children>
+                  <Label text="INVOICE" textFill="#111111">
+                     <font><Font name="System Bold" size="26.0" /></font>
+                  </Label>
+                  <HBox alignment="CENTER" spacing="4.0">
+                     <children>
+                        <Label text="Transaction ID:" textFill="#666666"><font><Font size="13.0" /></font></Label>
+                        <Label fx:id="lblTransactionID" text="#0" textFill="#111111"><font><Font name="System Bold" size="13.0" /></font></Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            
+            <VBox spacing="12.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 16; -fx-border-color: #E5E5EA; -fx-border-radius: 16; -fx-padding: 16;">
+               <children>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <Label text="Event Name" textFill="#666666"><font><Font size="14.0" /></font></Label>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label fx:id="lblEventName" text="-" textFill="#111111"><font><Font name="System Bold" size="14.0" /></font></Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <Label text="Event Category" textFill="#666666"><font><Font size="14.0" /></font></Label>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label fx:id="lblCategory" text="-" textFill="#111111"><font><Font size="14.0" /></font></Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <Label text="Total Ticket" textFill="#666666"><font><Font size="14.0" /></font></Label>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label fx:id="lblTotalTicket" text="0 Pcs" textFill="#111111"><font><Font name="System Bold" size="14.0" /></font></Label>
+                     </children>
+                  </HBox>
+                  <AnchorPane prefHeight="1.0" style="-fx-background-color: #E5E5EA;" />
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <Label text="Total Price" textFill="#111111"><font><Font name="System Bold" size="15.0" /></font></Label>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label fx:id="lblTotalPrice" text="Rp 0" textFill="#FF5E00"><font><Font name="System Bold" size="18.0" /></font></Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            
+            <VBox alignment="CENTER" spacing="8.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <AnchorPane maxHeight="180.0" maxWidth="180.0" minHeight="180.0" minWidth="180.0" prefHeight="180.0" prefWidth="180.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E5EA; -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 8;">
+                     <children>
+                        <ImageView fx:id="imgQris" fitHeight="164.0" fitWidth="164.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <Label text="Scan QRIS to complete your payment" textFill="#8E8E93"><font><Font size="12.0" /></font></Label>
+               </children>
+            </VBox>
+            
+            <HBox spacing="12.0">
+               <children>
+                  <Button fx:id="btnDownload" mnemonicParsing="false" onAction="#handleDownloadInvoice" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E5EA; -fx-background-radius: 12; -fx-border-radius: 12; -fx-text-fill: #444444; -fx-font-weight: bold; -fx-cursor: hand;" text="Download" />
+                  <Button fx:id="btnUpload" mnemonicParsing="false" onAction="#handleUploadBukti" prefHeight="42.0" prefWidth="262.0" style="-fx-background-color: #111111; -fx-background-radius: 12; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Upload Payment Proof" />
+               </children>
+            </HBox>
+            
+         </children>
+      </VBox>
+   </children>
+</AnchorPane> 

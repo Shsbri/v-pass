@@ -7,7 +7,6 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -32,82 +31,33 @@
                         
                         <HBox alignment="CENTER_LEFT" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" prefWidth="960.0" spacing="15.0">
                            <children>
-                              <ComboBox maxHeight="38.0" minHeight="38.0" prefHeight="38.0" prefWidth="140.0" promptText="All Time" style="-fx-background-color: #FFFFFF; -fx-background-radius: 12; -fx-border-color: #E5E5EA; -fx-border-radius: 12; -fx-padding: 0 5 0 5; -fx-cursor: hand;" />
-                              <ComboBox maxHeight="38.0" minHeight="38.0" prefHeight="38.0" prefWidth="140.0" promptText="All Category" style="-fx-background-color: #FFFFFF; -fx-background-radius: 12; -fx-border-color: #E5E5EA; -fx-border-radius: 12; -fx-padding: 0 5 0 5; -fx-cursor: hand;" />
+                              <ComboBox fx:id="cmbCategory" maxHeight="38.0" minHeight="38.0" prefHeight="38.0" prefWidth="160.0" promptText="All Category" style="-fx-background-color: #FFFFFF; -fx-background-radius: 12; -fx-border-color: #E5E5EA; -fx-border-radius: 12; -fx-padding: 0 5 0 5; -fx-cursor: hand;" />
                            </children>
                         </HBox>
                         
-                        <VBox prefWidth="960.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.02), 15, 0, 0, 5); -fx-overflow: hidden;">
+                        <VBox prefWidth="960.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.02), 15, 0, 0, 5);">
                            <children>
-                              
                               <HBox alignment="CENTER_LEFT" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" style="-fx-background-color: #FAFAFA; -fx-padding: 0 25 0 25; -fx-border-color: #E5E5EA; -fx-border-width: 0 0 1 0; -fx-background-radius: 20 20 0 0;">
                                  <children>
-                                    <Label style="-fx-font-weight: bold;" text="Transaction List" textFill="#111111">
-                                       <font><Font size="15.0" /></font>
-                                    </Label>
+                                    <Label style="-fx-font-weight: bold;" text="Transaction List" textFill="#111111"><font><Font size="15.0" /></font></Label>
                                  </children>
                               </HBox>
                               
-                              <HBox alignment="CENTER_LEFT" maxHeight="65.0" minHeight="65.0" prefHeight="65.0" spacing="20.0" style="-fx-padding: 0 25 0 25; -fx-border-color: #F2F2F7; -fx-border-width: 0 0 1 0;">
-                                 <children>
-                                    <Label prefWidth="100.0" text="EVT-001" textFill="#666666"><font><Font name="System Medium" size="14.0" /></font></Label>
-                                    <Label prefWidth="180.0" text="Coldplay Jakarta" textFill="#111111"><font><Font name="System Bold" size="14.0" /></font></Label>
-                                    <Label prefWidth="110.0" text="Concert" textFill="#444444"><font><Font size="14.0" /></font></Label>
-                                    <Label prefWidth="110.0" text="2 Tickets" textFill="#444444"><font><Font size="14.0" /></font></Label>
-                                    <Region HBox.hgrow="ALWAYS" />
-                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="75.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-background-radius: 10; -fx-text-fill: #444444; -fx-font-weight: Bold; -fx-cursor: hand;" text="Proof" />
-                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="65.0" style="-fx-background-color: #E5F9F0; -fx-background-radius: 10; -fx-text-fill: #00B074; -fx-font-weight: Bold; -fx-cursor: hand;" text="Yes" />
-                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="65.0" style="-fx-background-color: #FFF2F2; -fx-background-radius: 10; -fx-text-fill: #FF3B30; -fx-font-weight: Bold; -fx-cursor: hand;" text="No" />
-                                 </children>
-                              </HBox>
-                              
-                              <HBox alignment="CENTER_LEFT" maxHeight="65.0" minHeight="65.0" prefHeight="65.0" spacing="20.0" style="-fx-padding: 0 25 0 25; -fx-border-color: #F2F2F7; -fx-border-width: 0 0 1 0;">
-                                 <children>
-                                    <Label prefWidth="100.0" text="EVT-002" textFill="#666666"><font><Font name="System Medium" size="14.0" /></font></Label>
-                                    <Label prefWidth="180.0" text="Tech Expo 2026" textFill="#111111"><font><Font name="System Bold" size="14.0" /></font></Label>
-                                    <Label prefWidth="110.0" text="Expo" textFill="#444444"><font><Font size="14.0" /></font></Label>
-                                    <Label prefWidth="110.0" text="1 Ticket" textFill="#444444"><font><Font size="14.0" /></font></Label>
-                                    <Region HBox.hgrow="ALWAYS" />
-                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="75.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-background-radius: 10; -fx-text-fill: #444444; -fx-font-weight: Bold; -fx-cursor: hand;" text="Proof" />
-                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="65.0" style="-fx-background-color: #E5F9F0; -fx-background-radius: 10; -fx-text-fill: #00B074; -fx-font-weight: Bold; -fx-cursor: hand;" text="Yes" />
-                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="65.0" style="-fx-background-color: #FFF2F2; -fx-background-radius: 10; -fx-text-fill: #FF3B30; -fx-font-weight: Bold; -fx-cursor: hand;" text="No" />
-                                 </children>
-                              </HBox>
-                              
-                              <HBox alignment="CENTER_LEFT" maxHeight="65.0" minHeight="65.0" prefHeight="65.0" spacing="20.0" style="-fx-padding: 0 25 0 25; -fx-border-color: #F2F2F7; -fx-border-width: 0 0 1 0;">
-                                 <children>
-                                    <Label prefWidth="100.0" text="EVT-003" textFill="#666666"><font><Font name="System Medium" size="14.0" /></font></Label>
-                                    <Label prefWidth="180.0" text="Adversarial ML" textFill="#111111"><font><Font name="System Bold" size="14.0" /></font></Label>
-                                    <Label prefWidth="110.0" text="Seminar" textFill="#444444"><font><Font size="14.0" /></font></Label>
-                                    <Label prefWidth="110.0" text="4 Tickets" textFill="#444444"><font><Font size="14.0" /></font></Label>
-                                    <Region HBox.hgrow="ALWAYS" />
-                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="75.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-background-radius: 10; -fx-text-fill: #444444; -fx-font-weight: Bold; -fx-cursor: hand;" text="Proof" />
-                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="65.0" style="-fx-background-color: #E5F9F0; -fx-background-radius: 10; -fx-text-fill: #00B074; -fx-font-weight: Bold; -fx-cursor: hand;" text="Yes" />
-                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="65.0" style="-fx-background-color: #FFF2F2; -fx-background-radius: 10; -fx-text-fill: #FF3B30; -fx-font-weight: Bold; -fx-cursor: hand;" text="No" />
-                                 </children>
-                              </HBox>
-                              
-                              <HBox alignment="CENTER_LEFT" maxHeight="65.0" minHeight="65.0" prefHeight="65.0" spacing="20.0" style="-fx-padding: 0 25 0 25;">
-                                 <children>
-                                    <Label prefWidth="100.0" text="EVT-004" textFill="#666666"><font><Font name="System Medium" size="14.0" /></font></Label>
-                                    <Label prefWidth="180.0" text="Jakarta Festival" textFill="#111111"><font><Font name="System Bold" size="14.0" /></font></Label>
-                                    <Label prefWidth="110.0" text="Festival" textFill="#444444"><font><Font size="14.0" /></font></Label>
-                                    <Label prefWidth="110.0" text="2 Tickets" textFill="#444444"><font><Font size="14.0" /></font></Label>
-                                    <Region HBox.hgrow="ALWAYS" />
-                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="75.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-background-radius: 10; -fx-text-fill: #444444; -fx-font-weight: Bold; -fx-cursor: hand;" text="Proof" />
-                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="65.0" style="-fx-background-color: #E5F9F0; -fx-background-radius: 10; -fx-text-fill: #00B074; -fx-font-weight: Bold; -fx-cursor: hand;" text="Yes" />
-                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="65.0" style="-fx-background-color: #FFF2F2; -fx-background-radius: 10; -fx-text-fill: #FF3B30; -fx-font-weight: Bold; -fx-cursor: hand;" text="No" />
-                                 </children>
-                              </HBox>
-                              
+                              <VBox fx:id="vboxRowsContainer" style="-fx-background-radius: 0 0 20 20; -fx-background-color: #FFFFFF;" />
                            </children>
                         </VBox>
+                        
+                        <HBox alignment="CENTER" spacing="15.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#handlePreviousPage" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-background-radius: 10; -fx-text-fill: #444444; -fx-font-weight: bold; -fx-cursor: hand;" text="&lt; Previous" />
+                              <Button mnemonicParsing="false" onAction="#handleNextPage" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-background-radius: 10; -fx-text-fill: #444444; -fx-font-weight: bold; -fx-cursor: hand;" text="Next &gt;" />
+                           </children>
+                        </HBox>
                         
                      </children>
                   </VBox>
                </content>
             </ScrollPane>
-            
          </children>
       </HBox>
    </children>

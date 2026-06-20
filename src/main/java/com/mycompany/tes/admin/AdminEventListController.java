@@ -29,6 +29,8 @@ public class AdminEventListController implements Initializable {
     @FXML private VBox containerEvent;
     @FXML private ComboBox<String> cmbTime;
     @FXML private ComboBox<String> cmbCategory;
+    
+    private int halamanAktif = 0;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -62,14 +64,17 @@ public class AdminEventListController implements Initializable {
             sql.append(" AND kategori_event = ?");
         }
 
-        sql.append(" ORDER BY id_event DESC");
+        sql.append(" ORDER BY id_event DESC LIMIT 15 OFFSET ?");
 
         try (Connection conn = KoneksiDB.getKoneksi();
              PreparedStatement ps = conn.prepareStatement(sql.toString())) {
 
+            int indexParam = 1;
             if (filterKategori != null && !filterKategori.equals("All Category")) {
-                ps.setString(1, filterKategori);
+                ps.setString(indexParam++, filterKategori);
             }
+            
+            ps.setInt(indexParam, halamanAktif * 15);
 
             try (ResultSet rs = ps.executeQuery()) {
                 NumberFormat formatterDuit = NumberFormat.getInstance(new Locale("id", "ID"));
@@ -165,7 +170,6 @@ public class AdminEventListController implements Initializable {
                     containerEvent.getChildren().add(row);
                 }
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -173,6 +177,7 @@ public class AdminEventListController implements Initializable {
 
     @FXML
     private void handleFilter(ActionEvent event) {
+        halamanAktif = 0;
         muatDataDariDatabase();
     }
 
@@ -183,6 +188,22 @@ public class AdminEventListController implements Initializable {
         } else {
             btnSumber.setText("OFF");
             btnSumber.setStyle("-fx-background-color: #E5E5EA; -fx-background-radius: 15; -fx-text-fill: #666666; -fx-font-weight: bold; -fx-font-size: 10; -fx-cursor: hand;");
+        }
+    }
+
+    @FXML
+    private void handlePreviousPage(ActionEvent event) {
+        if (halamanAktif > 0) {
+            halamanAktif--;
+            muatDataDariDatabase();
+        }
+    }
+
+    @FXML
+    private void handleNextPage(ActionEvent event) {
+        if (containerEvent.getChildren().size() == 15) {
+            halamanAktif++;
+            muatDataDariDatabase();
         }
     }
 

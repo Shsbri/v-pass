@@ -28,47 +28,63 @@ import javafx.scene.text.Font;
 public class AdminCustomerListController implements Initializable {
 
     @FXML private ComboBox<String> cmbTime;
+    @FXML private ComboBox<String> cmbStatus;
     @FXML private TextField txtSearch;
     @FXML private Button btnSearch;
     @FXML private VBox containerCustomer;
+    
+    private int halamanAktif = 0;
 
     @Override
-public void initialize(URL url, ResourceBundle rb) {
-    cmbTime.setItems(FXCollections.observableArrayList("All Time", "This Year", "This Month"));
-    cmbTime.setValue("All Time");
-    
-    muatDataCustomer();
-}    
+    public void initialize(URL url, ResourceBundle rb) {
+        cmbTime.setItems(FXCollections.observableArrayList("All Time", "This Year", "This Month"));
+        cmbTime.setValue("All Time");
+        
+        cmbStatus.setItems(FXCollections.observableArrayList("Active Users", "Suspended / Deleted"));
+        cmbStatus.setValue("Active Users");
+        
+        muatDataCustomer();
+    }    
 
-private void muatDataCustomer() {
-    containerCustomer.getChildren().clear();
-    
-    StringBuilder sql = new StringBuilder("SELECT * FROM tb_pengguna WHERE role = 'pembeli'");
-    
-    String filterWaktu = cmbTime.getValue();
-    if (filterWaktu != null) {
-        if (filterWaktu.equals("This Year")) {
-            sql.append(" AND YEAR(created_at) = YEAR(NOW())");
-        } else if (filterWaktu.equals("This Month")) {
-            sql.append(" AND YEAR(created_at) = YEAR(NOW()) AND MONTH(created_at) = MONTH(NOW())");
+    private void muatDataCustomer() {
+        containerCustomer.getChildren().clear();
+        
+        StringBuilder sql = new StringBuilder("SELECT * FROM tb_pengguna WHERE role = 'pembeli'");
+        
+        String statusTerpilih = cmbStatus.getValue();
+        if ("Active Users".equals(statusTerpilih)) {
+            sql.append(" AND is_deleted = 'active'");
+        } else {
+            sql.append(" AND is_deleted = 'deleted'");
         }
-    }
+        
+        String filterWaktu = cmbTime.getValue();
+        if (filterWaktu != null) {
+            if (filterWaktu.equals("This Year")) {
+                sql.append(" AND YEAR(created_at) = YEAR(NOW())");
+            } else if (filterWaktu.equals("This Month")) {
+                sql.append(" AND YEAR(created_at) = YEAR(NOW()) AND MONTH(created_at) = MONTH(NOW())");
+            }
+        }
 
-    String kataKunci = txtSearch.getText().trim();
-    if (!kataKunci.isEmpty()) {
-        sql.append(" AND (id_pengguna LIKE ? OR username LIKE ?)");
-    }
+        String kataKunci = txtSearch.getText().trim();
+        if (!kataKunci.isEmpty()) {
+            sql.append(" AND (id_pengguna LIKE ? OR username LIKE ?)");
+        }
 
-    sql.append(" ORDER BY id_pengguna DESC");
+        sql.append(" ORDER BY id_pengguna DESC LIMIT 15 OFFSET ?");
 
         try (Connection conn = KoneksiDB.getKoneksi();
              PreparedStatement ps = conn.prepareStatement(sql.toString())) {
 
+            int indexParam = 1;
             if (!kataKunci.isEmpty()) {
                 String kueriBersih = kataKunci.toUpperCase().replace("USR-", "");
-                ps.setString(1, "%" + kueriBersih + "%");
-                ps.setString(2, "%" + kataKunci + "%");
+                ps.setString(indexParam++, "%" + kueriBersih + "%");
+                ps.setString(indexParam++, "%" + kataKunci + "%");
             }
+            
+            ps.setInt(indexParam, halamanAktif * 15);
 
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
@@ -76,6 +92,7 @@ private void muatDataCustomer() {
                     String username = rs.getString("username");
                     String email = rs.getString("email");
                     String petName = rs.getString("nama_peliharaan");
+                    String statusSistem = rs.getString("is_deleted");
 
                     HBox row = new HBox();
                     row.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
@@ -113,53 +130,61 @@ private void muatDataCustomer() {
                     Region spacer = new Region();
                     HBox.setHgrow(spacer, Priority.ALWAYS);
 
-                    Button btnDelete = new Button("Delete");
+                    Button btnDelete = new Button();
                     btnDelete.setMnemonicParsing(false);
                     btnDelete.setPrefHeight(32.0);
                     btnDelete.setPrefWidth(85.0);
-                    btnDelete.setStyle("-fx-background-color: #FFF2F2; -fx-background-radius: 10; -fx-text-fill: #FF3B30; -fx-font-weight: Bold; -fx-cursor: hand;");
-                    
-                    btnDelete.setOnAction(event -> hancurkanDataCustomer(idPengguna, username));
+
+                    if ("active".equals(statusSistem)) {
+                        btnDelete.setText("Suspend");
+                        btnDelete.setStyle("-fx-background-color: #FFF2F2; -fx-background-radius: 10; -fx-text-fill: #FF3B30; -fx-font-weight: Bold; -fx-cursor: hand;");
+                        btnDelete.setOnAction(event -> ubahStatusCustomer(idPengguna, username, "deleted"));
+                    } else {
+                        btnDelete.setText("Restore");
+                        btnDelete.setStyle("-fx-background-color: #E5F9F0; -fx-background-radius: 10; -fx-text-fill: #00B074; -fx-font-weight: Bold; -fx-cursor: hand;");
+                        btnDelete.setOnAction(event -> ubahStatusCustomer(idPengguna, username, "active"));
+                    }
 
                     row.getChildren().addAll(lblId, lblNama, lblEmail, lblPass, lblPet, spacer, btnDelete);
                     containerCustomer.getChildren().add(row);
                 }
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    private void hancurkanDataCustomer(int idTarget, String namaTarget) {
+    private void ubahStatusCustomer(int idTarget, String namaTarget, String statusTujuan) {
         Alert konfirmasi = new Alert(AlertType.CONFIRMATION);
-        konfirmasi.setTitle("Konfirmasi Hapus");
-        konfirmasi.setHeaderText("Hapus Akun Pengguna");
-        konfirmasi.setContentText("Apakah kamu yakin ingin menghapus customer \"" + namaTarget + "\" (USR-" + idTarget + ") secara permanen?");
+        konfirmasi.setTitle("Konfirmasi Status");
+        if ("deleted".equals(statusTujuan)) {
+            konfirmasi.setHeaderText("Suspend Akun Customer");
+            konfirmasi.setContentText("Apakah kamu yakin ingin menonaktifkan customer \"" + namaTarget + "\"? Riwayat transaksi akan tetap aman disimpan.");
+        } else {
+            konfirmasi.setHeaderText("Pulihkan Akun Customer");
+            konfirmasi.setContentText("Apakah kamu yakin ingin mengaktifkan kembali customer \"" + namaTarget + "\"?");
+        }
         
         Optional<ButtonType> opsi = konfirmasi.showAndWait();
         if (opsi.isPresent() && opsi.get() == ButtonType.OK) {
-            String sql = "DELETE FROM tb_pengguna WHERE id_pengguna = ?";
+            String sql = "UPDATE tb_pengguna SET is_deleted = ? WHERE id_pengguna = ?";
             try (Connection conn = KoneksiDB.getKoneksi();
                  PreparedStatement ps = conn.prepareStatement(sql)) {
                 
-                ps.setInt(1, idTarget);
-                int barisTerhapus = ps.executeUpdate();
+                ps.setString(1, statusTujuan);
+                ps.setInt(2, idTarget);
+                int barisDiubah = ps.executeUpdate();
                 
-                if (barisTerhapus > 0) {
+                if (barisDiubah > 0) {
                     Alert sukses = new Alert(AlertType.INFORMATION);
                     sukses.setTitle("Sukses");
                     sukses.setHeaderText(null);
-                    sukses.setContentText("Akun customer berhasil dihapus dari server.");
+                    sukses.setContentText("Status akun customer berhasil diperbarui.");
                     sukses.showAndWait();
                     
                     muatDataCustomer();
                 }
             } catch (SQLException e) {
-                Alert error = new Alert(AlertType.ERROR);
-                error.setTitle("Error");
-                error.setContentText("Gagal menghapus data. Pengguna mungkin terikat transaksi aktif.");
-                error.showAndWait();
                 e.printStackTrace();
             }
         }
@@ -167,6 +192,23 @@ private void muatDataCustomer() {
 
     @FXML
     private void handleFilter(ActionEvent event) {
+        halamanAktif = 0;
         muatDataCustomer();
+    }
+
+    @FXML
+    private void handlePreviousPage(ActionEvent event) {
+        if (halamanAktif > 0) {
+            halamanAktif--;
+            muatDataCustomer();
+        }
+    }
+
+    @FXML
+    private void handleNextPage(ActionEvent event) {
+        if (containerCustomer.getChildren().size() == 15) {
+            halamanAktif++;
+            muatDataCustomer();
+        }
     }
 }

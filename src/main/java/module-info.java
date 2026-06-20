@@ -4,6 +4,7 @@ module com.mycompany.tes {
     requires java.sql;
     requires java.base;
     requires java.desktop;
+    requires org.apache.poi.ooxml;
 
     // Folder Utama
     opens com.mycompany.tes to javafx.fxml;

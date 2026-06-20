@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="520.0" style="-fx-background-color: #FAFAFA;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tes.pembeli.PembeliHistoryDetailPopUpController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="500.0" prefWidth="520.0" spacing="15.0" style="-fx-background-color: #FFFFFF; -fx-padding: 30 40 30 40;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label text="Transaction Receipt" textFill="#111111">
+               <font><Font name="System Bold" size="22.0" /></font>
+            </Label>
+            
+            <Label fx:id="lblInvoiceID" text="INV-XXXXXX" textFill="#666666">
+               <font><Font name="System Code" size="14.0" /></font>
+            </Label>
+            
+            <Line endX="400.0" stroke="#E5E5EA" strokeWidth="1.0" />
+            
+            <VBox spacing="14.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox>
+                     <children>
+                        <Label prefWidth="150.0" text="Event Name" textFill="#666666"><font><Font size="14.0" /></font></Label>
+                        <Label fx:id="lblEventName" text="Coldplay Jakarta" textFill="#111111" wrapText="true"><font><Font name="System Bold" size="14.0" /></font></Label>
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Label prefWidth="150.0" text="Category" textFill="#666666"><font><Font size="14.0" /></font></Label>
+                        <Label fx:id="lblCategory" text="Concert" textFill="#111111"><font><Font size="14.0" /></font></Label>
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Label prefWidth="150.0" text="Total Tickets" textFill="#666666"><font><Font size="14.0" /></font></Label>
+                        <Label fx:id="lblTotalTicket" text="2 Pcs" textFill="#111111"><font><Font size="14.0" /></font></Label>
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Label prefWidth="150.0" text="Status" textFill="#666666"><font><Font size="14.0" /></font></Label>
+                        <Label fx:id="lblStatus" text="SUCCESS" textFill="#00B074"><font><Font name="System Bold" size="14.0" /></font></Label>
+                     </children>
+                  </HBox>
+               </children>
+               <VBox.margin><Insets top="10.0" /></VBox.margin>
+            </VBox>
+            
+            <Line endX="400.0" stroke="#E5E5EA" strokeDashArray="4 4" strokeWidth="1.0" />
+            
+            <HBox alignment="CENTER_LEFT" prefHeight="40.0">
+               <children>
+                  <Label text="Total Paid" textFill="#111111"><font><Font name="System Bold" size="16.0" /></font></Label>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Label fx:id="lblTotalPrice" text="Rp 3.500.000" textFill="#FF5E00"><font><Font name="System Bold" size="20.0" /></font></Label>
+               </children>
+            </HBox>
+            
+            <Line endX="400.0" stroke="#E5E5EA" strokeWidth="1.0" />
+            
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="440.0">
+               <children>
+                  <Button fx:id="btnDownload" mnemonicParsing="false" onAction="#handleDownloadPDF" prefHeight="40.0" prefWidth="260.0" style="-fx-background-color: #111111; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold; -fx-cursor: hand;" text="Download E-Tickets (PDF)" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

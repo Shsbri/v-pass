@@ -47,6 +47,7 @@ public class LoginController implements Initializable {
             return;
         }
 
+        // 🔴 PERBAIKAN DI SINI: Query diubah untuk menarik semua status pengguna terlebih dahulu
         String sql = "SELECT * FROM tb_pengguna WHERE username = ? AND password = ?";
 
         try (java.sql.Connection conn = KoneksiDB.getKoneksi();
@@ -57,6 +58,12 @@ public class LoginController implements Initializable {
             
             try (java.sql.ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
+                    String statusPenghapusan = rs.getString("is_deleted");
+                    if (statusPenghapusan != null && statusPenghapusan.equalsIgnoreCase("deleted")) {
+                        showJavaFXAlert(AlertType.ERROR, "Login Ditolak", "Akun Dinonaktifkan", "Akun Anda telah ditangguhkan oleh admin. Silakan hubungi customer service.");
+                        return;
+                    }
+
                     String roleYgDitemukan = rs.getString("role");
 
                     com.mycompany.tes.SesiPengguna.setIdPengguna(rs.getInt("id_pengguna"));
