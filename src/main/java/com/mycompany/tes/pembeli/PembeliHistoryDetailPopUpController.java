@@ -46,12 +46,21 @@ public class PembeliHistoryDetailPopUpController implements Initializable {
         lblCategory.setText(kat);
         lblTotalTicket.setText(tiket + " Pcs");
         lblTotalPrice.setText("Rp " + formatUang.format(total));
-        lblStatus.setText(status.toUpperCase());
-
-        if (status.equalsIgnoreCase("berhasil")) {
+        
+        if ("berhasil".equalsIgnoreCase(status)) {
+            lblStatus.setText("SUCCESS");
             lblStatus.setStyle("-fx-text-fill: #00B074; -fx-font-weight: bold;");
             btnDownload.setVisible(true);
+        } else if ("menunggu verifikasi".equalsIgnoreCase(status)) {
+            lblStatus.setText("PENDING");
+            lblStatus.setStyle("-fx-text-fill: #666666; -fx-font-weight: bold;");
+            btnDownload.setVisible(false);
+        } else if ("menunggu pembayaran".equalsIgnoreCase(status)) {
+            lblStatus.setText("UNPAID");
+            lblStatus.setStyle("-fx-text-fill: #FF5E00; -fx-font-weight: bold;");
+            btnDownload.setVisible(false);
         } else {
+            lblStatus.setText("FAILED");
             lblStatus.setStyle("-fx-text-fill: #FF3B30; -fx-font-weight: bold;");
             btnDownload.setVisible(false);
         }

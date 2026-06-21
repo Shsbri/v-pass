@@ -7,11 +7,13 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -36,6 +38,8 @@ public class AdminEditEventController implements Initializable {
     @FXML private TextField txtPrice;
     @FXML private TextField txtStock;
     @FXML private DatePicker dtEventDate;
+    @FXML private ComboBox<String> cmbHour;
+    @FXML private ComboBox<String> cmbMinute;
     @FXML private TextField txtImageName;
     @FXML private ComboBox<String> cmbStatus;
     @FXML private Button btnBrowse;
@@ -47,6 +51,14 @@ public class AdminEditEventController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         cmbCategory.setItems(FXCollections.observableArrayList("Konser", "Expo", "Seminar", "Festival"));
         cmbStatus.setItems(FXCollections.observableArrayList("aktif", "nonaktif"));
+        
+        cmbHour.setItems(FXCollections.observableArrayList(
+            "00","01","02","03","04","05","06","07","08","09","10","11",
+            "12","13","14","15","16","17","18","19","20","21","22","23"
+        ));
+        cmbMinute.setItems(FXCollections.observableArrayList(
+            "00","05","10","15","20","25","30","35","40","45","50","55"
+        ));
         
         txtPrice.setTextFormatter(new javafx.scene.control.TextFormatter<>(change -> change.getControlNewText().matches("\\d*") ? change : null));
         txtStock.setTextFormatter(new javafx.scene.control.TextFormatter<>(change -> change.getControlNewText().matches("\\d*") ? change : null));
@@ -70,7 +82,15 @@ public class AdminEditEventController implements Initializable {
                     txtDescription.setText(rs.getString("deskripsi_event"));
                     txtPrice.setText(String.valueOf(rs.getInt("harga_tiket")));
                     txtStock.setText(String.valueOf(rs.getInt("stok_tiket")));
-                    dtEventDate.setValue(rs.getDate("tanggal_event").toLocalDate());
+                    
+                    Timestamp tglTimestamp = rs.getTimestamp("tanggal_event");
+                    if (tglTimestamp != null) {
+                        LocalDateTime ldt = tglTimestamp.toLocalDateTime();
+                        dtEventDate.setValue(ldt.toLocalDate());
+                        cmbHour.setValue(String.format("%02d", ldt.getHour()));
+                        cmbMinute.setValue(String.format("%02d", ldt.getMinute()));
+                    }
+                    
                     txtImageName.setText(rs.getString("gambar_event"));
                     cmbStatus.setValue(rs.getString("status_event"));
                 }
@@ -98,22 +118,25 @@ public class AdminEditEventController implements Initializable {
         String hargaRaw = txtPrice.getText().trim();
         String stokRaw = txtStock.getText().trim();
         LocalDate tanggal = dtEventDate.getValue();
+        String jamStr = cmbHour.getValue();
+        String menitStr = cmbMinute.getValue();
         String namaGambar = txtImageName.getText().trim();
         String status = cmbStatus.getValue();
 
-        if (namaEvent.isEmpty() || kategori == null || deskripsi.isEmpty() || hargaRaw.isEmpty() || stokRaw.isEmpty() || tanggal == null || namaGambar.isEmpty() || status == null) {
+        if (namaEvent.isEmpty() || kategori == null || deskripsi.isEmpty() || hargaRaw.isEmpty() || 
+            stokRaw.isEmpty() || tanggal == null || jamStr == null || menitStr == null || namaGambar.isEmpty() || status == null) {
             tampilkanAlert(AlertType.WARNING, "Peringatan", "Data Kosong", "Semua kolom form wajib diisi!");
             return;
         }
 
         if (fileGambarTerpilih != null) {
             try {
-                File folderTujuan = new File("images/");
-                if (!folderTujuan.exists()) {
-                    folderTujuan.mkdirs();
+                File folderEksternal = new File("images/");
+                if (!folderEksternal.exists()) {
+                    folderEksternal.mkdirs();
                 }
-                File fileTujuan = new File(folderTujuan, fileGambarTerpilih.getName());
-                Files.copy(fileGambarTerpilih.toPath(), fileTujuan.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                File fileTujuanEksternal = new File(folderEksternal, fileGambarTerpilih.getName());
+                Files.copy(fileGambarTerpilih.toPath(), fileTujuanEksternal.toPath(), StandardCopyOption.REPLACE_EXISTING);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -129,7 +152,11 @@ public class AdminEditEventController implements Initializable {
             ps.setString(3, deskripsi);
             ps.setInt(4, Integer.parseInt(hargaRaw));
             ps.setInt(5, Integer.parseInt(stokRaw));
-            ps.setDate(6, Date.valueOf(tanggal));
+            
+            LocalTime waktuAcara = LocalTime.of(Integer.parseInt(jamStr), Integer.parseInt(menitStr));
+            LocalDateTime gabungDateTime = LocalDateTime.of(tanggal, waktuAcara);
+            ps.setTimestamp(6, Timestamp.valueOf(gabungDateTime));
+            
             ps.setString(7, status);
             ps.setString(8, namaGambar);
             ps.setInt(9, idEventDipilih);

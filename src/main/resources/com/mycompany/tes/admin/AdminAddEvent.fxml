@@ -47,8 +47,7 @@
                         <VBox prefWidth="400.0" spacing="4.0">
                             <children>
                                 <Label text="Event Description" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
-                                <TextArea fx:id="txtDescription" prefHeight="100.0" prefWidth="400.0" wrapText="true" 
-                                            style="-fx-text-box-border: #E5E5EA; -fx-control-inner-background: #FAFAFA; -fx-background-color: #FAFAFA; -fx-background-radius: 10; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-padding: 2;" />
+                                <TextArea fx:id="txtDescription" prefHeight="100.0" prefWidth="400.0" wrapText="true" style="-fx-text-box-border: #E5E5EA; -fx-control-inner-background: #FAFAFA; -fx-background-color: #FAFAFA; -fx-background-radius: 10; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-padding: 2;" />
                             </children>
                         </VBox>
                         
@@ -69,12 +68,28 @@
                            </children>
                         </HBox>
                         
-                        <VBox prefWidth="400.0" spacing="4.0">
+                        <HBox prefWidth="400.0" spacing="15.0">
                            <children>
-                              <Label text="Event Date" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
-                              <DatePicker fx:id="dtEventDate" prefHeight="36.0" prefWidth="400.0" style="-fx-background-color: #FAFAFA; -fx-control-inner-background: #FAFAFA; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-background-radius: 10;" />
+                              <VBox prefWidth="220.0" spacing="4.0">
+                                 <children>
+                                    <Label text="Event Date" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
+                                    <DatePicker fx:id="dtEventDate" prefHeight="36.0" prefWidth="220.0" style="-fx-background-color: #FAFAFA; -fx-control-inner-background: #FAFAFA; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-background-radius: 10;" />
+                                 </children>
+                              </VBox>
+                              <VBox prefWidth="165.0" spacing="4.0">
+                                 <children>
+                                    <Label text="Event Time (Hour:Min)" textFill="#444444"><font><Font name="System Bold" size="13.0" /></font></Label>
+                                    <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                       <children>
+                                          <ComboBox fx:id="cmbHour" prefHeight="36.0" prefWidth="75.0" style="-fx-background-color: #FAFAFA; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-background-radius: 10;" />
+                                          <Label text=":" textFill="#444444"><font><Font name="System Bold" size="14.0" /></font></Label>
+                                          <ComboBox fx:id="cmbMinute" prefHeight="36.0" prefWidth="75.0" style="-fx-background-color: #FAFAFA; -fx-border-color: #E5E5EA; -fx-border-radius: 10; -fx-background-radius: 10;" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
                            </children>
-                        </VBox>
+                        </HBox>
 
                         <VBox prefWidth="400.0" spacing="4.0">
                            <children>

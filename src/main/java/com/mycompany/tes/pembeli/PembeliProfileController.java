@@ -1,17 +1,15 @@
 package com.mycompany.tes.pembeli;
 
+import com.mycompany.tes.App;
 import com.mycompany.tes.KoneksiDB;
 import com.mycompany.tes.SesiPengguna;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
-/**
- * 
- * @author Ahmad
- */
 public class PembeliProfileController implements Initializable {
 
     @FXML private Label lblNamaAtas;
@@ -53,4 +51,13 @@ public class PembeliProfileController implements Initializable {
             e.printStackTrace();
         }
     }    
+
+    @FXML
+    private void keHalamanEditProfile(ActionEvent event) {
+        try {
+            App.setRoot("pembeli/PembeliEditProfile");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

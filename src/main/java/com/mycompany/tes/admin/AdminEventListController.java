@@ -78,19 +78,20 @@ public class AdminEventListController implements Initializable {
 
             try (ResultSet rs = ps.executeQuery()) {
                 NumberFormat formatterDuit = NumberFormat.getInstance(new Locale("id", "ID"));
-                SimpleDateFormat formatTgl = new SimpleDateFormat("dd MMM yyyy", new Locale("id", "ID"));
+                SimpleDateFormat formatTgl = new SimpleDateFormat("dd MMM yyyy HH:mm", new Locale("id", "ID"));
 
                 while (rs.next()) {
-                    int idEvent = rs.getInt("id_event");
+                    final int idEvent = rs.getInt("id_event");
                     String namaEvent = rs.getString("nama_event");
                     String kategori = rs.getString("kategori_event");
                     int stok = rs.getInt("stok_tiket");
                     int harga = rs.getInt("harga_tiket");
-                    java.sql.Date tglEvent = rs.getDate("tanggal_event");
+                    
+                    java.sql.Timestamp tglEvent = rs.getTimestamp("tanggal_event");
                     String status = rs.getString("status_event");
 
                     String formatHarga = "IDR " + formatterDuit.format(harga);
-                    String formatTanggal = formatTgl.format(tglEvent);
+                    String formatTanggal = (tglEvent != null) ? formatTgl.format(tglEvent) : "-";
 
                     HBox row = new HBox();
                     row.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
@@ -122,7 +123,7 @@ public class AdminEventListController implements Initializable {
                     lblKategori.setFont(new Font(14.0));
 
                     Label lblTanggal = new Label(formatTanggal);
-                    lblTanggal.setPrefWidth(120.0);
+                    lblTanggal.setPrefWidth(140.0);
                     lblTanggal.setTextFill(javafx.scene.paint.Color.web("#444444"));
                     lblTanggal.setFont(new Font("System Medium", 14.0));
 
@@ -164,7 +165,7 @@ public class AdminEventListController implements Initializable {
                         btnToggle.setStyle("-fx-background-color: #E5E5EA; -fx-background-radius: 15; -fx-text-fill: #666666; -fx-font-weight: bold; -fx-font-size: 10; -fx-cursor: hand;");
                     }
 
-                    btnToggle.setOnAction(event -> handleToggleStatus(btnToggle));
+                    btnToggle.setOnAction(event -> handleToggleStatus(idEvent, btnToggle));
 
                     row.getChildren().addAll(lblId, lblNama, lblHarga, lblKategori, lblTanggal, lblStok, spacer, btnEdit, btnToggle);
                     containerEvent.getChildren().add(row);
@@ -181,13 +182,29 @@ public class AdminEventListController implements Initializable {
         muatDataDariDatabase();
     }
 
-    private void handleToggleStatus(ToggleButton btnSumber) {
-        if (btnSumber.isSelected()) {
-            btnSumber.setText("ON");
-            btnSumber.setStyle("-fx-background-color: #00B074; -fx-background-radius: 15; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 10; -fx-cursor: hand;");
-        } else {
-            btnSumber.setText("OFF");
-            btnSumber.setStyle("-fx-background-color: #E5E5EA; -fx-background-radius: 15; -fx-text-fill: #666666; -fx-font-weight: bold; -fx-font-size: 10; -fx-cursor: hand;");
+    private void handleToggleStatus(int idEvent, ToggleButton btnSumber) {
+        String statusBaru = btnSumber.isSelected() ? "aktif" : "nonaktif";
+        String sql = "UPDATE tb_event SET status_event = ? WHERE id_event = ?";
+
+        try (Connection conn = KoneksiDB.getKoneksi();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            
+            ps.setString(1, statusBaru);
+            ps.setInt(2, idEvent);
+            ps.executeUpdate();
+            
+            if (btnSumber.isSelected()) {
+                btnSumber.setText("ON");
+                btnSumber.setStyle("-fx-background-color: #00B074; -fx-background-radius: 15; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 10; -fx-cursor: hand;");
+            } else {
+                btnSumber.setText("OFF");
+                btnSumber.setStyle("-fx-background-color: #E5E5EA; -fx-background-radius: 15; -fx-text-fill: #666666; -fx-font-weight: bold; -fx-font-size: 10; -fx-cursor: hand;");
+            }
+            
+        } catch (SQLException e) {
+            btnSumber.setSelected(!btnSumber.isSelected());
+            System.out.println("Gagal memperbarui status event di database.");
+            e.printStackTrace();
         }
     }
 

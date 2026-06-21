@@ -81,7 +81,7 @@
                         <Button fx:id="btnRegist" mnemonicParsing="false" onAction="#ActRegist" prefHeight="42.0" prefWidth="360.0" style="-fx-background-color: linear-gradient(to right, #FF5E00, #A800FF); -fx-text-fill: white; -fx-background-radius: 12; -fx-cursor: hand;" text="REGISTER">
                            <font><Font name="System Bold" size="15.0" /></font>
                         </Button>
-                        <Hyperlink fx:id="linkToLogin" onAction="#handleGoToLogin" text="Sudah punya akun? Login" style="-fx-text-fill: #A800FF; -fx-font-weight: bold;" />
+                        <Hyperlink fx:id="linkToLogin" onAction="#handleGoToLogin" text="Already have an account? Log in" style="-fx-text-fill: #A800FF; -fx-font-weight: bold;" />
                      </children>
                      <VBox.margin>
                         <Insets top="10.0" />

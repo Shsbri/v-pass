@@ -7,10 +7,12 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -33,6 +35,8 @@ public class AdminAddEventController implements Initializable {
     @FXML private TextField txtPrice;
     @FXML private TextField txtStock;
     @FXML private DatePicker dtEventDate;
+    @FXML private ComboBox<String> cmbHour;
+    @FXML private ComboBox<String> cmbMinute;
     @FXML private TextField txtImageName;
     @FXML private ComboBox<String> cmbStatus;
     @FXML private Button btnBrowse;
@@ -45,17 +49,24 @@ public class AdminAddEventController implements Initializable {
         cmbCategory.setItems(FXCollections.observableArrayList("Konser", "Expo", "Seminar", "Festival"));
         cmbStatus.setItems(FXCollections.observableArrayList("aktif", "nonaktif"));
         
+        cmbHour.setItems(FXCollections.observableArrayList(
+            "00","01","02","03","04","05","06","07","08","09","10","11",
+            "12","13","14","15","16","17","18","19","20","21","22","23"
+        ));
+        cmbMinute.setItems(FXCollections.observableArrayList(
+            "00","05","10","15","20","25","30","35","40","45","50","55"
+        ));
+        
+        cmbHour.setValue("19");
+        cmbMinute.setValue("00");
+
         txtPrice.setTextFormatter(new javafx.scene.control.TextFormatter<>(change -> {
-            if (change.getControlNewText().matches("\\d*")) {
-                return change;
-            }
+            if (change.getControlNewText().matches("\\d*")) return change;
             return null;
         }));
 
         txtStock.setTextFormatter(new javafx.scene.control.TextFormatter<>(change -> {
-            if (change.getControlNewText().matches("\\d*")) {
-                return change;
-            }
+            if (change.getControlNewText().matches("\\d*")) return change;
             return null;
         }));
 
@@ -84,11 +95,15 @@ public class AdminAddEventController implements Initializable {
         String hargaRaw = txtPrice.getText().trim();
         String stokRaw = txtStock.getText().trim();
         LocalDate tanggal = dtEventDate.getValue();
+        String jamStr = cmbHour.getValue();
+        String menitStr = cmbMinute.getValue();
         String namaGambar = txtImageName.getText().trim();
         String status = cmbStatus.getValue();
 
-        if (namaEvent.isEmpty() || kategori == null || deskripsi.isEmpty() || hargaRaw.isEmpty() || stokRaw.isEmpty() || tanggal == null || namaGambar.isEmpty() || status == null || fileGambarTerpilih == null) {
-            tampilkanAlert(AlertType.WARNING, "Peringatan", "Data Belum Lengkap", "Semua formulir input termasuk deskripsi dan gambar wajib diisi!");
+        if (namaEvent.isEmpty() || kategori == null || deskripsi.isEmpty() || hargaRaw.isEmpty() || 
+            stokRaw.isEmpty() || tanggal == null || jamStr == null || menitStr == null || 
+            namaGambar.isEmpty() || status == null || fileGambarTerpilih == null) {
+            tampilkanAlert(AlertType.WARNING, "Peringatan", "Data Belum Lengkap", "Semua formulir input wajib diisi!");
             return;
         }
 
@@ -103,13 +118,13 @@ public class AdminAddEventController implements Initializable {
         }
 
         try {
-            File folderTujuan = new File("images/");
-            if (!folderTujuan.exists()) {
-                folderTujuan.mkdirs();
+            // 🟢 MANAJEMEN FOLDER EKSTERNAL: Simpan langsung ke root directory folder eksternal "images/"
+            File folderEksternal = new File("images/");
+            if (!folderEksternal.exists()) {
+                folderEksternal.mkdirs();
             }
-            
-            File fileTujuan = new File(folderTujuan, fileGambarTerpilih.getName());
-            Files.copy(fileGambarTerpilih.toPath(), fileTujuan.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            File fileTujuanEksternal = new File(folderEksternal, fileGambarTerpilih.getName());
+            Files.copy(fileGambarTerpilih.toPath(), fileTujuanEksternal.toPath(), StandardCopyOption.REPLACE_EXISTING);
             
         } catch (Exception e) {
             tampilkanAlert(AlertType.ERROR, "Error Sistem", "Gagal Upload Gambar", "Sistem gagal menyalin file gambar ke folder eksternal.");
@@ -127,7 +142,11 @@ public class AdminAddEventController implements Initializable {
             ps.setString(3, deskripsi);
             ps.setInt(4, harga);
             ps.setInt(5, stok);
-            ps.setDate(6, Date.valueOf(tanggal));
+            
+            LocalTime waktuAcara = LocalTime.of(Integer.parseInt(jamStr), Integer.parseInt(menitStr));
+            LocalDateTime gabungDateTime = LocalDateTime.of(tanggal, waktuAcara);
+            ps.setTimestamp(6, Timestamp.valueOf(gabungDateTime));
+            
             ps.setString(7, status);
             ps.setString(8, namaGambar);
             

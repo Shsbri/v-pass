@@ -8,18 +8,16 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FAFAFA;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tes.LoginController">
    <children>
-      
       <VBox alignment="CENTER" fillWidth="false" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            
             <VBox alignment="TOP_CENTER" prefWidth="420.0" spacing="15.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 24; -fx-border-color: #E5E5EA; -fx-border-radius: 24; -fx-padding: 40; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.03), 10, 0, 0, 5);">
                <children>
-                  
                   <ImageView fx:id="imgLogoLogin" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
                         <Insets bottom="5.0" />
@@ -38,7 +36,7 @@
                   <VBox prefWidth="340.0" spacing="6.0">
                      <children>
                         <Label text="Username" textFill="#444444">
-                           <font><Font name="System Sink Bold" size="14.0" /></font>
+                           <font><Font name="System Bold" size="14.0" /></font>
                         </Label>
                         <TextField fx:id="txtUsername" prefHeight="40.0" promptText="Enter your username" style="-fx-background-color: #FAFAFA; -fx-background-radius: 12; -fx-border-color: #E5E5EA; -fx-border-radius: 12; -fx-padding: 0 15 0 15;" />
                      </children>
@@ -46,9 +44,15 @@
                   
                   <VBox prefWidth="340.0" spacing="6.0">
                      <children>
-                        <Label text="Password" textFill="#444444">
-                           <font><Font name="System Bold" size="14.0" /></font>
-                        </Label>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label text="Password" textFill="#444444">
+                                 <font><Font name="System Bold" size="14.0" /></font>
+                              </Label>
+                              <HBox HBox.hgrow="ALWAYS" />
+                              <Hyperlink fx:id="linkForgotPassword" onAction="#handleForgotPassword" text="Forgot Password?" style="-fx-text-fill: #FF5E00; -fx-font-weight: bold; -fx-underline: false; -fx-font-size: 13.0; -fx-padding: 0;" />
+                           </children>
+                        </HBox>
                         <PasswordField fx:id="txtPassword" prefHeight="40.0" promptText="Enter your password" style="-fx-background-color: #FAFAFA; -fx-background-radius: 12; -fx-border-color: #E5E5EA; -fx-border-radius: 12; -fx-padding: 0 15 0 15;" />
                      </children>
                      <VBox.margin>
@@ -63,14 +67,12 @@
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Button>
-                        <Hyperlink fx:id="linkToRegister" onAction="#handleGoToRegister" text="Belum punya akun? Registrasi" style="-fx-text-fill: #A800FF; -fx-font-weight: bold; -fx-underline: false;" />
+                        <Hyperlink fx:id="linkToRegister" onAction="#handleGoToRegister" text="Don't have an account? Register" style="-fx-text-fill: #A800FF; -fx-font-weight: bold; -fx-underline: false;" />
                      </children>
                   </VBox>
-                  
                </children>
             </VBox>
          </children>
       </VBox>
-      
    </children>
 </AnchorPane>

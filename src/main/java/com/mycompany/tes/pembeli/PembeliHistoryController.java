@@ -2,6 +2,8 @@ package com.mycompany.tes.pembeli;
 
 import com.mycompany.tes.KoneksiDB;
 import com.mycompany.tes.SesiPengguna;
+import com.mycompany.tes.pembeli.PembeliHistoryDetailPopUpController;
+import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,9 +17,12 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
@@ -26,13 +31,20 @@ import javafx.stage.Stage;
 
 public class PembeliHistoryController implements Initializable {
 
-    @FXML private TextField txtSearch;
-    @FXML private TilePane tilePaneHistory;
-    @FXML private Button btnFilterAll;
-    @FXML private Button btnFilterConcert;
-    @FXML private Button btnFilterExpo;
-    @FXML private Button btnFilterSeminar;
-    @FXML private Button btnFilterFestival;
+    @FXML
+    private TextField txtSearch;
+    @FXML
+    private TilePane tilePaneHistory;
+    @FXML
+    private Button btnFilterAll;
+    @FXML
+    private Button btnFilterConcert;
+    @FXML
+    private Button btnFilterExpo;
+    @FXML
+    private Button btnFilterSeminar;
+    @FXML
+    private Button btnFilterFestival;
 
     private String kategoriAktif = "All";
     private final int SEED_SALT = 0x5F3759DF;
@@ -41,7 +53,7 @@ public class PembeliHistoryController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         txtSearch.textProperty().addListener((observable, oldValue, newValue) -> muatRiwayatBelanja());
         muatRiwayatBelanja();
-    }    
+    }
 
     private void muatRiwayatBelanja() {
         tilePaneHistory.getChildren().clear();
@@ -49,10 +61,11 @@ public class PembeliHistoryController implements Initializable {
         String kataKunci = txtSearch.getText().trim();
 
         StringBuilder query = new StringBuilder(
-            "SELECT tr.id_transaksi, tr.jumlah_tiket, tr.total_harga, tr.status_transaksi, e.nama_event, e.kategori_event, e.tanggal_event " +
-            "FROM tb_transaksi tr " +
-            "JOIN tb_event e ON tr.id_event = e.id_event " +
-            "WHERE tr.id_pengguna = ?"
+                "SELECT tr.id_transaksi, tr.jumlah_tiket, tr.total_harga, tr.status_transaksi, "
+                + "e.nama_event, e.kategori_event, e.tanggal_event, e.gambar_event "
+                + "FROM tb_transaksi tr "
+                + "JOIN tb_event e ON tr.id_event = e.id_event "
+                + "WHERE tr.id_pengguna = ?"
         );
 
         if (!"All".equalsIgnoreCase(kategoriAktif)) {
@@ -64,12 +77,11 @@ public class PembeliHistoryController implements Initializable {
 
         query.append(" ORDER BY tr.id_transaksi DESC");
 
-        try (Connection conn = KoneksiDB.getKoneksi();
-             PreparedStatement ps = conn.prepareStatement(query.toString())) {
-            
+        try (Connection conn = KoneksiDB.getKoneksi(); PreparedStatement ps = conn.prepareStatement(query.toString())) {
+
             int idx = 1;
             ps.setInt(idx++, currentUserId);
-            
+
             if (!"All".equalsIgnoreCase(kategoriAktif)) {
                 ps.setString(idx++, kategoriAktif);
             }
@@ -88,9 +100,13 @@ public class PembeliHistoryController implements Initializable {
                     String status = rs.getString("status_transaksi");
                     String namaEvent = rs.getString("nama_event");
                     String kategori = rs.getString("kategori_event");
-                    java.sql.Timestamp tgl = rs.getTimestamp("tanggal_event");
+                    java.sql.Timestamp tglEvent = rs.getTimestamp("tanggal_event");
+                    String namaGambar = rs.getString("gambar_event");
 
-                    VBox card = buatCardHistory(idTrans, namaEvent, formatTgl.format(tgl), formatJam.format(tgl), status, kategori, tiket, total);
+                    String formatTanggal = (tglEvent != null) ? formatTgl.format(tglEvent) : "-";
+                    String formatWaktuJam = (tglEvent != null) ? formatJam.format(tglEvent) : "00:00";
+
+                    VBox card = buatCardHistory(idTrans, namaEvent, formatTanggal, formatWaktuJam, status, kategori, tiket, total, namaGambar);
                     tilePaneHistory.getChildren().add(card);
                 }
             }
@@ -99,14 +115,32 @@ public class PembeliHistoryController implements Initializable {
         }
     }
 
-    private VBox buatCardHistory(int idTrans, String nama, String tgl, String jam, String status, String kat, int tiket, long total) {
+    private VBox buatCardHistory(int idTrans, String nama, String tgl, String jam, String status, String kat, int tiket, long total, String namaGambar) {
         VBox card = new VBox();
         card.setPrefSize(201.0, 265.0);
         card.setStyle("-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 12; -fx-cursor: hand;");
 
-        VBox imgMock = new VBox();
-        imgMock.setPrefSize(177.0, 130.0);
-        imgMock.setStyle("-fx-background-color: #F2F2F7; -fx-background-radius: 14;");
+        VBox imgContainer = new VBox();
+        imgContainer.setPrefSize(177.0, 130.0);
+        imgContainer.setAlignment(Pos.CENTER);
+        imgContainer.setStyle("-fx-background-color: #F2F2F7; -fx-background-radius: 14;");
+
+        ImageView imageView = new ImageView();
+        imageView.setFitWidth(177.0);
+        imageView.setFitHeight(130.0);
+        imageView.setPreserveRatio(false);
+
+        if (namaGambar != null && !namaGambar.trim().isEmpty()) {
+            try {
+                File fileImg = new File("images/" + namaGambar.trim());
+                if (fileImg.exists()) {
+                    imageView.setImage(new Image(fileImg.toURI().toString()));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        imgContainer.getChildren().add(imageView);
 
         Label lblNama = new Label(nama);
         lblNama.setStyle("-fx-text-fill: #111111; -fx-font-weight: bold; -fx-font-size: 14; -fx-padding: 10 0 0 0;");
@@ -121,20 +155,29 @@ public class PembeliHistoryController implements Initializable {
         Label lblJam = new Label(jam);
         lblJam.setStyle("-fx-background-color: #F5F5F7; -fx-text-fill: #444444; -fx-padding: 4 8 4 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 11;");
 
-        Label lblStatus = new Label(status.equalsIgnoreCase("berhasil") ? "Success" : "Failed");
-        if (status.equalsIgnoreCase("berhasil")) {
+        Label lblStatus = new Label();
+        if ("berhasil".equalsIgnoreCase(status)) {
+            lblStatus.setText("Success");
             lblStatus.setStyle("-fx-background-color: #E5F9F0; -fx-text-fill: #00B074; -fx-padding: 4 8 4 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 11;");
+        } else if ("menunggu verifikasi".equalsIgnoreCase(status)) {
+            lblStatus.setText("Pending");
+            lblStatus.setStyle("-fx-background-color: #F2F2F7; -fx-text-fill: #666666; -fx-padding: 4 8 4 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 11;");
+        } else if ("menunggu pembayaran".equalsIgnoreCase(status)) {
+            lblStatus.setText("Unpaid");
+            lblStatus.setStyle("-fx-background-color: #FFF9E6; -fx-text-fill: #FF5E00; -fx-padding: 4 8 4 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 11;");
         } else {
+            lblStatus.setText("Failed");
             lblStatus.setStyle("-fx-background-color: #FFF2F2; -fx-text-fill: #FF3B30; -fx-padding: 4 8 4 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 11;");
         }
 
         badgeRow.getChildren().addAll(lblJam, lblStatus);
-        card.getChildren().addAll(imgMock, lblNama, lblTgl, badgeRow);
+        card.getChildren().addAll(imgContainer, lblNama, lblTgl, badgeRow);
 
         int bitwiseXor = idTrans ^ SEED_SALT;
         int maskedCode = (int) (Math.abs((bitwiseXor * 2654435761L) % 900000L) + 100000);
         String invoiceId = "INV-" + maskedCode;
 
+        // Mendaftarkan aksi klik ke seluruh area kartu (VBox)
         card.setOnMouseClicked(e -> bukaPopUpDetail(idTrans, invoiceId, nama, kat, tiket, total, status));
 
         return card;
@@ -142,7 +185,8 @@ public class PembeliHistoryController implements Initializable {
 
     private void bukaPopUpDetail(int idTrans, String invoice, String nama, String kat, int tiket, long total, String status) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/mycompany/tes/pembeli/PembeliHistoryDetailPopUp.fxml"));
+            URL fxmlLocation = getClass().getResource("/com/mycompany/tes/pembeli/PembeliHistoryDetailPopUp.fxml");
+            FXMLLoader loader = new FXMLLoader(fxmlLocation);
             Parent root = loader.load();
 
             PembeliHistoryDetailPopUpController controller = loader.getController();
@@ -164,13 +208,25 @@ public class PembeliHistoryController implements Initializable {
     private void handleCategoryAction(ActionEvent event) {
         Button btnKlik = (Button) event.getSource();
         String txt = btnKlik.getText();
-        
+
+        resetWarnaTombolFilter();
+        btnKlik.setStyle("-fx-background-color: #111111; -fx-text-fill: white; -fx-background-radius: 20; -fx-padding: 8 18 8 18; -fx-cursor: hand;");
+
         if (txt.equalsIgnoreCase("Concert")) {
             kategoriAktif = "Konser";
         } else {
             kategoriAktif = txt;
         }
-        
+
         muatRiwayatBelanja();
+    }
+
+    private void resetWarnaTombolFilter() {
+        String pasif = "-fx-background-color: #FFFFFF; -fx-text-fill: #444444; -fx-background-radius: 20; -fx-border-color: #E5E5EA; -fx-border-radius: 20; -fx-padding: 8 18 8 18; -fx-cursor: hand;";
+        btnFilterAll.setStyle(pasif);
+        btnFilterConcert.setStyle(pasif);
+        btnFilterExpo.setStyle(pasif);
+        btnFilterSeminar.setStyle(pasif);
+        btnFilterFestival.setStyle(pasif);
     }
 }

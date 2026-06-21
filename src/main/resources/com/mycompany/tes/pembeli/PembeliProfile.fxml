@@ -25,7 +25,7 @@
                      </padding>
                      <children>
                         
-                        <VBox alignment="CENTER" prefWidth="600.0" spacing="15.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 24; -fx-border-color: #E5E5EA; -fx-border-radius: 24; -fx-padding: 30; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.02), 10, 0, 0, 5);">
+                        <VBox alignment="CENTER" prefWidth="600.0" spacing="15.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 24; -fx-border-color: #E5E5EA; -fx-border-radius: 24; -fx-padding: 30; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.02), 10, 0, 0, 5));">
                            <children>
                               <Circle fill="#1a1a1a" radius="54.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" />
                               
@@ -86,7 +86,7 @@
                            </children>
                         </VBox>
                         
-                        <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to right, #FF5E00, #A800FF); -fx-text-fill: white; -fx-background-radius: 14; -fx-font-weight: bold; -fx-cursor: hand;" text="Edit Profile">
+                        <Button mnemonicParsing="false" onAction="#keHalamanEditProfile" prefHeight="46.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to right, #FF5E00, #A800FF); -fx-text-fill: white; -fx-background-radius: 14; -fx-font-weight: bold; -fx-cursor: hand;" text="Edit Profile">
                            <font><Font size="15.0" /></font>
                         </Button>
                         

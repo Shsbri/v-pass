@@ -5,71 +5,86 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="520.0" style="-fx-background-color: #FAFAFA;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tes.pembeli.PembeliHistoryDetailPopUpController">
+<AnchorPane prefHeight="550.0" prefWidth="480.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 24; -fx-border-color: #E5E5EA; -fx-border-radius: 24; -fx-border-width: 1;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.tes.pembeli.PembeliHistoryDetailPopUpController">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="500.0" prefWidth="520.0" spacing="15.0" style="-fx-background-color: #FFFFFF; -fx-padding: 30 40 30 40;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="TOP_CENTER" prefWidth="480.0" spacing="18.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <padding>
+            <Insets bottom="30.0" left="35.0" right="35.0" top="35.0" />
+         </padding>
          <children>
-            <Label text="Transaction Receipt" textFill="#111111">
-               <font><Font name="System Bold" size="22.0" /></font>
+            
+            <Label text="TRANSACTION RECEIPT" textFill="#111111">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
             </Label>
             
-            <Label fx:id="lblInvoiceID" text="INV-XXXXXX" textFill="#666666">
-               <font><Font name="System Code" size="14.0" /></font>
-            </Label>
-            
-            <Line endX="400.0" stroke="#E5E5EA" strokeWidth="1.0" />
-            
-            <VBox spacing="14.0" VBox.vgrow="ALWAYS">
+            <VBox prefWidth="410.0" spacing="10.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 16; -fx-padding: 20; -fx-border-color: #F2F2F7; -fx-border-radius: 16;">
                <children>
-                  <HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="30.0">
                      <children>
-                        <Label prefWidth="150.0" text="Event Name" textFill="#666666"><font><Font size="14.0" /></font></Label>
-                        <Label fx:id="lblEventName" text="Coldplay Jakarta" textFill="#111111" wrapText="true"><font><Font name="System Bold" size="14.0" /></font></Label>
+                        <Label prefWidth="120.0" text="Invoice ID" textFill="#666666"><font><Font name="System Medium" size="13.0" /></font></Label>
+                        <Label fx:id="lblInvoiceID" text="INV-XXXXXX" textFill="#111111"><font><Font name="System Bold" size="13.0" /></font></Label>
                      </children>
                   </HBox>
-                  <HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="30.0">
                      <children>
-                        <Label prefWidth="150.0" text="Category" textFill="#666666"><font><Font size="14.0" /></font></Label>
-                        <Label fx:id="lblCategory" text="Concert" textFill="#111111"><font><Font size="14.0" /></font></Label>
+                        <Label prefWidth="120.0" text="Event Name" textFill="#666666"><font><Font name="System Medium" size="13.0" /></font></Label>
+                        <Label fx:id="lblEventName" text="Loading Event..." textFill="#111111"><font><Font name="System Bold" size="13.0" /></font></Label>
                      </children>
                   </HBox>
-                  <HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="30.0">
                      <children>
-                        <Label prefWidth="150.0" text="Total Tickets" textFill="#666666"><font><Font size="14.0" /></font></Label>
-                        <Label fx:id="lblTotalTicket" text="2 Pcs" textFill="#111111"><font><Font size="14.0" /></font></Label>
+                        <Label prefWidth="120.0" text="Category" textFill="#666666"><font><Font name="System Medium" size="13.0" /></font></Label>
+                        <Label fx:id="lblCategory" text="-" textFill="#111111"><font><Font name="System Medium" size="13.0" /></font></Label>
                      </children>
                   </HBox>
-                  <HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="30.0">
                      <children>
-                        <Label prefWidth="150.0" text="Status" textFill="#666666"><font><Font size="14.0" /></font></Label>
-                        <Label fx:id="lblStatus" text="SUCCESS" textFill="#00B074"><font><Font name="System Bold" size="14.0" /></font></Label>
+                        <Label prefWidth="120.0" text="Total Tickets" textFill="#666666"><font><Font name="System Medium" size="13.0" /></font></Label>
+                        <Label fx:id="lblTotalTicket" text="0 Pcs" textFill="#111111"><font><Font name="System Medium" size="13.0" /></font></Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="30.0">
+                     <children>
+                        <Label prefWidth="120.0" text="Status" textFill="#666666"><font><Font name="System Medium" size="13.0" /></font></Label>
+                        <Label fx:id="lblStatus" text="LOADING" textFill="#111111"><font><Font name="System Bold" size="13.0" /></font></Label>
                      </children>
                   </HBox>
                </children>
-               <VBox.margin><Insets top="10.0" /></VBox.margin>
             </VBox>
             
-            <Line endX="400.0" stroke="#E5E5EA" strokeDashArray="4 4" strokeWidth="1.0" />
+            <Line endX="400.0" stroke="#E5E5EA" strokeWidth="1.0" />
             
             <HBox alignment="CENTER_LEFT" prefHeight="40.0">
                <children>
-                  <Label text="Total Paid" textFill="#111111"><font><Font name="System Bold" size="16.0" /></font></Label>
+                  <Label text="Total Paid" textFill="#111111">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
                   <Region HBox.hgrow="ALWAYS" />
-                  <Label fx:id="lblTotalPrice" text="Rp 3.500.000" textFill="#FF5E00"><font><Font name="System Bold" size="20.0" /></font></Label>
+                  <Label fx:id="lblTotalPrice" text="Rp 0" textFill="#FF5E00">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
                </children>
             </HBox>
             
             <Line endX="400.0" stroke="#E5E5EA" strokeWidth="1.0" />
             
-            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="440.0">
+            <VBox alignment="CENTER" prefHeight="80.0" spacing="10.0">
                <children>
-                  <Button fx:id="btnDownload" mnemonicParsing="false" onAction="#handleDownloadPDF" prefHeight="40.0" prefWidth="260.0" style="-fx-background-color: #111111; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold; -fx-cursor: hand;" text="Download E-Tickets (PDF)" />
+                  <Button fx:id="btnDownload" mnemonicParsing="false" onAction="#handleDownloadPDF" prefHeight="42.0" prefWidth="410.0" style="-fx-background-color: #111111; -fx-text-fill: white; -fx-background-radius: 12; -fx-cursor: hand; -fx-font-weight: bold;" text="DOWNLOAD E-TICKETS" />
                </children>
-            </HBox>
+            </VBox>
+            
          </children>
       </VBox>
    </children>

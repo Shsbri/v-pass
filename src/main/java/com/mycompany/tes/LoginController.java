@@ -6,7 +6,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -15,6 +18,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import com.mycompany.tes.KoneksiDB;
 
 public class LoginController implements Initializable {
@@ -23,6 +28,7 @@ public class LoginController implements Initializable {
     @FXML private PasswordField txtPassword;
     @FXML private Button btnLogin;
     @FXML private Hyperlink linkToRegister;
+    @FXML private Hyperlink linkForgotPassword;
     @FXML private ImageView imgLogoLogin;
 
     @Override
@@ -47,7 +53,6 @@ public class LoginController implements Initializable {
             return;
         }
 
-        // 🔴 PERBAIKAN DI SINI: Query diubah untuk menarik semua status pengguna terlebih dahulu
         String sql = "SELECT * FROM tb_pengguna WHERE username = ? AND password = ?";
 
         try (java.sql.Connection conn = KoneksiDB.getKoneksi();
@@ -92,6 +97,25 @@ public class LoginController implements Initializable {
             e.printStackTrace();
         } catch (java.io.IOException e) {
             showJavaFXAlert(AlertType.ERROR, "Error Sistem", "Gagal Memuat Dashboard", "File tampilan FXML dashboard tujuan tidak ditemukan.");
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void handleForgotPassword(ActionEvent event) {
+        try {
+            URL fxmlLocation = getClass().getResource("/com/mycompany/tes/ForgotPasswordPopUp.fxml");
+            FXMLLoader loader = new FXMLLoader(fxmlLocation);
+            Parent root = loader.load();
+            
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("Reset Password Verification");
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.showAndWait();
+        } catch (Exception e) {
+            showJavaFXAlert(AlertType.ERROR, "Error", "Gagal Membuat Jendela", "Komponen pop-up forgot password rusak atau tidak ditemukan.");
             e.printStackTrace();
         }
     }
