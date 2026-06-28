@@ -194,7 +194,7 @@ public class PembeliHomepageController implements Initializable {
         }
 
         aturGayaTombolFilter(btnFilterAll, kategoriAktif.equals("All"));
-        aturGayaTombolFilter(btnFilterConcert, kategoriAktif.equalsIgnoreCase("Konser"));
+        aturGayaTombolFilter(btnFilterConcert, kategoriAktif.equalsIgnoreCase("Concert"));
         aturGayaTombolFilter(btnFilterExpo, kategoriAktif.equalsIgnoreCase("Expo"));
         aturGayaTombolFilter(btnFilterSeminar, kategoriAktif.equalsIgnoreCase("Seminar"));
         aturGayaTombolFilter(btnFilterFestival, kategoriAktif.equalsIgnoreCase("Festival"));

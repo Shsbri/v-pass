@@ -113,9 +113,9 @@ public class NavbarAdminController implements Initializable {
     @FXML
     private void onLogoutClick(ActionEvent event) {
         Alert alert = new Alert(AlertType.CONFIRMATION);
-        alert.setTitle("Konfirmasi Logout");
-        alert.setHeaderText("Apakah Anda yakin ingin keluar?");
-        alert.setContentText("Sesi administrator Anda akan diakhiri.");
+        alert.setTitle("Log out confirm");
+        alert.setHeaderText("Are you sure you want to log out?");
+        alert.setContentText("Your administrator session will be terminated.");
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {

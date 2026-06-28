@@ -80,9 +80,9 @@ public class NavbarPembeliController implements Initializable {
     @FXML
     private void onLogoutClick(ActionEvent event) {
         Alert alert = new Alert(AlertType.CONFIRMATION);
-        alert.setTitle("Konfirmasi Logout");
-        alert.setHeaderText("Apakah Anda yakin ingin keluar?");
-        alert.setContentText("Sesi Anda akan dihapus dan Anda harus login kembali.");
+        alert.setTitle("Log out confirm");
+        alert.setHeaderText("Are you sure you want to log out?");
+        alert.setContentText("Your session will expire and you will need to log in again.");
 
         Optional<ButtonType> result = alert.showAndWait();
         
