@@ -2,6 +2,7 @@ package com.mycompany.tes.pembeli;
 
 import com.mycompany.tes.KoneksiDB;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.net.URL;
 import java.sql.Connection;
@@ -11,12 +12,23 @@ import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
+import javafx.scene.image.PixelReader;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
+import javax.imageio.ImageIO;
+import org.apache.poi.util.Units;
 import org.apache.poi.xwpf.usermodel.ParagraphAlignment;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
@@ -78,42 +90,95 @@ public class PembeliHistoryDetailPopUpController implements Initializable {
 
         try (XWPFDocument doc = new XWPFDocument();
              FileOutputStream fos = new FileOutputStream(fileSimpan)) {
-
+ 
             XWPFParagraph title = doc.createParagraph();
             title.setAlignment(ParagraphAlignment.CENTER);
             XWPFRun rTitle = title.createRun();
             rTitle.setText("V-PASS OFFICIAL E-TICKET");
             rTitle.setBold(true);
-            rTitle.setFontSize(16);
+            rTitle.setFontSize(18);
             rTitle.setFontFamily("Segoe UI");
 
             XWPFParagraph meta = doc.createParagraph();
             meta.setAlignment(ParagraphAlignment.CENTER);
             XWPFRun rMeta = meta.createRun();
             rMeta.setText("Invoice Reference: " + lblInvoiceID.getText() + " | Event: " + lblEventName.getText());
-            rMeta.setFontSize(10);
+            rMeta.setFontSize(11);
             rMeta.setItalic(true);
+            
+            XWPFParagraph space = doc.createParagraph();
+            space.createRun().setText("\n");
 
             String sql = "SELECT unik_kode FROM tb_tiket WHERE id_transaksi = ?";
             try (Connection conn = KoneksiDB.getKoneksi();
                  PreparedStatement ps = conn.prepareStatement(sql)) {
                 ps.setInt(1, idTransaksi);
+                
                 try (ResultSet rs = ps.executeQuery()) {
                     int nomorTiket = 1;
+                    File imgTemplate = new File("images/ticket_template.png");
+
                     while (rs.next()) {
-                        XWPFParagraph borderTop = doc.createParagraph();
-                        borderTop.createRun().setText("---------------------------------------------------------------------------------");
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/mycompany/tes/pembeli/TicketDesign.fxml"));
+                        AnchorPane ticketPane = loader.load();
                         
-                        XWPFParagraph tktRow = doc.createParagraph();
-                        XWPFRun rTkt = tktRow.createRun();
-                        rTkt.setText("TICKET NO " + nomorTiket++ + " / " + lblTotalTicket.getText() + "\n");
-                        rTkt.setText("GATE PASS CODE : " + rs.getString("unik_kode") + "\n");
-                        rTkt.setText("Holder Status : VALID / ACTIVE\n");
-                        rTkt.setFontSize(12);
-                        rTkt.setBold(true);
+                        ImageView imgView = (ImageView) ticketPane.lookup("#imgTemplate");
+                        Label txtEvent = (Label) ticketPane.lookup("#txtEvent");
+                        Label txtStatus = (Label) ticketPane.lookup("#txtStatus");
+                        Label txtTicketNo = (Label) ticketPane.lookup("#txtTicketNo");
+                        Label txtGateCode = (Label) ticketPane.lookup("#txtGateCode");
                         
-                        XWPFParagraph borderBot = doc.createParagraph();
-                        borderBot.createRun().setText("---------------------------------------------------------------------------------");
+                        if (imgTemplate.exists()) {
+                            imgView.setImage(new Image(imgTemplate.toURI().toString()));
+                        }
+                        
+                        txtEvent.setText(lblEventName.getText().toUpperCase());
+                        txtStatus.setText("STATUS: VALID / ACTIVE");
+                        txtTicketNo.setText("TICKET " + nomorTiket++ + " OF " + lblTotalTicket.getText());
+                        txtGateCode.setText(rs.getString("unik_kode"));
+
+                        Scene dummyScene = new Scene(ticketPane);
+                        ticketPane.applyCss();
+                        ticketPane.layout();
+                        
+                        SnapshotParameters params = new SnapshotParameters();
+                        params.setFill(Color.TRANSPARENT);
+                        WritableImage snapshot = ticketPane.snapshot(params, null);
+                        
+                        int lebar = (int) snapshot.getWidth();
+                        int tinggi = (int) snapshot.getHeight();
+                        java.awt.image.BufferedImage bufImg = new java.awt.image.BufferedImage(lebar, tinggi, java.awt.image.BufferedImage.TYPE_INT_ARGB);
+                        PixelReader pxReader = snapshot.getPixelReader();
+                        
+                        for (int y = 0; y < tinggi; y++) {
+                            for (int x = 0; x < lebar; x++) {
+                                bufImg.setRGB(x, y, pxReader.getArgb(x, y));
+                            }
+                        }
+                        
+                        File tempSnapshotFile = new File("images/temp_ticket.png");
+                        ImageIO.write(bufImg, "png", tempSnapshotFile);
+                        
+                        XWPFParagraph ticketParagraph = doc.createParagraph();
+                        ticketParagraph.setAlignment(ParagraphAlignment.CENTER);
+                        XWPFRun runTicket = ticketParagraph.createRun();
+
+                        try (FileInputStream fis = new FileInputStream(tempSnapshotFile)) {
+                            runTicket.addPicture(
+                                fis, 
+                                XWPFDocument.PICTURE_TYPE_PNG, 
+                                tempSnapshotFile.getName(), 
+                                Units.toEMU(460), 
+                                Units.toEMU(149)  
+                            );
+                        }
+                        
+                        tempSnapshotFile.delete();
+
+                        XWPFParagraph separatorParagraph = doc.createParagraph();
+                        separatorParagraph.setAlignment(ParagraphAlignment.CENTER);
+                        XWPFRun runSeparator = separatorParagraph.createRun();
+                        runSeparator.setText("\n---------------------------------------------------------------------------------\n");
                     }
                 }
             }

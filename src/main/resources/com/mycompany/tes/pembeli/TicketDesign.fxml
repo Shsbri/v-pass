@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ticketRoot" maxHeight="264.0" maxWidth="816.0" minHeight="264.0" minWidth="816.0" prefHeight="264.0" prefWidth="816.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      
+      <ImageView fx:id="imgTemplate" fitHeight="264.0" fitWidth="816.0" pickOnBounds="true" preserveRatio="false">
+         <image>
+            <Image url="@../../../../../../../../../../Downloads/ticket_template.png" />
+         </image></ImageView>
+      
+      <Label fx:id="txtEvent" layoutX="374.0" layoutY="88.0" prefWidth="280.0" text="COLDPLAY CONCERT" textFill="#DFD5C5" wrapText="true">
+         <font><Font name="System Bold" size="24.0" /></font>
+      </Label>
+      
+      <Label fx:id="txtStatus" layoutX="427.0" layoutY="123.0" style="-fx-opacity: 0.8;" text="STATUS: VALID / ACTIVE" textFill="#DFD5C5">
+         <font><Font name="System Bold" size="13.0" /></font>
+      </Label>
+      
+      <Label fx:id="txtTicketNo" alignment="CENTER" layoutX="608.0" layoutY="117.0" prefHeight="30.0" prefWidth="140.0" rotate="-90.0" text="TICKET 1 OF 3" textFill="#DFD5C5">
+         <font><Font name="System Bold" size="13.0" /></font>
+      </Label>
+      
+      <Label fx:id="txtGateCode" alignment="CENTER" layoutX="682.0" layoutY="117.0" prefHeight="30.0" prefWidth="140.0" rotate="-90.0" text="TCK-14014557546" textFill="#FF5E00">
+         <font><Font name="Consolas Bold" size="10.0" /></font>
+      </Label>
+      
+   </children>
+</AnchorPane>
+ 
